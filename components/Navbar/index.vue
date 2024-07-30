@@ -1,6 +1,6 @@
 <template>
-	<nav class="bg-transparent">
-		<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+	<nav class="bg-transparent fixed w-full z-50">
+		<div class="mx-auto px-12 sm:px-16 lg:px-20">
 			<div class="flex justify-between items-center py-4">
 				<div class="flex-shrink-0">
 					<NuxtLink to="/">
@@ -75,7 +75,7 @@
 				isOpen ? 'translate-x-0' : '-translate-x-full',
 			]"
 		>
-			<div class="flex items-center justify-between p-4">
+			<div class="flex items-center justify-between py-4 px-12 sm:px-16 lg:px-20">
 				<NuxtLink to="/" @click.native="handleLinkClick">
 					<img src="/assets/images/logo.svg" alt="Logo" class="h-8" />
 				</NuxtLink>
@@ -85,7 +85,9 @@
 					</svg>
 				</button>
 			</div>
-			<div class="flex flex-col items-start mt-20 h-full space-y-4 text-gray-4 font-bold text-lg">
+			<div
+				class="flex flex-col items-start mt-20 h-full space-y-4 text-gray-4 font-bold text-lg py-4 px-12 sm:px-16 lg:px-20"
+			>
 				<NuxtLink
 					to="/"
 					:class="{ 'text-white': isActive('/') }"
