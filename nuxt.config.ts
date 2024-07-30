@@ -9,5 +9,8 @@ export default defineNuxtConfig({
     "@": resolve(__dirname, '/'),
   },
   css: ["~/assets/css/main.css"],
+  tailwindcss: {
+    cssPath: ['~/assets/css/tailwind.css'],
+  },
   modules: ["@nuxtjs/tailwindcss"]
 })

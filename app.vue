@@ -1,7 +1,15 @@
 <template>
-  <div>
-    <!-- <NuxtRouteAnnouncer />
-    <NuxtWelcome /> -->
-    <h1 class="text-red-500 m-5">hi mom</h1>
-  </div>
+	<div>
+		<NuxtLayout>
+			<header>
+				<ul>
+					<li>
+						<NuxtLink to="/">Home</NuxtLink>
+						<NuxtLink to="test">Test</NuxtLink>
+					</li>
+				</ul>
+			</header>
+			<NuxtPage />
+		</NuxtLayout>
+	</div>
 </template>
