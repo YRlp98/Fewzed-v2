@@ -7,16 +7,15 @@
 						<img src="/assets/images/logo.svg" alt="Logo" class="h-8" />
 					</NuxtLink>
 				</div>
-
 				<div class="hidden lg:flex flex-grow justify-center items-center space-x-8 text-gray-4 font-bold">
-					<nuxt-link
+					<NuxtLink
 						to="/"
 						:class="{ 'text-white border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/') }"
 						class="hover:text-white transition-colors"
 					>
 						Home
-					</nuxt-link>
-					<nuxt-link
+					</NuxtLink>
+					<NuxtLink
 						to="/consulting"
 						:class="{
 							'text-white border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/consulting'),
@@ -24,15 +23,15 @@
 						class="hover:text-white transition-colors"
 					>
 						Consulting
-					</nuxt-link>
-					<nuxt-link
+					</NuxtLink>
+					<NuxtLink
 						to="/trials"
 						:class="{ 'text-white border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/trials') }"
 						class="hover:text-white transition-colors"
 					>
 						Trials
-					</nuxt-link>
-					<nuxt-link
+					</NuxtLink>
+					<NuxtLink
 						to="/data-collection"
 						:class="{
 							'text-white border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/data-collection'),
@@ -40,24 +39,21 @@
 						class="hover:text-white transition-colors"
 					>
 						Data Collection
-					</nuxt-link>
-					<nuxt-link
+					</NuxtLink>
+					<NuxtLink
 						to="/products"
 						:class="{ 'text-white border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/products') }"
 						class="hover:text-white transition-colors"
 					>
 						Products
-					</nuxt-link>
+					</NuxtLink>
 				</div>
-
 				<div class="flex items-center space-x-4">
-					<!-- Contact Us Button -->
 					<div class="hidden lg:block">
 						<ButtonsRoundedBtn text="Contact Us" icon="mynaui:telephone" link="/contact-us" />
 					</div>
-
 					<div class="lg:hidden">
-						<button @click="toggleMenu" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+						<button @click="toggleMenu" class="text-gray-5 hover:text-dark-primary focus:outline-none">
 							<svg
 								class="h-6 w-6"
 								fill="none"
@@ -75,38 +71,64 @@
 		<!-- Sidebar -->
 		<div
 			:class="[
-				'fixed inset-y-0 left-0 z-50 w-64 transform transition-transform duration-300 ease-in-out',
+				'fixed inset-0 z-50 transform transition-transform duration-300 ease-in-out bg-black-1',
 				isOpen ? 'translate-x-0' : '-translate-x-full',
 			]"
-			class="bg-white shadow-lg overflow-y-auto"
 		>
 			<div class="flex items-center justify-between p-4">
-				<a href="/" class="text-2xl font-bold text-gray-900">Brand</a>
-				<button @click="toggleMenu" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+				<NuxtLink to="/" @click.native="handleLinkClick">
+					<img src="/assets/images/logo.svg" alt="Logo" class="h-8" />
+				</NuxtLink>
+				<button @click="toggleMenu" class="text-gray-4 hover:text-dark-primary focus:outline-none">
 					<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
 					</svg>
 				</button>
 			</div>
-			<div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-				<nuxt-link
-					@click="toggleMenu"
+			<div class="flex flex-col items-start mt-20 h-full space-y-4 text-gray-4 font-bold text-lg">
+				<NuxtLink
 					to="/"
-					class="block text-gray-600 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium"
-					>Home</nuxt-link
+					:class="{ 'text-white': isActive('/') }"
+					class="block px-4 py-2 rounded-md font-medium transition-all duration-200 transform hover:translate-x-2"
+					@click.native="handleLinkClick"
 				>
-				<nuxt-link
-					@click="toggleMenu"
+					Home
+				</NuxtLink>
+				<NuxtLink
 					to="/consulting"
-					class="block text-gray-600 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium"
-					>Consulting</nuxt-link
+					:class="{ 'text-white': isActive('/consulting') }"
+					class="block px-4 py-2 rounded-md font-medium transition-all duration-200 transform hover:translate-x-2"
 				>
-				<nuxt-link
-					@click="toggleMenu"
+					Consulting
+				</NuxtLink>
+				<NuxtLink
+					to="/trials"
+					:class="{ 'text-white': isActive('/trials') }"
+					class="block px-4 py-2 rounded-md font-medium transition-all duration-200 transform hover:translate-x-2"
+				>
+					Trials
+				</NuxtLink>
+				<NuxtLink
+					to="/data-collection"
+					:class="{ 'text-white': isActive('/data-collection') }"
+					class="block px-4 py-2 rounded-md font-medium transition-all duration-200 transform hover:translate-x-2"
+				>
+					Data Collection
+				</NuxtLink>
+				<NuxtLink
 					to="/products"
-					class="block text-gray-600 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium"
-					>Products</nuxt-link
+					:class="{ 'text-white': isActive('/products') }"
+					class="block px-4 py-2 rounded-md font-medium transition-all duration-200 transform hover:translate-x-2"
 				>
+					Products
+				</NuxtLink>
+				<NuxtLink
+					to="/contact-us"
+					:class="{ 'text-white': isActive('/contact-us') }"
+					class="block px-4 py-2 rounded-md font-medium transition-all duration-200 transform hover:translate-x-2"
+				>
+					Contact Us
+				</NuxtLink>
 			</div>
 		</div>
 		<!-- Overlay -->
@@ -115,20 +137,39 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useRoute } from "vue-router";
+import { ref, onBeforeUnmount } from "vue";
+import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
-
+const router = useRouter();
 const isOpen = ref(false);
 
-const isActive = (path) => {
-	return route.path === path;
-};
+const isActive = (path) => route.path === path;
 
 const toggleMenu = () => {
 	isOpen.value = !isOpen.value;
 };
-</script>
 
-<style scoped></style>
+const closeMenu = () => {
+	isOpen.value = false;
+};
+
+const handleLinkClick = () => {
+	closeMenu();
+};
+
+const routeChangeHandler = () => {
+	closeMenu();
+};
+
+router.beforeEach((to, from, next) => {
+	routeChangeHandler();
+	next();
+});
+
+onBeforeUnmount(() => {
+	router.beforeEach((to, from, next) => {
+		next();
+	});
+});
+</script>
