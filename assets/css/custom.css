@@ -6,4 +6,13 @@
     --gray-2: #222222;
     --gray-3: #131313;
     --green-1: #35e925;
+    --linear-gradient: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #ff00c8, #ff0000);
+}
+
+.gradient-background {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        linear-gradient(to bottom, #000000, #1E2023);
+    background-blend-mode: overlay;
+    height: 100vh;
 }

@@ -1,5 +1,5 @@
 <template>
-	<div class="DefaultLayout">
+	<div class="gradient-background">
 		<Navbar />
 		<slot />
 	</div>

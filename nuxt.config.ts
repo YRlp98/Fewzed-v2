@@ -12,5 +12,5 @@ export default defineNuxtConfig({
   tailwindcss: {
     cssPath: ['~/assets/css/tailwind.css'],
   },
-  modules: ["@nuxtjs/tailwindcss"]
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/icon"]
 })
