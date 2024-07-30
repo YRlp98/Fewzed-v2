@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.12.1",
     "nuxt": "^3.12.4",
+    "typeface-inter": "^3.18.1",
     "vue": "latest"
   }
 }

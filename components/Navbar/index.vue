@@ -3,7 +3,7 @@
 		<div class="container mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="flex justify-between items-center py-4">
 				<div class="flex-shrink-0">
-					<a href="/" class="text-2xl font-bold text-gray-900">Brand</a>
+					<a href="/" class="text-2xl font-bold text-gray-900">FEWZED.</a>
 				</div>
 				<div class="hidden md:flex space-x-8">
 					<nuxt-link to="/" class="text-gray-600 hover:text-gray-900">Home</nuxt-link>

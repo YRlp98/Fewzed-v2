@@ -13,3 +13,7 @@
 		</NuxtLayout>
 	</div>
 </template>
+
+<script lang="ts" setup>
+import "typeface-inter";
+</script>

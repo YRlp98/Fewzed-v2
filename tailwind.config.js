@@ -35,6 +35,9 @@ module.exports = {
           5: '#E0E0E0',
         },
       },
+      fontFamily: {
+        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+      },
     },
   },
   plugins: [],
