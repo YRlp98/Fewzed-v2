@@ -1,5 +1,5 @@
 <template>
-	<h1 class="font-medium text-8xl z-1">
+	<h1 class="font-bold text-8xl">
 		<span class="magic">
 			<span class="magic-star">
 				<svg viewBox="0 0 512 512">
@@ -60,6 +60,16 @@ onMounted((): void => {
 </script>
 
 <style scoped>
+@keyframes background-pan {
+	from {
+		background-position: 0% center;
+	}
+
+	to {
+		background-position: -200% center;
+	}
+}
+
 @keyframes scale {
 	from,
 	to {
@@ -81,12 +91,12 @@ onMounted((): void => {
 	}
 }
 
-.magic {
+h1 > .magic {
 	display: inline-block;
 	position: relative;
 }
 
-.magic-star {
+h1 > .magic > .magic-star {
 	--size: clamp(20px, 1.5vw, 30px);
 
 	animation: scale 700ms ease forwards;
@@ -98,17 +108,17 @@ onMounted((): void => {
 	width: var(--size);
 }
 
-.magic-star > svg {
+h1 > .magic > .magic-star > svg {
 	animation: rotate 1000ms linear infinite;
 	display: block;
 	opacity: 0.7;
 }
 
-.magic-star > svg > path {
+h1 > .magic > .magic-star > svg > path {
 	fill: var(--violet);
 }
 
-.magic-text {
+h1 > .magic > .magic-text {
 	animation: background-pan 3s linear infinite;
 	background: linear-gradient(to right, var(--purple), var(--violet), var(--pink), var(--purple));
 	background-size: 200%;
