@@ -22,6 +22,19 @@
 				<AnimatedEclipse />
 			</div>
 		</section>
+		<section>
+			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
+				<div class="text-left relative z-10 max-w-[50rem]">
+					<TitlesShadowTitle text="about" />
+					<h2 class="font-bold text-4xl tracking-wide uppercase">what we do</h2>
+					<p class="mt-8 tracking-wide leading-7">
+						We Fewz your challenges with our team to build science based, market leading, sustainable solutions. We work
+						across a wide variety of industries with a focus on transportation and construction.
+					</p>
+				</div>
+				<AnimatedEclipse class="rotate-12" />
+			</div>
+		</section>
 		<AnimatedScrollIcon class="scrollIcon" />
 	</div>
 </template>
