@@ -15,9 +15,26 @@
 				</div>
 			</div>
 		</section>
+		<AnimatedScrollIcon class="scrollIcon" />
 	</div>
 </template>
 
 <script setup lang="ts"></script>
 
-<style scoped></style>
+<style scoped>
+.scrollIcon {
+	position: fixed;
+	top: 95vh;
+	transform: scale(0.55);
+	z-index: 101;
+}
+
+@media (min-width: 768px) {
+	.scrollIcon {
+		top: 50%;
+		left: auto;
+		right: 3rem;
+		transform: translateY(-50%) scale(0.55);
+	}
+}
+</style>
