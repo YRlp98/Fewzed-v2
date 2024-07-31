@@ -14,6 +14,8 @@
 }
 
 .gradient-background {
+    position: fixed;
+    width: 100vw;
     background:
         linear-gradient(to bottom, #000000, #1E2023);
     background-blend-mode: overlay;
