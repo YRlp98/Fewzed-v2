@@ -38,6 +38,9 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui'],
       },
+      spacing: {
+        '-1/2': '-50%',
+      },
     },
   },
   plugins: [],

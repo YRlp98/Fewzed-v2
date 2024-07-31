@@ -26,7 +26,7 @@
 					</NuxtLink>
 					<NuxtLink
 						to="/trials"
-						:class="{ 'text-white border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/trials') }"
+						:class="{ 'text-white border-b-2 border-purple-600 title-shadow': isActive('/trials') }"
 						class="hover:text-white transition-colors"
 					>
 						Trials
@@ -175,3 +175,9 @@ onBeforeUnmount(() => {
 	});
 });
 </script>
+
+<style scoped>
+.title-shadow {
+	text-shadow: 0px 2px 5px;
+}
+</style>

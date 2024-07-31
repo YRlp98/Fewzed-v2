@@ -1,6 +1,6 @@
 <template>
 	<div class="image-gradient-background">
-		<section class="">
+		<section>
 			<div class="px-12 sm:px-16 lg:px-20 h-full flex items-center">
 				<div class="text-left">
 					<TitlesMagicTitle text="FEWZED" />
@@ -8,11 +8,18 @@
 				</div>
 			</div>
 		</section>
-		<section class="">
-			<div class="px-12 sm:px-16 lg:px-20 h-full flex items-center">
-				<div class="text-left">
-					<h1 class="font-medium text-dark-primary text-8xl">SECTION #2</h1>
+		<section>
+			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
+				<div class="text-left relative z-10 max-w-[50rem]">
+					<TitlesShadowTitle text="about" />
+					<h2 class="font-bold text-4xl tracking-wide uppercase">who we are</h2>
+					<p class="mt-8 tracking-wide leading-7">
+						A multi-disciplinary team of designers, engineers and consultants specialising in technical support and
+						development for projects in the highways, transport and construction industries. Based in the South West of
+						England but covering Nationwide and Europe we are available to support your projects.
+					</p>
 				</div>
+				<AnimatedEclipse />
 			</div>
 		</section>
 		<AnimatedScrollIcon class="scrollIcon" />
@@ -26,7 +33,7 @@
 	position: fixed;
 	top: 95vh;
 	transform: scale(0.55);
-	z-index: 101;
+	z-index: 49;
 }
 
 @media (min-width: 768px) {
