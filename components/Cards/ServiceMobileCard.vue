@@ -1,45 +1,22 @@
 <template>
-	<div class="card p-6">
+	<div class="card p-3">
 		<!-- Content -->
-		<div class="z-10">
-			<div class="mt-14 flex flex-row justify-start items-center space-x-2 text-white">
+		<div class="">
+			<div class="flex flex-row justify-start items-center space-x-3 text-white">
 				<Icon :name="icon" class="text-2xl" />
 				<h1 class="text-lg tracking-widest">{{ title }}</h1>
 			</div>
-			<p class="mt-6 text-gray-4 text-base tracking-wide leading-7">
-				{{ description }}
-			</p>
 		</div>
-		<img :src="currentImage" alt="Service Card" class="absolute right-0 bottom-0 z-[-1] overflow-hidden opacity-30" />
 	</div>
 </template>
 
 <script setup lang="ts">
 import { computed, defineProps, onMounted } from "vue";
-import card1 from "/assets/images/3D/computer-img.png";
-import card2 from "/assets/images/3D/traffic-img.png";
-import card3 from "/assets/images/3D/trials-img.png";
-import card4 from "/assets/images/3D/bulb-front-color-img.png";
-import card5 from "/assets/images/3D/dollar-front-color-img.png";
-import card6 from "/assets/images/3D/develop-img.png";
 
 const props = defineProps<{
 	title: string;
 	icon: string;
-	description: string;
-	image: string;
 }>();
-
-const images = {
-	card1,
-	card2,
-	card3,
-	card4,
-	card5,
-	card6,
-};
-
-const currentImage = computed(() => images[props.image]);
 
 onMounted(() => {
 	const updateCursor = ({ x, y }) => {
@@ -56,8 +33,9 @@ onMounted(() => {
 	background: rgba(255, 255, 255, 0.1);
 	backdrop-filter: blur(8px);
 	border-radius: 8px;
-	max-width: 400px;
-	aspect-ratio: 4 / 3;
+	width: 100%;
+	max-height: 72px;
+	/* aspect-ratio: 4 / 3; */
 	position: relative;
 	transition: background 0.1s;
 	overflow: hidden;

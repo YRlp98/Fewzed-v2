@@ -40,7 +40,7 @@
 				<div class="text-left relative z-10">
 					<TitlesShadowTitle text="services" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">we provide</h2>
-					<div class="cards-container mt-11 hidden 2xl:grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-2.5">
+					<div class="mt-11 hidden 2xl:grid grid-cols-3 gap-2.5">
 						<CardsServiceCard
 							title="Computer Aided design"
 							icon="iconoir:design-nib-solid"
@@ -78,8 +78,34 @@
 							image="card6"
 						/>
 					</div>
+					<div class="mt-4 grid gap-2 2xl:hidden">
+						<CardsServiceMobileCard title="Computer Aided design" icon="iconoir:design-nib-solid" />
+						<CardsServiceMobileCard title="Traffic Modelling & Simulation" icon="lucide:traffic-cone" />
+						<CardsServiceMobileCard title="Highway assessment trials" icon="mdi:highway" />
+						<CardsServiceMobileCard title="Innovation management" icon="teenyicons:bulb-on-outline" />
+						<CardsServiceMobileCard title="Funding & Bidding" icon="icon-park-outline:funds" />
+						<CardsServiceMobileCard
+							title="Development & Management"
+							icon="material-symbols:developer-mode-tv-outline"
+						/>
+					</div>
 				</div>
 				<AnimatedEclipse class="rotate-45" />
+			</div>
+		</section>
+		<section>
+			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
+				<div class="text-left relative z-10">
+					<TitlesShadowTitle text="projects" />
+					<h2 class="font-bold text-4xl tracking-wide uppercase">we created</h2>
+					<div class="mt-11 grid grid-cols-3 lg:grid-cols-4 gap-2.5 justify-center items-center">
+						<CardsProjectCard title="Sytemonitor" image="sytemonitor" />
+						<CardsProjectCard title="Flohtex" image="flohtex" />
+						<CardsProjectCard title="Fewzed" image="fewzed" />
+						<ButtonsTransparentArrowBtn />
+					</div>
+				</div>
+				<AnimatedEclipse class="rotate-90" />
 			</div>
 		</section>
 		<AnimatedScrollIcon class="scrollIcon" />

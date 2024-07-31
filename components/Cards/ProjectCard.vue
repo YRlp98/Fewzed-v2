@@ -1,42 +1,32 @@
 <template>
-	<div class="card p-6">
-		<!-- Content -->
+	<div class="card p-6 max-w-[180px] lg:max-w-[264px]">
+		<div class="gradient-overlay absolute inset-0 bg-black opacity-50 z-0"></div>
 		<div class="z-10">
-			<div class="mt-14 flex flex-row justify-start items-center space-x-2 text-white">
-				<Icon :name="icon" class="text-2xl" />
-				<h1 class="text-lg tracking-widest">{{ title }}</h1>
-			</div>
-			<p class="mt-6 text-gray-4 text-base tracking-wide leading-7">
-				{{ description }}
-			</p>
+			<h1 class="absolute left-6 bottom-4 text-lg tracking-widest font-bold text-gray-4">{{ title }}</h1>
 		</div>
-		<img :src="currentImage" alt="Service Card" class="absolute right-0 bottom-0 z-[-1] overflow-hidden opacity-30" />
+		<img
+			:src="currentImage"
+			alt="Project Card"
+			class="absolute left-0 bottom-0 z-[-1] overflow-hidden object-cover w-full h-full"
+		/>
 	</div>
 </template>
 
 <script setup lang="ts">
 import { computed, defineProps, onMounted } from "vue";
-import card1 from "/assets/images/3D/computer-img.png";
-import card2 from "/assets/images/3D/traffic-img.png";
-import card3 from "/assets/images/3D/trials-img.png";
-import card4 from "/assets/images/3D/bulb-front-color-img.png";
-import card5 from "/assets/images/3D/dollar-front-color-img.png";
-import card6 from "/assets/images/3D/develop-img.png";
+import sytemonitor from "/assets/images/road-image.jpg";
+import flohtex from "/assets/images/police-image.jpg";
+import fewzed from "/assets/images/writing-image.jpg";
 
 const props = defineProps<{
 	title: string;
-	icon: string;
-	description: string;
 	image: string;
 }>();
 
 const images = {
-	card1,
-	card2,
-	card3,
-	card4,
-	card5,
-	card6,
+	sytemonitor,
+	flohtex,
+	fewzed,
 };
 
 const currentImage = computed(() => images[props.image]);
@@ -53,10 +43,11 @@ onMounted(() => {
 
 <style scoped>
 .card {
-	background: rgba(255, 255, 255, 0.1);
+	background: rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(8px);
 	border-radius: 8px;
-	max-width: 400px;
+	min-width: 264px;
+	height: 360px;
 	aspect-ratio: 4 / 3;
 	position: relative;
 	transition: background 0.1s;
@@ -101,5 +92,9 @@ onMounted(() => {
 		linear-gradient(white, white) 50% 100% / 100% 4px no-repeat,
 		linear-gradient(white, white) 0 50% / 4px 100% no-repeat,
 		linear-gradient(white, white) 100% 50% / 4px 100% no-repeat;
+}
+
+.gradient-overlay {
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1) 100%);
 }
 </style>
