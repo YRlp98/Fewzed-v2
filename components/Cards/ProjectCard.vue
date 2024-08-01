@@ -47,7 +47,6 @@ onMounted(() => {
 	backdrop-filter: blur(8px);
 	border-radius: 8px;
 	min-width: 264px;
-	/* height: 360px; */
 	aspect-ratio: 4 / 3;
 	position: relative;
 	transition: background 0.1s;

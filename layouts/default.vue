@@ -1,6 +1,6 @@
 <template>
 	<div class="fullscreen-container gradient-background">
 		<Navbar />
-		<slot />
+		<slot/>
 	</div>
 </template>
