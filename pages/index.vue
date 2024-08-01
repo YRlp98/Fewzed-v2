@@ -1,5 +1,6 @@
 <template>
 	<div class="image-gradient-background">
+		<!-- #1 Hero -->
 		<section>
 			<div class="px-12 sm:px-16 lg:px-20 h-full flex items-center">
 				<div class="text-left">
@@ -8,6 +9,7 @@
 				</div>
 			</div>
 		</section>
+		<!-- #2 Who we are -->
 		<section>
 			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
 				<div class="text-left relative z-10 max-w-[50rem]">
@@ -19,9 +21,10 @@
 						England but covering Nationwide and Europe we are available to support your projects.
 					</p>
 				</div>
-				<AnimatedEclipse />
+				<AnimatedEclipse class="rotate-[0deg]" />
 			</div>
 		</section>
+		<!-- #3 What we do -->
 		<section>
 			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
 				<div class="text-left relative z-10 max-w-[50rem]">
@@ -32,9 +35,10 @@
 						across a wide variety of industries with a focus on transportation and construction.
 					</p>
 				</div>
-				<AnimatedEclipse class="rotate-12" />
+				<AnimatedEclipse class="rotate-[30deg]" />
 			</div>
 		</section>
+		<!-- #4 Services -->
 		<section>
 			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
 				<div class="text-left relative z-10">
@@ -92,9 +96,10 @@
 						/>
 					</div>
 				</div>
-				<AnimatedEclipse class="rotate-45" />
+				<AnimatedEclipse class="rotate-[60deg]" />
 			</div>
 		</section>
+		<!-- #5 Projects -->
 		<section>
 			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
 				<div class="text-left relative z-10">
@@ -115,7 +120,31 @@
 						<ButtonsTransparentArrowBtn text="DISCOVER ALL PROJECTS" link="/products" />
 					</div>
 				</div>
-				<AnimatedEclipse class="rotate-90" />
+				<AnimatedEclipse class="rotate-[90deg]" />
+			</div>
+		</section>
+		<!-- #6 Contact us -->
+		<section>
+			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
+				<div class="text-left relative z-10">
+					<TitlesShadowTitle text="contact us" />
+					<h2 class="font-bold text-4xl tracking-wide uppercase">have a question?</h2>
+					<!-- On Large Screen -->
+					<div class="mt-11 hidden lg:grid grid-cols-3 lg:grid-cols-4 gap-2.5 justify-center items-center">
+						<CardsProjectCard title="Sytemonitor" image="sytemonitor" />
+						<CardsProjectCard title="Flohtex" image="flohtex" />
+						<CardsProjectCard title="Fewzed" image="fewzed" />
+						<ButtonsTransparentArrowBtn text="DISCOVER ALL PROJECTS" link="/products" />
+					</div>
+					<!-- On Small screen -->
+					<div class="mt-4 grid gap-2 lg:hidden">
+						<CardsProjectCard title="Sytemonitor" image="sytemonitor" />
+						<CardsProjectCard title="Flohtex" image="flohtex" />
+						<CardsProjectCard title="Fewzed" image="fewzed" />
+						<ButtonsTransparentArrowBtn text="DISCOVER ALL PROJECTS" link="/products" />
+					</div>
+				</div>
+				<AnimatedEclipse class="rotate-[120deg]" />
 			</div>
 		</section>
 		<AnimatedScrollIcon class="scrollIcon" />
