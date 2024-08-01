@@ -126,22 +126,27 @@
 		<!-- #6 Contact us -->
 		<section>
 			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
-				<div class="text-left relative z-10">
+				<div class="text-left relative max-w-[50rem] z-10">
 					<TitlesShadowTitle text="contact us" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">have a question?</h2>
-					<!-- On Large Screen -->
-					<div class="mt-11 hidden lg:grid grid-cols-3 lg:grid-cols-4 gap-2.5 justify-center items-center">
-						<CardsProjectCard title="Sytemonitor" image="sytemonitor" />
-						<CardsProjectCard title="Flohtex" image="flohtex" />
-						<CardsProjectCard title="Fewzed" image="fewzed" />
-						<ButtonsTransparentArrowBtn text="DISCOVER ALL PROJECTS" link="/products" />
-					</div>
-					<!-- On Small screen -->
-					<div class="mt-4 grid gap-2 lg:hidden">
-						<CardsProjectCard title="Sytemonitor" image="sytemonitor" />
-						<CardsProjectCard title="Flohtex" image="flohtex" />
-						<CardsProjectCard title="Fewzed" image="fewzed" />
-						<ButtonsTransparentArrowBtn text="DISCOVER ALL PROJECTS" link="/products" />
+					<div class="mt-11 justify-center items-center space-y-8">
+						<p class="text-xl tracking-wide">
+							We’re here to help! Reach out to us and we'll get back to you as soon as possible.
+						</p>
+						<div class="flex flex-col space-y-2 ml-10">
+							<span><b>Email:</b> info@fewz.com</span>
+							<span><b>Phone:</b> +123-456-7890</span>
+							<span
+								><b>Address:</b> Unit 116, The Wincombe Centre, Wincombe Business Park, Shaftesbury, Dorset, SP7
+								9QJ</span
+							>
+						</div>
+						<p class="text-base tracking-wide">
+							Or fill out our contact form, and we'll get in touch with you shortly.
+						</p>
+						<div class="flex justify-center w-full">
+							<ButtonsRoundedBtn class="w-[7.875rem]" text="Contact Us" icon="mynaui:telephone" link="/contact-us" />
+						</div>
 					</div>
 				</div>
 				<AnimatedEclipse class="rotate-[120deg]" />

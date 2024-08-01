@@ -1,5 +1,5 @@
 <template>
-	<NuxtLink class="btn flex items-center shadow-lg shadow-dark-primary/50" :to="link">
+	<NuxtLink class="btn flex items-center justify-center shadow-lg shadow-dark-primary/50" :to="link">
 		<span class="text">{{ text }}</span>
 		<Icon :name="icon" class="text-base" />
 	</NuxtLink>
