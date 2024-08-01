@@ -102,7 +102,7 @@
 						<CardsProjectCard title="Sytemonitor" image="sytemonitor" />
 						<CardsProjectCard title="Flohtex" image="flohtex" />
 						<CardsProjectCard title="Fewzed" image="fewzed" />
-						<ButtonsTransparentArrowBtn />
+						<ButtonsTransparentArrowBtn text="DISCOVER ALL PROJECTS" link="/products" />
 					</div>
 				</div>
 				<AnimatedEclipse class="rotate-90" />
