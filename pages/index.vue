@@ -145,7 +145,12 @@
 							Or fill out our contact form, and we'll get in touch with you shortly.
 						</p>
 						<div class="flex justify-center w-full">
-							<ButtonsRoundedBtn class="w-[7.875rem]" text="Contact Us" icon="mynaui:telephone" link="/contact-us" />
+							<ButtonsRoundedBtn
+								class="w-[7.875rem] mt-2"
+								text="Contact Us"
+								icon="mynaui:telephone"
+								link="/contact-us"
+							/>
 						</div>
 					</div>
 				</div>
