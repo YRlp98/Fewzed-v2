@@ -40,6 +40,7 @@
 				<div class="text-left relative z-10">
 					<TitlesShadowTitle text="services" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">we provide</h2>
+					<!-- On Large Screen -->
 					<div class="mt-11 hidden 2xl:grid grid-cols-3 gap-2.5">
 						<CardsServiceCard
 							title="Computer Aided design"
@@ -78,6 +79,7 @@
 							image="card6"
 						/>
 					</div>
+					<!-- On Small screen -->
 					<div class="mt-4 grid gap-2 2xl:hidden">
 						<CardsServiceMobileCard title="Computer Aided design" icon="iconoir:design-nib-solid" />
 						<CardsServiceMobileCard title="Traffic Modelling & Simulation" icon="lucide:traffic-cone" />
@@ -98,7 +100,15 @@
 				<div class="text-left relative z-10">
 					<TitlesShadowTitle text="projects" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">we created</h2>
-					<div class="mt-11 grid grid-cols-3 lg:grid-cols-4 gap-2.5 justify-center items-center">
+					<!-- On Large Screen -->
+					<div class="mt-11 hidden lg:grid grid-cols-3 lg:grid-cols-4 gap-2.5 justify-center items-center">
+						<CardsProjectCard title="Sytemonitor" image="sytemonitor" />
+						<CardsProjectCard title="Flohtex" image="flohtex" />
+						<CardsProjectCard title="Fewzed" image="fewzed" />
+						<ButtonsTransparentArrowBtn text="DISCOVER ALL PROJECTS" link="/products" />
+					</div>
+					<!-- On Small screen -->
+					<div class="mt-4 grid gap-2 lg:hidden">
 						<CardsProjectCard title="Sytemonitor" image="sytemonitor" />
 						<CardsProjectCard title="Flohtex" image="flohtex" />
 						<CardsProjectCard title="Fewzed" image="fewzed" />
