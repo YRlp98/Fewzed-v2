@@ -20,12 +20,12 @@
 
 			<div class="item">
 				<div class="img-wrapper">
-					<img :src="fewzed" />
+					<img :src="flohtex" />
 					<div class="gradient-overlay"></div>
 				</div>
 				<div class="content">
 					<TitlesShadowTitle text="products" />
-					<h1 class="mt-16 text-4xl font-bold tracking-wider">Data 365</h1>
+					<h1 class="mt-16 text-4xl font-bold tracking-wider">Flohtex</h1>
 					<p class="text-lg leading-7 mt-6">
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae praesentium in eos aliquam voluptatem
 						repellendus, ab quos, asperiores harum ad laborum impedit ut, nesciunt accusantium doloremque ipsam?
@@ -36,12 +36,12 @@
 
 			<div class="item">
 				<div class="img-wrapper">
-					<img :src="flohtex" />
+					<img :src="fewzed" />
 					<div class="gradient-overlay"></div>
 				</div>
 				<div class="content">
 					<TitlesShadowTitle text="products" />
-					<h1 class="mt-16 text-4xl font-bold tracking-wider">Flohtex</h1>
+					<h1 class="mt-16 text-4xl font-bold tracking-wider">Data 365</h1>
 					<p class="text-lg leading-7 mt-6">
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae praesentium in eos aliquam voluptatem
 						repellendus, ab quos, asperiores harum ad laborum impedit ut, nesciunt accusantium doloremque ipsam?
