@@ -1,5 +1,5 @@
 <template>
-	<nav class="bg-transparent fixed w-full z-50">
+	<nav class="bg-transparent fixed w-full z-50" id="navbar">
 		<div class="mx-auto px-12 sm:px-16 lg:px-20">
 			<div class="flex justify-between items-center py-4">
 				<div class="flex-shrink-0">

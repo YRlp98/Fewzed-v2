@@ -1,5 +1,5 @@
 <template>
-	<h1 class="font-bold text-8xl">
+	<h1 class="font-bold text-8xl" id="magic-title">
 		<span class="magic">
 			<span class="magic-star">
 				<svg viewBox="0 0 512 512">
@@ -43,8 +43,8 @@ const animate = (star: HTMLElement): void => {
 
 	// Reset the animation
 	star.style.animation = "none";
-	star.offsetHeight; // Trigger reflow
-	star.style.animation = ""; // Re-enable animation
+	star.offsetHeight;
+	star.style.animation = "";
 };
 
 onMounted((): void => {
