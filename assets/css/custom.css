@@ -44,3 +44,21 @@ section {
     height: 100vh;
     scroll-snap-align: start;
 }
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: #4F4F4F;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #141417;
+    border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #000000;
+}
