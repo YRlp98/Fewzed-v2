@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
 
+  page: true,
   alias: {
     "@": resolve(__dirname, '/'),
   },
@@ -12,5 +13,8 @@ export default defineNuxtConfig({
   tailwindcss: {
     cssPath: ['~/assets/css/tailwind.css'],
   },
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/icon"]
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/icon"],
+  imports: {
+    dirs: ["store", "utils"],
+  }
 })

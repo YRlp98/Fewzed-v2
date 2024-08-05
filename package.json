@@ -12,6 +12,8 @@
   "dependencies": {
     "@nuxt/icon": "^1.4.0",
     "@nuxtjs/tailwindcss": "^6.12.1",
+    "@studio-freight/lenis": "^1.0.42",
+    "gsap": "^3.12.5",
     "nuxt": "^3.12.4",
     "typeface-inter": "^3.18.1",
     "vite-svg-loader": "^5.1.0",

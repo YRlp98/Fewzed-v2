@@ -1,6 +1,7 @@
 <template>
-	<div class="fullscreen-container gradient-background">
+	<div class="fullscreen-container gradient-background" id="viewport">
+		<loaderPreLoader />
 		<Navbar />
-		<slot/>
+		<slot />
 	</div>
 </template>
