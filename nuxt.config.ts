@@ -6,6 +6,12 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   page: true,
+  app: {
+    pageTransition: {
+      name: 'page',
+      mode: 'out-in',
+    },
+  },
   alias: {
     "@": resolve(__dirname, '/'),
   },

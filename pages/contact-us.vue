@@ -25,7 +25,7 @@
 					<TextfieldsLabelBlockTextField label="First name" placeholder="First name" class="w-full" />
 					<TextfieldsLabelBlockTextField label="Last name" placeholder="Last name" class="w-full" />
 				</div>
-				<TextfieldsLabelBlockTextField label="Email" placeholder="Eamil" />
+				<TextfieldsLabelBlockTextField label="Email" placeholder="Email" />
 				<TextfieldsLabelBlockTextArea label="Message" placeholder="Type your message here..." />
 				<ButtonsTextIconBlockBtn text="Send Message" link="#" />
 			</form>
