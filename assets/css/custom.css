@@ -13,15 +13,6 @@
     --linear-gradient: linear-gradient(45deg, #A951C4, #673ab7, #f48fb1, #A951C4);
 }
 
-.gradient-background {
-    position: fixed;
-    width: 100vw;
-    background:
-        linear-gradient(to bottom, #000000, #1E2023);
-    background-blend-mode: overlay;
-    height: 100vh;
-}
-
 .image-gradient-background {
     background:
         linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(30, 32, 35, 0.5)),
@@ -33,11 +24,16 @@
 }
 
 .fullscreen-container {
+    position: sticky;
+    top: 0;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     overflow-x: hidden;
     height: 100vh;
     scroll-behavior: smooth;
+    background:
+        linear-gradient(to bottom, #000000, #1E2023);
+    background-blend-mode: overlay;
 }
 
 section {

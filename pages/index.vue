@@ -1,16 +1,16 @@
 <template>
-	<div class="image-gradient-background">
+	<div class="">
 		<!-- #1 Hero -->
-		<section>
+		<section class="section hero image-gradient-background">
 			<div class="px-12 sm:px-16 lg:px-20 h-full flex items-center">
 				<div class="text-left">
-					<TitlesMagicTitle text="FEWZED" />
-					<h2 class="font-extralight text-gray-3 text-4xl">WE DELIVER GREAT PROJECTS</h2>
+					<TitlesMagicTitle text="FEWZED" class="title-animation" />
+					<h2 class="font-extralight text-gray-3 text-4xl h2-animation">WE DELIVER GREAT PROJECTS</h2>
 				</div>
 			</div>
 		</section>
 		<!-- #2 Who we are -->
-		<section>
+		<section class="section who-we-are image-gradient-background">
 			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
 				<div class="text-left relative z-10 max-w-[50rem]">
 					<TitlesShadowTitle text="about" />
@@ -25,7 +25,7 @@
 			</div>
 		</section>
 		<!-- #3 What we do -->
-		<section>
+		<section class="section what-we-do image-gradient-background">
 			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
 				<div class="text-left relative z-10 max-w-[50rem]">
 					<TitlesShadowTitle text="about" />
@@ -39,7 +39,7 @@
 			</div>
 		</section>
 		<!-- #4 Services -->
-		<section>
+		<section class="section services image-gradient-background">
 			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
 				<div class="text-left relative z-10">
 					<TitlesShadowTitle text="services" />
@@ -100,7 +100,7 @@
 			</div>
 		</section>
 		<!-- #5 Projects -->
-		<section>
+		<section class="section projects image-gradient-background">
 			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
 				<div class="text-left relative z-10">
 					<TitlesShadowTitle text="projects" />
@@ -124,7 +124,7 @@
 			</div>
 		</section>
 		<!-- #6 Contact us -->
-		<section>
+		<section class="section contact-us image-gradient-background">
 			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
 				<div class="text-left relative max-w-[50rem] z-10">
 					<TitlesShadowTitle text="contact us" />

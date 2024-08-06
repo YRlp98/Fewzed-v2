@@ -1,5 +1,5 @@
 <template>
-	<div class="fullscreen-container gradient-background" id="viewport">
+	<div class="fullscreen-container" id="viewport">
 		<loaderPreLoader />
 		<Navbar />
 		
