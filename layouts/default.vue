@@ -2,7 +2,6 @@
 	<div class="fullscreen-container" id="viewport">
 		<loaderPreLoader />
 		<Navbar />
-		
 		<slot />
 	</div>
 </template>

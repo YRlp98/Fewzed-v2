@@ -1,5 +1,7 @@
 <template>
-	<h1 class="title-shadow text-dark-primary text-lg font-normal tracking-widest uppercase" id="shadow-title">{{ text }}</h1>
+	<h1 class="title-shadow text-dark-primary text-lg font-normal tracking-widest uppercase" id="shadow-title">
+		{{ text }}
+	</h1>
 </template>
 
 <script setup lang="ts">

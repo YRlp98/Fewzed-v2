@@ -1,7 +1,32 @@
 <template>
-	<div class="container text-black-1">
-		<h2>Scroll down</h2>
-		<h1>This will jump</h1>
+	<div class="relative px-24 sm:px-28 lg:px-30 h-screen w-screen flex items-center justify-center">
+		<!-- Container -->
+		<div class="flex flex-col md:pt-0 pb-20 md:pb-0 h-full mt-36 w-full">
+			<!-- Content -->
+			<div class="flex flex-row h-[60vh]">
+				<!-- Left -->
+				<div class="flex flex-col items-start justify-center max-w-[50%]">
+					<TitlesShadowTitle text="consulting" class="!translate-x-0 text-left" />
+					<div class="mt-20 text-2xl tracking-wide leading-10">
+						<p class="opacity-1">
+							P1 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti modi quae ut ullam, vitae libero
+							doloribus! Doloribus ad eaque modi nostrum rem, inventore veniam magnam temporibus sunt cupiditate
+							similique alias.
+						</p>
+						<p class="opacity-0">
+							P2 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti modi quae ut ullam, vitae libero
+							doloribus! Doloribus ad eaque modi nostrum rem, inventore veniam magnam temporibus sunt cupiditate
+							similique alias.
+						</p>
+					</div>
+				</div>
+				<!-- Right -->
+				<div class="flex flex-col items-center justify-center flex-1 bg-red-500">
+					<!-- Vertical Lines -->
+					<!-- Box in the middle of the line -->
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -10,37 +35,7 @@
 // 	layout: "custom",
 // });
 
-onMounted(() => {
-	gsap.to("h1", {
-		x: 100,
-		scrollTrigger: {
-			trigger: "h1",
-			start: "top bottom",
-			end: "center center",
-			scrub: true,
-		},
-	});
-
-	gsap.to("h1", {
-		x: 200,
-		scrollTrigger: {
-			markers: true,
-			trigger: "h1",
-			start: "center center",
-			end: "bottom top",
-			scrub: true,
-			onEnter: () => console.log("Image animation started"),
-		},
-	});
-});
+onMounted(() => {});
 </script>
 
-<style scoped>
-h1,
-h2 {
-	margin-bottom: 100vh;
-}
-h2 {
-	text-align: center;
-}
-</style>
+<style scoped></style>

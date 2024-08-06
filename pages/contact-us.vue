@@ -2,7 +2,7 @@
 	<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center overflow-y-auto">
 		<div class="flex flex-wrap items-start gap-20 pt-[44rem] md:pt-0 pb-20 md:pb-0">
 			<!-- Text col -->
-			<div class="text-left relative max-w-[50rem] z-10 flex-1">
+			<div class="text-left relative min-w-[250px] max-w-[50rem] z-10 flex-1">
 				<TitlesShadowTitle text="contact us" />
 				<h2 class="font-bold text-4xl tracking-wide uppercase">have a question?</h2>
 				<div class="mt-11 justify-center items-center space-y-8">
@@ -20,7 +20,7 @@
 			</div>
 
 			<!-- Form col -->
-			<form class="text-left relative max-w-[27rem] space-y-4 z-10 flex-1">
+			<form class="text-left relative min-w-[250px] max-w-[27rem] space-y-4 z-10 flex-1">
 				<div class="flex flex-col lg:flex-row justify-between gap-4">
 					<TextfieldsLabelBlockTextField label="First name" placeholder="First name" class="w-full" />
 					<TextfieldsLabelBlockTextField label="Last name" placeholder="Last name" class="w-full" />
