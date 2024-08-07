@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxt/icon": "^1.4.0",
     "@nuxtjs/tailwindcss": "^6.12.1",
+    "@splinetool/runtime": "^1.9.5",
     "@studio-freight/lenis": "^1.0.42",
     "@vueuse/core": "^10.11.0",
     "@vueuse/nuxt": "^10.11.0",
