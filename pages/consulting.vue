@@ -62,6 +62,15 @@ const state = reactive({
 	},
 });
 
+// Browser detection
+const isFirefox = typeof InstallTrigger !== "undefined";
+
+onMounted(() => {
+	if (isFirefox) {
+		document.body.classList.add("firefox");
+	}
+});
+
 onMounted(async () => {
 	if (canvas.value) {
 		const app = new Application(canvas.value);
@@ -97,5 +106,14 @@ canvas {
 
 .fade > * {
 	color: transparent;
+}
+
+/* Firefox-specific adjustments */
+.firefox .fade {
+	background-image: none;
+}
+
+.firefox .fade > * {
+	color: inherit;
 }
 </style>
