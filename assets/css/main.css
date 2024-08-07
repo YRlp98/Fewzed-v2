@@ -13,6 +13,7 @@ body {
     line-height: 1.5;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    background-attachment: fixed;
 }
 
 img, picture, video, canvas, svg {
