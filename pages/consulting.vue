@@ -41,16 +41,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, onMounted } from "vue";
 import { Application } from "@splinetool/runtime";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 
 // definePageMeta({
 // 	layout: "custom",
 // });
-
-gsap.registerPlugin(ScrollTrigger);
 
 const canvas = ref<HTMLCanvasElement | null>(null);
 
