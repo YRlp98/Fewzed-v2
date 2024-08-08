@@ -161,7 +161,12 @@
 	</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useHead({
+	title: "Fewzed",
+	meta: [{ name: "description", content: "Fewzed home page - We deliver great projects" }],
+});
+</script>
 
 <style scoped>
 .scrollIcon {
