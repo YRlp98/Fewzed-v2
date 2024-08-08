@@ -1,6 +1,6 @@
 <template>
-	<nav class="bg-transparent fixed w-full z-50" id="navbar">
-		<div class="mx-auto px-12 sm:px-16 lg:px-20">
+	<nav class="fixed w-full z-50" id="navbar">
+		<div class="navbar mx-auto px-12 sm:px-16 lg:px-20">
 			<div class="flex justify-between items-center py-4">
 				<div class="flex-shrink-0">
 					<NuxtLink to="/">
@@ -179,5 +179,10 @@ onBeforeUnmount(() => {
 <style scoped>
 .title-shadow {
 	text-shadow: 0px 2px 5px;
+}
+
+.navbar {
+	backdrop-filter: blur(10px);
+	background-color: rgba(0, 0, 0, 0.5);
 }
 </style>
