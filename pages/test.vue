@@ -1,6 +1,6 @@
 <template>
 	<div class="wrapper overflow-scroll">
-		<h1>FUCK THIS SHIT</h1>
+		<h1>LOREM TEST TITLE</h1>
 		<p>
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ullam, maiores facere saepe architecto possimus
 			dolores aliquam, est ea quis quisquam culpa voluptatem tenetur nostrum deserunt eum consectetur consequatur
