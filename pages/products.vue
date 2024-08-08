@@ -72,6 +72,11 @@ import sytemonitor from "/assets/images/road-image.jpg";
 import flohtex from "/assets/images/police-image.jpg";
 import fewzed from "/assets/images/writing-image.jpg";
 
+useHead({
+	title: "Fewzed - Products",
+	meta: [{ name: "description", content: "Fewzed products page - introducing Fewzed projects" }],
+});
+
 let items = ref<NodeListOf<Element> | null>(null);
 let next = ref<HTMLElement | null>(null);
 let prev = ref<HTMLElement | null>(null);

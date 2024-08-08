@@ -32,3 +32,10 @@
 		</div>
 	</div>
 </template>
+
+<script setup lang="ts">
+useHead({
+	title: "Fewzed - Contact Us",
+	meta: [{ name: "description", content: "Fewzed contact us form and info page" }],
+});
+</script>

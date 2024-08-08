@@ -43,6 +43,11 @@
 <script setup lang="ts">
 import { Application } from "@splinetool/runtime";
 
+useHead({
+	title: "Fewzed - Consulting",
+	meta: [{ name: "description", content: "Fewzed consulting page" }],
+});
+
 // definePageMeta({
 // 	layout: "custom",
 // });
