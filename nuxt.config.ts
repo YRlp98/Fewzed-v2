@@ -34,6 +34,19 @@ export default defineNuxtConfig({
     },
   },
 
+  // Site maps
+  sitemap: {
+    hostname: 'https://www.fewzed.co.uk',
+    routes: [
+      '/',
+      '/consulting',
+      '/trials',
+      '/data-collection',
+      '/products',
+      '/contact-us',
+    ],
+  },
+
    // Aliases
    alias: {
     '@': resolve(__dirname, '/'),
@@ -43,7 +56,6 @@ export default defineNuxtConfig({
   css: [
     '~/assets/css/main.css',
   ],
-
 
   // Tailwind CSS configuration
   tailwindcss: {
@@ -55,6 +67,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/icon',
     '@vueuse/nuxt',
+    '@nuxtjs/sitemap',
   ],
 
   // Imports
