@@ -46,7 +46,7 @@
 			<textarea
 				id="message"
 				name="Message"
-				placeholder="message"
+				placeholder="Message"
 				class="w-full h-32 bg-gray-1 rounded-lg placeholder-gray-4 text-gray-5 p-2 border-none outline-none resize-none"
 			></textarea>
 		</div>
