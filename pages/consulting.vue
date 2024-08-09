@@ -4,27 +4,27 @@
 			<!-- Left side -->
 			<div class="text-left relative min-w-[250px] max-w-[50rem] flex-1">
 				<div class="relative space-y-8 h-[300px] lg:mt-40">
-					<TitlesShadowTitle text="consulting" />
+					<TitlesShadowTitle id="shadow-title" text="consulting" />
 
 					<!-- Scrolling Content -->
-					<div class="max-w-[800px] text-2xl tracking-wide leading-10 space-y-20 fade">
-						<p class="">
+					<div id="content" class="max-w-[800px] text-2xl tracking-wide leading-10 space-y-20 fade">
+						<p id="p1">
 							We’re here to support your business and projects with expert knowledge and experience from the Highways,
 							Construction, Data Collection, and Sampling industries.
 						</p>
 
-						<p>
+						<p id="p2">
 							Our small team of experts have demonstrated their capabilities over many years as project managers,
 							technical experts, innovation and technology strategists, and trial and experiment managers. We also have
 							access to a wide network of specialists to supplement our capabilities.
 						</p>
 
-						<p>
+						<p id="p3">
 							Our background is big consultancy and technology development together with a wide knowledge of highways
 							operations.
 						</p>
 
-						<p class="pb-60">
+						<p id="p4" class="pb-60">
 							We typically work with a blend of in person and remote delivery and even take on secondment opportunities.
 							Get in touch with us today to see how we can assist you with your specialist projects and applications.
 						</p>
@@ -43,14 +43,12 @@
 <script setup lang="ts">
 import { Application } from "@splinetool/runtime";
 
+const { $gsap } = useNuxtApp();
+
 useHead({
 	title: "Fewzed - Consulting",
 	meta: [{ name: "description", content: "Fewzed consulting page" }],
 });
-
-// definePageMeta({
-// 	layout: "custom",
-// });
 
 const canvas = ref<HTMLCanvasElement | null>(null);
 
@@ -79,7 +77,7 @@ onMounted(async () => {
 		state.spline.isLoaded = true;
 
 		// Pin the canvas element
-		gsap.to(canvas.value, {
+		$gsap.to(canvas.value, {
 			scrollTrigger: {
 				trigger: canvas.value,
 				pin: true,
@@ -87,6 +85,13 @@ onMounted(async () => {
 				end: "bottom center",
 				scrub: true,
 			},
+		});
+
+		// Animate the shadow title
+		$gsap.from("#shadow-title", {
+			x: -100,
+			opacity: 0,
+			delay: 0.5,
 		});
 	}
 });

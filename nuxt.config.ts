@@ -69,6 +69,9 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/sitemap',
   ],
+  buildModules: [
+    'nuxt-gsap-module'
+  ],
 
   // Imports
   imports: {

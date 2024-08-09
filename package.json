@@ -17,10 +17,12 @@
     "@studio-freight/lenis": "^1.0.42",
     "@vueuse/core": "^10.11.0",
     "@vueuse/nuxt": "^10.11.0",
-    "gsap": "^3.12.5",
     "nuxt": "^3.12.4",
     "typeface-inter": "^3.18.1",
     "vite-svg-loader": "^5.1.0",
     "vue": "latest"
+  },
+  "devDependencies": {
+    "nuxt-gsap-module": "^2.0.0"
   }
 }
