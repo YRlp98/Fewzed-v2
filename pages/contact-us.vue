@@ -20,15 +20,33 @@
 			</div>
 
 			<!-- Form col -->
-			<form id="form" class="text-left relative min-w-[250px] max-w-[27rem] space-y-4 z-10 flex-1">
+			<!-- <form
+				id="form"
+				class="text-left relative min-w-[250px] max-w-[27rem] space-y-4 z-10 flex-1"
+				@submit.prevent="submitForm"
+				action="https://formsubmit.co/yousef.r1999@gmail.com"
+				method="POST"
+			>
 				<div class="flex flex-col lg:flex-row justify-between gap-4">
-					<TextfieldsLabelBlockTextField label="First name" placeholder="First name" class="w-full" />
-					<TextfieldsLabelBlockTextField label="Last name" placeholder="Last name" class="w-full" />
+					<TextfieldsLabelBlockTextField
+						label="First name"
+						placeholder="First name"
+						v-model="form.firstName"
+						class="w-full"
+					/>
+					<TextfieldsLabelBlockTextField
+						label="Last name"
+						placeholder="Last name"
+						v-model="form.lastName"
+						class="w-full"
+					/>
 				</div>
-				<TextfieldsLabelBlockTextField label="Email" placeholder="Email" />
-				<TextfieldsLabelBlockTextArea label="Message" placeholder="Type your message here..." />
-				<ButtonsTextIconBlockBtn text="Send Message" link="#" />
-			</form>
+				<TextfieldsLabelBlockTextField label="Email" placeholder="Email" v-model="form.email" name="email" />
+				<TextfieldsLabelBlockTextArea label="Message" placeholder="Type your message here..." v-model="form.message" />
+				<ButtonsSubmitBtn text="Send Message" type="submit" class="w-full" />
+			</form> -->
+
+			<FormsContactUsForm id="form" />
 		</div>
 	</div>
 </template>
