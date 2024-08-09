@@ -1,5 +1,5 @@
 <template>
-	<div class="">
+	<div class="h-screen">
 		<!-- #1 Hero -->
 		<section class="section hero image-gradient-background">
 			<div class="px-12 sm:px-16 lg:px-20 h-full flex items-center">

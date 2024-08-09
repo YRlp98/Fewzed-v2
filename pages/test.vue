@@ -23,9 +23,9 @@
 <script setup lang="ts">
 const { $gsap } = useNuxtApp();
 
-definePageMeta({
-	layout: "custom",
-});
+// definePageMeta({
+// 	layout: "custom",
+// });
 
 onMounted(() => {
 	$gsap.from("#box1", {
