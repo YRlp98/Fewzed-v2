@@ -2,12 +2,12 @@
 	<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
 		<div class="flex flex-wrap items-start gap-20 md:pt-0 pb-20 md:pb-0">
 			<!-- Left side -->
-			<div class="text-left relative min-w-[250px] max-w-[50rem] flex-1">
+			<div class="text-left relative flex-1">
 				<div class="relative space-y-8 h-[300px] lg:mt-40">
 					<TitlesShadowTitle id="shadow-title" text="consulting" />
 
 					<!-- Scrolling Content -->
-					<div id="content" class="max-w-[800px] text-2xl tracking-wide leading-10 space-y-20 fade">
+					<div id="content" class="max-w-[800px] text-2xl tracking-wide leading-10 space-y-20">
 						<p id="p1">
 							We’re here to support your business and projects with expert knowledge and experience from the Highways,
 							Construction, Data Collection, and Sampling industries.
@@ -33,7 +33,7 @@
 			</div>
 
 			<!-- Right side -->
-			<div class="relative flex-1 mt-20 hidden md:block">
+			<div id="canvas" class="relative flex-1 mt-20 hidden md:block">
 				<canvas ref="canvas" class="m-auto" />
 			</div>
 		</div>
@@ -92,6 +92,18 @@ onMounted(async () => {
 			x: -100,
 			opacity: 0,
 			delay: 0.5,
+		});
+
+		$gsap.from("#content", {
+			y: -100,
+			opacity: 0,
+			delay: 0.75,
+		});
+
+		$gsap.from("#canvas", {
+			y: 100,
+			opacity: 0,
+			delay: 0.75,
 		});
 	}
 });

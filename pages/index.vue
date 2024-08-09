@@ -4,8 +4,8 @@
 		<section class="section hero image-gradient-background">
 			<div class="px-12 sm:px-16 lg:px-20 h-full flex items-center">
 				<div class="text-left">
-					<TitlesMagicTitle text="FEWZED" class="title-animation" />
-					<h2 class="font-extralight text-gray-3 text-4xl h2-animation">WE DELIVER GREAT PROJECTS</h2>
+					<TitlesMagicTitle id="h1-title" text="FEWZED" class="title-animation" />
+					<h2 id="h2-title" class="font-extralight text-gray-3 text-4xl">WE DELIVER GREAT PROJECTS</h2>
 				</div>
 			</div>
 		</section>
@@ -162,9 +162,27 @@
 </template>
 
 <script setup lang="ts">
+const { $gsap } = useNuxtApp();
+
 useHead({
 	title: "Fewzed",
 	meta: [{ name: "description", content: "Fewzed home page - We deliver great projects" }],
+});
+
+onMounted(() => {
+	// Animate the h1 title
+	$gsap.from("#h1-title", {
+		x: -100,
+		opacity: 0,
+		delay: 0.5,
+	});
+
+	// Animate the h2 title
+	$gsap.from("#h2-title", {
+		x: -100,
+		opacity: 0,
+		delay: 0.75,
+	});
 });
 </script>
 
