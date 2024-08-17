@@ -14,6 +14,7 @@ body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     background-attachment: fixed;
+    overflow: hidden;
 }
 
 img, picture, video, canvas, svg {
