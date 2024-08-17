@@ -1,5 +1,5 @@
 <template>
-	<h1 class="font-bold text-8xl" id="magic-title">
+	<h1 class="font-bold text-7xl sm:text-8xl" id="magic-title">
 		<span class="magic">
 			<span class="magic-star">
 				<svg viewBox="0 0 512 512">
