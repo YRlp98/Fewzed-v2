@@ -99,25 +99,25 @@
 				<AnimatedEclipse class="rotate-[60deg]" />
 			</div>
 		</section>
-		<!-- #5 Projects -->
+		<!-- #5 Products -->
 		<section class="section projects image-gradient-background">
 			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
 				<div class="text-left relative z-10">
-					<TitlesShadowTitle text="projects" />
-					<h2 class="font-bold text-4xl tracking-wide uppercase">we created</h2>
+					<TitlesShadowTitle text="products" />
+					<h2 class="font-bold text-4xl tracking-wide uppercase">We've crafted</h2>
 					<!-- On Large Screen -->
 					<div class="mt-11 hidden lg:grid grid-cols-3 lg:grid-cols-4 gap-2.5 justify-center items-center">
 						<CardsProjectCard title="Sytemonitor" image="sytemonitor" />
 						<CardsProjectCard title="Flohtex" image="flohtex" />
 						<CardsProjectCard title="Fewzed" image="fewzed" />
-						<ButtonsTransparentArrowBtn text="DISCOVER ALL PROJECTS" link="/products" />
+						<ButtonsTransparentArrowBtn text="DISCOVER ALL PRODUCTS" link="/products" />
 					</div>
 					<!-- On Small screen -->
 					<div class="mt-4 grid gap-2 lg:hidden">
 						<CardsProjectCard title="Sytemonitor" image="sytemonitor" />
 						<CardsProjectCard title="Flohtex" image="flohtex" />
 						<CardsProjectCard title="Fewzed" image="fewzed" />
-						<ButtonsTransparentArrowBtn text="DISCOVER ALL PROJECTS" link="/products" />
+						<ButtonsTransparentArrowBtn text="DISCOVER ALL PRODUCTS" link="/products" />
 					</div>
 				</div>
 				<AnimatedEclipse class="rotate-[90deg]" />
