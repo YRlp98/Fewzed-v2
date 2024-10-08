@@ -116,8 +116,7 @@
 					<div class="mt-4 grid gap-2 lg:hidden">
 						<CardsProjectCard title="Sytemonitor" image="sytemonitor" />
 						<CardsProjectCard title="Flohtex" image="flohtex" />
-						<CardsProjectCard title="Fewzed" image="fewzed" />
-						<ButtonsTransparentArrowBtn text="DISCOVER ALL PRODUCTS" link="/products" />
+						<ButtonsTransparentArrowBtn text="DISCOVER ALL PRODUCTS" link="/products" class="mt-5" />
 					</div>
 				</div>
 				<AnimatedEclipse class="rotate-[90deg]" />
@@ -129,11 +128,11 @@
 				<div class="text-left relative max-w-[50rem] z-10">
 					<TitlesShadowTitle text="contact us" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">have a question?</h2>
-					<div class="mt-11 justify-center items-center space-y-8">
+					<div class="mt-11 justify-center items-center space-y-6 lg:space-y-8">
 						<p class="text-xl tracking-wide">
 							We’re here to help! Reach out to us and we'll get back to you as soon as possible.
 						</p>
-						<div class="flex flex-col space-y-2 ml-10">
+						<div class="flex flex-col space-y-2 lg:ml-10">
 							<span><b>Email:</b> info@fewz.com</span>
 							<span><b>Phone:</b> 01747 871970</span>
 							<span
@@ -163,7 +162,7 @@
 				<AnimatedEclipse class="rotate-[120deg]" />
 			</div>
 		</section>
-		<AnimatedScrollIcon class="scrollIcon" />
+		<AnimatedScrollIcon class="scrollIcon hidden lg:block" />
 	</div>
 </template>
 
