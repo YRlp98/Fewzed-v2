@@ -125,7 +125,7 @@
 		</section>
 		<!-- #6 Contact us -->
 		<section class="section contact-us image-gradient-background">
-			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
+			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex flex-col items-center justify-center">
 				<div class="text-left relative max-w-[50rem] z-10">
 					<TitlesShadowTitle text="contact us" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">have a question?</h2>
@@ -154,6 +154,12 @@
 						</div>
 					</div>
 				</div>
+
+				<!-- Copyright -->
+				<div class="absolute bottom-0 left-0 right-0 p-4">
+					<p class="text-gray-3 text-center text-sm">Copyright © 2024 Fewzed Ltd. All rights reserved.</p>
+				</div>
+
 				<AnimatedEclipse class="rotate-[120deg]" />
 			</div>
 		</section>
