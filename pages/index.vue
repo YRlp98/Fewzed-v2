@@ -135,7 +135,7 @@
 						</p>
 						<div class="flex flex-col space-y-2 ml-10">
 							<span><b>Email:</b> info@fewz.com</span>
-							<span><b>Phone:</b> +123-456-7890</span>
+							<span><b>Phone:</b> 01747 871970</span>
 							<span
 								><b>Address:</b> Unit 116, The Wincombe Centre, Wincombe Business Park, Shaftesbury, Dorset, SP7
 								9QJ</span
