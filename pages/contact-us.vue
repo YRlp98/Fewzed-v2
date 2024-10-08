@@ -9,12 +9,16 @@
 					<p class="text-xl tracking-wide">
 						We’re here to help! Reach out to us and we'll get back to you as soon as possible.
 					</p>
-					<div class="flex flex-col space-y-2 ml-10">
-						<span><b>Email:</b> info@fewz.com</span>
-						<span><b>Phone:</b> 01747 871970</span>
-						<span
-							><b>Address:</b> Unit 116, The Wincombe Centre, Wincombe Business Park, Shaftesbury, Dorset, SP7 9QJ</span
+					<div class="flex flex-col space-y-2">
+						<a href="mailto:info@fewz.com" class="hover:text-dark-primary"><b>Email:</b> info@fewz.com</a>
+						<a href="tel:01747871970" class="hover:text-dark-primary"><b>Phone:</b> 01747 871970</a>
+						<a
+							href="https://www.google.com/maps/search/?api=1&query=Unit+116,+The+Wincombe+Centre,+Wincombe+Business+Park,+Shaftesbury,+Dorset,+SP7+9QJ"
+							target="_blank"
+							class="hover:text-dark-primary"
 						>
+							<b>Address:</b> Unit 116, The Wincombe Centre, Wincombe Business Park, Shaftesbury, Dorset, SP7 9QJ
+						</a>
 					</div>
 				</div>
 			</div>
