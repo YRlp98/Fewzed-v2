@@ -10,7 +10,7 @@
 						We’re here to help! Reach out to us and we'll get back to you as soon as possible.
 					</p>
 					<div class="flex flex-col space-y-2">
-						<a href="mailto:info@fewz.com" class="hover:text-dark-primary"><b>Email:</b> info@fewz.com</a>
+						<a href="mailto:info@fewzed.co.uk" class="hover:text-dark-primary"><b>Email:</b> Info@fewzed.co.uk</a>
 						<a href="tel:01747871970" class="hover:text-dark-primary"><b>Phone:</b> 01747 871970</a>
 						<a
 							href="https://www.google.com/maps/search/?api=1&query=Unit+116,+The+Wincombe+Centre,+Wincombe+Business+Park,+Shaftesbury,+Dorset,+SP7+9QJ"
