@@ -10,24 +10,25 @@
 				{{ description }}
 			</p>
 		</div>
-		<img :src="currentImage" alt="Service Card" class="absolute right-0 bottom-0 z-[-1] overflow-hidden opacity-30" />
+		<img :src="currentImage" alt="Service Card"
+			class="absolute right-0 bottom-0 z-[-1] overflow-hidden opacity-30" />
 	</div>
 </template>
 
 <script setup lang="ts">
 import { computed, defineProps, onMounted } from "vue";
-import card1 from "/assets/images/3D/computer-img.png";
-import card2 from "/assets/images/3D/traffic-img.png";
-import card3 from "/assets/images/3D/trials-img.png";
-import card4 from "/assets/images/3D/bulb-front-color-img.png";
-import card5 from "/assets/images/3D/dollar-front-color-img.png";
-import card6 from "/assets/images/3D/develop-img.png";
+import card1 from "~/assets/images/3D/computer-img.png";
+import card2 from "~/assets/images/3D/traffic-img.png";
+import card3 from "~/assets/images/3D/trials-img.png";
+import card4 from "~/assets/images/3D/bulb-front-color-img.png";
+import card5 from "~/assets/images/3D/dollar-front-color-img.png";
+import card6 from "~/assets/images/3D/develop-img.png";
 
 const props = defineProps<{
 	title: string;
 	icon: string;
 	description: string;
-	image: string;
+	image: keyof typeof images;
 }>();
 
 const images = {
@@ -42,12 +43,17 @@ const images = {
 const currentImage = computed(() => images[props.image]);
 
 onMounted(() => {
-	const updateCursor = ({ x, y }) => {
-		document.documentElement.style.setProperty("--x", x);
-		document.documentElement.style.setProperty("--y", y);
+	const updateCursor = (e: PointerEvent) => {
+		const { clientX: x, clientY: y } = e;
+		document.documentElement.style.setProperty("--x", x.toString());
+		document.documentElement.style.setProperty("--y", y.toString());
 	};
 
 	document.body.addEventListener("pointermove", updateCursor);
+
+	onBeforeUnmount(() => {
+		document.body.removeEventListener("pointermove", updateCursor);
+	});
 });
 </script>
 
@@ -73,11 +79,9 @@ onMounted(() => {
 	position: absolute;
 	inset: 0;
 	border-radius: 8px;
-	background: radial-gradient(
-		circle at calc(var(--x) * 1px) calc(var(--y) * 1px),
-		hsl(0 0% 100% / 0.15),
-		transparent 15vmin
-	);
+	background: radial-gradient(circle at calc(var(--x) * 1px) calc(var(--y) * 1px),
+			hsl(0 0% 100% / 0.15),
+			transparent 15vmin);
 	background-attachment: fixed;
 	opacity: var(--active, 0);
 	transition: opacity 0.2s;
@@ -89,11 +93,9 @@ onMounted(() => {
 	position: absolute;
 	inset: 0;
 	border-radius: 8px;
-	background: radial-gradient(
-			circle at calc(var(--x) * 1px) calc(var(--y) * 1px),
+	background: radial-gradient(circle at calc(var(--x) * 1px) calc(var(--y) * 1px),
 			hsl(0 0% 100% / 0.5),
-			transparent 15vmin
-		),
+			transparent 15vmin),
 		transparent;
 	background-attachment: fixed;
 	pointer-events: none;

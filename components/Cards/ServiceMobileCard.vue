@@ -11,20 +11,25 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps, onMounted } from "vue";
+import { defineProps, onMounted } from "vue";
 
-const props = defineProps<{
+defineProps<{
 	title: string;
 	icon: string;
 }>();
 
 onMounted(() => {
-	const updateCursor = ({ x, y }) => {
-		document.documentElement.style.setProperty("--x", x);
-		document.documentElement.style.setProperty("--y", y);
+	const updateCursor = (e: PointerEvent) => {
+		const { clientX: x, clientY: y } = e;
+		document.documentElement.style.setProperty("--x", x.toString());
+		document.documentElement.style.setProperty("--y", y.toString());
 	};
 
 	document.body.addEventListener("pointermove", updateCursor);
+
+	onBeforeUnmount(() => {
+		document.body.removeEventListener("pointermove", updateCursor);
+	});
 });
 </script>
 
@@ -51,11 +56,9 @@ onMounted(() => {
 	position: absolute;
 	inset: 0;
 	border-radius: 8px;
-	background: radial-gradient(
-		circle at calc(var(--x) * 1px) calc(var(--y) * 1px),
-		hsl(0 0% 100% / 0.15),
-		transparent 15vmin
-	);
+	background: radial-gradient(circle at calc(var(--x) * 1px) calc(var(--y) * 1px),
+			hsl(0 0% 100% / 0.15),
+			transparent 15vmin);
 	background-attachment: fixed;
 	opacity: var(--active, 0);
 	transition: opacity 0.2s;
@@ -67,11 +70,9 @@ onMounted(() => {
 	position: absolute;
 	inset: 0;
 	border-radius: 8px;
-	background: radial-gradient(
-			circle at calc(var(--x) * 1px) calc(var(--y) * 1px),
+	background: radial-gradient(circle at calc(var(--x) * 1px) calc(var(--y) * 1px),
 			hsl(0 0% 100% / 0.5),
-			transparent 15vmin
-		),
+			transparent 15vmin),
 		transparent;
 	background-attachment: fixed;
 	pointer-events: none;
