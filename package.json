@@ -10,14 +10,14 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxt/icon": "^1.4.0",
-    "@nuxtjs/sitemap": "^6.0.0-beta.1",
+    "@nuxt/icon": "^2.1.0",
+    "@nuxtjs/sitemap": "^7.4.7",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@splinetool/runtime": "^1.9.5",
     "@studio-freight/lenis": "^1.0.42",
-    "@vueuse/core": "^10.11.0",
-    "@vueuse/nuxt": "^10.11.0",
-    "nuxt": "^3.12.4",
+    "@vueuse/core": "^14.0.0",
+    "@vueuse/nuxt": "^14.0.0",
+    "nuxt": "^4.2.1",
     "typeface-inter": "^3.18.1",
     "vite-svg-loader": "^5.1.0",
     "vue": "latest"
