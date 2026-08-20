@@ -52,6 +52,7 @@ const props = defineProps({
 	border-radius: 10px;
 	border: 1px solid #8f39a9;
 }
+
 /* glow */
 .btn::before {
 	content: "";
@@ -74,9 +75,11 @@ const props = defineProps({
 	0% {
 		background-position: 0 0;
 	}
+
 	50% {
 		background-position: 400% 0;
 	}
+
 	100% {
 		background-position: 0 0;
 	}

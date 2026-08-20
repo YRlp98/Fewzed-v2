@@ -92,7 +92,9 @@ onMounted(() => {
 
 	// Ensure items and thumbnails are not null
 	if (items.value && thumbnails.value) {
-		let countItem = items.value.length;
+		const itemElements = items.value;
+		const thumbnailElements = thumbnails.value;
+		let countItem = itemElements.length;
 
 		// event next click
 		next.value?.addEventListener("click", () => {
@@ -119,8 +121,8 @@ onMounted(() => {
 			thumbnailActiveOld?.classList.remove("active");
 
 			// active new item
-			items.value[itemActive.value].classList.add("active");
-			thumbnails.value[itemActive.value].classList.add("active");
+			itemElements[itemActive.value]?.classList.add("active");
+			thumbnailElements[itemActive.value]?.classList.add("active");
 
 			// clear and reset auto time run slider
 			// clearInterval(refreshInterval);
@@ -133,7 +135,7 @@ onMounted(() => {
 		showSlider();
 
 		// click thumbnail
-		thumbnails.value.forEach((thumbnail, index) => {
+		thumbnailElements.forEach((thumbnail, index) => {
 			thumbnail.addEventListener("click", () => {
 				itemActive.value = index;
 				showSlider();

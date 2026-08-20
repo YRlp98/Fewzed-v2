@@ -45,11 +45,10 @@
 		<!-- #4 Services -->
 		<section class="section js-scroll-section services">
 			<div class="site-container relative h-screen flex items-center justify-center">
-				<div class="js-scroll-content text-left relative z-10">
+				<div class="js-scroll-content relative z-10 w-full text-left">
 					<TitlesShadowTitle text="services" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">we provide</h2>
-					<!-- On Large Screen -->
-					<div class="service-card-grid mt-11 hidden min-[1280px]:grid grid-cols-3 gap-2.5">
+					<div class="service-card-grid mt-4 grid grid-cols-1 gap-2 min-[720px]:mt-11 min-[720px]:grid-cols-3 min-[720px]:gap-2.5">
 						<CardsServiceCard title="Computer Aided design" icon="iconoir:design-nib-solid"
 							description="Production of CAD modelling, simulations and rendering for mechanical and civil applications."
 							image="card1" />
@@ -70,23 +69,13 @@
 							description="Development, testing and deployment of software systems including analytics, web and applications."
 							image="card6" />
 					</div>
-					<!-- On Small screen -->
-					<div class="mt-4 grid gap-2 min-[1280px]:hidden">
-						<CardsServiceMobileCard title="Computer Aided design" icon="iconoir:design-nib-solid" />
-						<CardsServiceMobileCard title="Traffic Modelling & Simulation" icon="lucide:traffic-cone" />
-						<CardsServiceMobileCard title="Highway assessment trials" icon="mdi:highway" />
-						<CardsServiceMobileCard title="Innovation management" icon="teenyicons:bulb-on-outline" />
-						<CardsServiceMobileCard title="Funding & Bidding" icon="icon-park-outline:funds" />
-						<CardsServiceMobileCard title="Development & Management"
-							icon="material-symbols:developer-mode-tv-outline" />
-					</div>
 				</div>
 			</div>
 		</section>
 		<!-- #5 Products -->
 		<section class="section js-scroll-section projects">
 			<div class="site-container relative h-screen flex items-center justify-center">
-				<div class="js-scroll-content text-left relative z-10">
+				<div class="js-scroll-content relative z-10 w-full text-left">
 					<TitlesShadowTitle text="products" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">We've crafted</h2>
 					<!-- On Large Screen -->
