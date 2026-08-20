@@ -3,6 +3,9 @@
 		<loaderPreLoader />
 		<Navbar />
 		<slot />
+		<ClientOnly>
+			<CursorsMagneticCursor />
+		</ClientOnly>
 	</main>
 </template>
 
