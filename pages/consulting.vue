@@ -1,111 +1,122 @@
 <template>
-	<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
-		<div class="flex flex-wrap items-start gap-20 md:pt-0 pb-20 md:pb-0">
+	<section ref="section" class="consulting-page relative px-12 sm:px-16 lg:px-20">
+		<div class="mx-auto grid max-w-[90rem] items-start gap-16 py-32 md:grid-cols-2 md:gap-20 md:py-[20svh]">
 			<!-- Left side -->
-			<div class="text-left relative flex-1">
-				<div class="relative space-y-8 h-[300px] lg:mt-40">
+			<div class="text-left">
+				<div class="relative space-y-8">
 					<TitlesShadowTitle id="shadow-title" text="consulting" />
 
 					<!-- Scrolling Content -->
 					<div id="content" class="max-w-[800px] text-2xl tracking-wide leading-10 space-y-20">
 						<p id="p1">
-							We’re here to support your business and projects with expert knowledge and experience from the Highways,
+							We’re here to support your business and projects with expert knowledge and experience from
+							the Highways,
 							Construction, Data Collection, and Sampling industries.
 						</p>
 
 						<p id="p2">
-							Our small team of experts have demonstrated their capabilities over many years as project managers,
-							technical experts, innovation and technology strategists, and trial and experiment managers. We also have
+							Our small team of experts have demonstrated their capabilities over many years as project
+							managers,
+							technical experts, innovation and technology strategists, and trial and experiment managers.
+							We also have
 							access to a wide network of specialists to supplement our capabilities.
 						</p>
 
 						<p id="p3">
-							Our background is big consultancy and technology development together with a wide knowledge of highways
+							Our background is big consultancy and technology development together with a wide knowledge
+							of highways
 							operations.
 						</p>
 
-						<p id="p4" class="pb-60">
-							We typically work with a blend of in person and remote delivery and even take on secondment opportunities.
-							Get in touch with us today to see how we can assist you with your specialist projects and applications.
+						<p id="p4">
+							We typically work with a blend of in person and remote delivery and even take on secondment
+							opportunities.
+							Get in touch with us today to see how we can assist you with your specialist projects and
+							applications.
 						</p>
 					</div>
 				</div>
 			</div>
 
 			<!-- Right side -->
-			<div id="canvas" class="relative flex-1 mt-20 hidden md:block">
-				<canvas ref="canvas" class="m-auto" />
+			<div ref="canvasPanel" id="canvas" class="consulting-canvas hidden justify-center md:flex">
+				<canvas ref="canvas" class="aspect-square w-full max-w-[34rem]" />
 			</div>
 		</div>
-	</div>
+	</section>
 </template>
 
 <script setup lang="ts">
 import { Application } from "@splinetool/runtime";
 
-const { $gsap } = useNuxtApp();
+const { $gsap, $scrollTrigger } = useNuxtApp();
 
 useHead({
 	title: "Fewzed - Consulting",
 	meta: [{ name: "description", content: "Fewzed consulting page" }],
 });
 
+const section = ref<HTMLElement | null>(null);
 const canvas = ref<HTMLCanvasElement | null>(null);
+const canvasPanel = ref<HTMLElement | null>(null);
+let animationContext: ReturnType<typeof $gsap.context> | undefined;
 
 const state = reactive({
 	spline: {
 		scene: "https://prod.spline.design/0v8Sna82q5BfD6Gy/scene.splinecode",
 		app: null as Application | null,
-		isLoaded: false,
 	},
 });
 
-// Browser detection
-const isFirefox = typeof InstallTrigger !== "undefined";
-
-onMounted(() => {
-	if (isFirefox) {
-		document.body.classList.add("firefox");
-	}
-});
-
 onMounted(async () => {
-	if (canvas.value) {
-		const app = new Application(canvas.value);
-		await app.load(state.spline.scene);
-		state.spline.app = app;
-		state.spline.isLoaded = true;
+	if (!section.value) return;
 
-		// Pin the canvas element
-		$gsap.to(canvas.value, {
-			scrollTrigger: {
-				trigger: canvas.value,
-				pin: true,
-				start: "top center",
-				end: "bottom center",
-				scrub: true,
-			},
-		});
-
-		// Animate the shadow title
+	animationContext = $gsap.context(() => {
 		$gsap.from("#shadow-title", {
-			x: -100,
+			x: -80,
 			opacity: 0,
-			delay: 0.5,
+			duration: 0.7,
+			ease: "power3.out",
 		});
 
 		$gsap.from("#content", {
-			y: -100,
+			y: 48,
 			opacity: 0,
-			delay: 0.75,
+			delay: 0.15,
+			duration: 0.8,
+			ease: "power3.out",
 		});
 
-		$gsap.from("#canvas", {
-			y: 100,
-			opacity: 0,
-			delay: 0.75,
+		const media = $gsap.matchMedia();
+		media.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
+			if (!canvasPanel.value || !section.value) return;
+
+			const stickyCanvas = $scrollTrigger.create({
+				trigger: section.value,
+				start: "top top",
+				end: "bottom bottom",
+				pin: canvasPanel.value,
+				pinSpacing: false,
+				anticipatePin: 1,
+				invalidateOnRefresh: true,
+			});
+
+			return () => stickyCanvas.kill();
 		});
-	}
+
+		return () => media.revert();
+	}, section.value);
+
+	if (!canvas.value) return;
+
+	const app = new Application(canvas.value);
+	await app.load(state.spline.scene);
+	state.spline.app = app;
+	$scrollTrigger.refresh();
+});
+
+onBeforeUnmount(() => {
+	animationContext?.revert();
 });
 </script>
 
@@ -114,23 +125,13 @@ canvas {
 	pointer-events: none;
 }
 
-.fade {
-	background-image: linear-gradient(transparent 10%, #fff 30%, #fff 70%, transparent 90%);
-	background-clip: text;
-	-webkit-background-clip: text;
-	background-attachment: fixed;
-}
+@media (min-width: 768px) {
+	.consulting-page {
+		min-height: 170svh;
+	}
 
-.fade > * {
-	color: transparent;
-}
-
-/* Firefox-specific adjustments */
-.firefox .fade {
-	background-image: none;
-}
-
-.firefox .fade > * {
-	color: inherit;
+	.consulting-canvas {
+		min-height: min(70svh, 42rem);
+	}
 }
 </style>

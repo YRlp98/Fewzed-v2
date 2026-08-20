@@ -1,9 +1,9 @@
 <template>
-	<div class="fullscreen-container" id="viewport">
+	<main class="fullscreen-container" id="viewport">
 		<loaderPreLoader />
 		<Navbar />
-			<slot />
-	</div>
+		<slot />
+	</main>
 </template>
 
 <script setup lang="ts"></script>
