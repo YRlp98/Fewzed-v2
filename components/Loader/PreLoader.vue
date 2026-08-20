@@ -1,8 +1,6 @@
 <template>
-	<div
-		v-if="store.isPreloaderVisible"
-		class="preloader fixed inset-0 bg-black-1 z-[99] flex items-center justify-center select-none"
-	>
+	<div v-if="store.isPreloaderVisible"
+		class="preloader fixed inset-0 bg-black-1 z-[99] flex items-center justify-center select-none">
 		<svg id="demo" xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 100 100">
 			<defs>
 				<clipPath id="theClipPath">
@@ -19,7 +17,31 @@
 </template>
 
 <script setup lang="ts">
+import { onBeforeUnmount, onMounted, watch, type WatchStopHandle } from "vue";
+import { store } from "~/store";
+
+const { $lenis } = useNuxtApp();
+let stopVisibilityWatch: WatchStopHandle | undefined;
+
+const setScrollLock = (isLocked: boolean) => {
+	document.documentElement.classList.toggle("preloader-active", isLocked);
+	document.body.classList.toggle("preloader-active", isLocked);
+
+	if (isLocked) {
+		$lenis?.stop();
+		return;
+	}
+
+	$lenis?.start();
+};
+
 onMounted(() => {
+	stopVisibilityWatch = watch(
+		() => store.isPreloaderVisible,
+		setScrollLock,
+		{ immediate: true },
+	);
+
 	const tl = gsap.timeline({
 		onComplete() {
 			gsap.delayedCall(1, () => {
@@ -39,18 +61,30 @@ onMounted(() => {
 	tl.to("line", { attr: { x1: 50, x2: 50 } });
 	tl.to("text", { duration: 1, opacity: 0, ease: "none" });
 });
+
+onBeforeUnmount(() => {
+	stopVisibilityWatch?.();
+	setScrollLock(false);
+});
 </script>
 
 <style scoped>
 .preloader {
 	background: #000;
 	overflow: hidden;
+	touch-action: none;
 	z-index: 99;
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
+}
+
+:global(html.preloader-active),
+:global(body.preloader-active) {
+	overflow: hidden !important;
+	overscroll-behavior: none;
 }
 
 #demo {

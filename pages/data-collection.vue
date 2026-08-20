@@ -1,5 +1,7 @@
 <template>
-	<h1>Data Collection</h1>
+	<main class="site-container py-32">
+		<h1>Data Collection</h1>
+	</main>
 </template>
 
 <script setup lang="ts">

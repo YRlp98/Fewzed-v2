@@ -1,8 +1,7 @@
 <template>
 	<NuxtLink
 		class="btn relative flex items-center justify-center p-2 rounded-[12px] bg-gradient-to-r from-purple-500 to-purple-700 shadow-lg shadow-purple-500/50 cursor-pointer"
-		:to="link || '#'"
-	>
+		:to="link || '#'">
 		<span class="text text-white mr-2">{{ text }}</span>
 		<Icon :name="icon" class="text-base text-white" v-if="icon" />
 	</NuxtLink>
@@ -50,9 +49,11 @@ const props = defineProps({
 	0% {
 		background-position: 0 0;
 	}
+
 	50% {
 		background-position: 400% 0;
 	}
+
 	100% {
 		background-position: 0 0;
 	}

@@ -1,6 +1,6 @@
 <template>
-	<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center overflow-y-auto">
-		<div class="flex flex-wrap items-start gap-20 pt-[44rem] md:pt-0 pb-20 md:pb-0">
+	<div class="relative h-screen flex items-center justify-center overflow-y-auto">
+		<div class="site-container flex flex-wrap items-start gap-20 pt-[44rem] md:pt-0 pb-20 md:pb-0">
 			<!-- Text col -->
 			<div class="text-left relative min-w-[250px] max-w-[50rem] z-10 flex-1">
 				<TitlesShadowTitle id="shadow-title" text="contact us" />
@@ -9,7 +9,7 @@
 					<p class="text-xl tracking-wide">
 						We’re here to help! Reach out to us and we'll get back to you as soon as possible.
 					</p>
-					<div class="flex flex-col space-y-2">
+					<div class="flex min-w-0 flex-col items-start space-y-2">
 						<a href="mailto:info@fewzed.co.uk" class="hover:text-dark-primary"><b>Email:</b> Info@fewzed.co.uk</a>
 						<a href="tel:01747871970" class="hover:text-dark-primary"><b>Phone:</b> 01747 871970</a>
 						<a

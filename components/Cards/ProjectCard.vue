@@ -1,5 +1,5 @@
 <template>
-	<div class="card p-6 max-w-[180px] lg:max-w-[264px] h-[120px] lg:h-[360px]">
+	<div class="card h-[120px] w-full max-w-none p-6 min-[720px]:h-[180px] lg:h-[360px] lg:w-auto lg:max-w-[264px]">
 		<div class="gradient-overlay absolute inset-0 bg-black opacity-50 z-0"></div>
 		<div class="z-10">
 			<h1 class="absolute left-6 bottom-4 text-lg tracking-widest font-bold text-gray-4">{{ title }}</h1>

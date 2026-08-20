@@ -1,13 +1,12 @@
 <template>
-	<NuxtLink :to="link" class="button cursor-pointer max-h-20 flex flex-wrap items-center justify-start space-x-2">
+	<NuxtLink :to="link" class="button cursor-pointer max-h-20 flex flex-wrap items-center justify-start space-x-2"
+		data-magnetic>
 		<span class="text uppercase whitespace-nowrap text-base font-bold tracking-wider">{{ text }}</span>
 		<img class="h-10" src="/assets/icons/ArrowToCircleIcon.svg" alt="Arrow Icon" />
 	</NuxtLink>
 </template>
 
 <script setup lang="ts">
-import { defineProps } from "vue";
-
 const props = defineProps<{
 	text: string;
 	link: string;
