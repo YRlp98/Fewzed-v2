@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="site-container">
 		<div class="h-screen flex items-center justify-center">
 			<div id="box1" class="size-[200px] bg-black-1 rounded-lg shadow-sm">
 				<h1 class="text-white">hi mom</h1>

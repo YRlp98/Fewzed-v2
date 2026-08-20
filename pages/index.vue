@@ -5,7 +5,7 @@
 		</div>
 		<!-- #1 Hero -->
 		<section ref="hero" class="section hero">
-			<div class="px-12 sm:px-16 lg:px-20 h-full flex items-center">
+			<div class="site-container h-full flex items-center">
 				<div class="text-left">
 					<TitlesMagicTitle id="h1-title" text="FEWZED" class="title-animation" />
 					<h2 id="h2-title" class="font-extralight text-gray-3 text-4xl">WE DELIVER GREAT PROJECTS</h2>
@@ -14,7 +14,7 @@
 		</section>
 		<!-- #2 Who we are -->
 		<section class="section js-scroll-section who-we-are">
-			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
+			<div class="site-container relative h-screen flex items-center justify-center">
 				<div class="js-scroll-content text-left relative z-10 max-w-[50rem]">
 					<TitlesShadowTitle text="about" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">who we are</h2>
@@ -30,7 +30,7 @@
 		</section>
 		<!-- #3 What we do -->
 		<section class="section js-scroll-section what-we-do">
-			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
+			<div class="site-container relative h-screen flex items-center justify-center">
 				<div class="js-scroll-content text-left relative z-10 max-w-[50rem]">
 					<TitlesShadowTitle text="about" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">what we do</h2>
@@ -44,12 +44,12 @@
 		</section>
 		<!-- #4 Services -->
 		<section class="section js-scroll-section services">
-			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
+			<div class="site-container relative h-screen flex items-center justify-center">
 				<div class="js-scroll-content text-left relative z-10">
 					<TitlesShadowTitle text="services" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">we provide</h2>
 					<!-- On Large Screen -->
-					<div class="mt-11 hidden 2xl:grid grid-cols-3 gap-2.5">
+					<div class="service-card-grid mt-11 hidden min-[1280px]:grid grid-cols-3 gap-2.5">
 						<CardsServiceCard title="Computer Aided design" icon="iconoir:design-nib-solid"
 							description="Production of CAD modelling, simulations and rendering for mechanical and civil applications."
 							image="card1" />
@@ -71,7 +71,7 @@
 							image="card6" />
 					</div>
 					<!-- On Small screen -->
-					<div class="mt-4 grid gap-2 2xl:hidden">
+					<div class="mt-4 grid gap-2 min-[1280px]:hidden">
 						<CardsServiceMobileCard title="Computer Aided design" icon="iconoir:design-nib-solid" />
 						<CardsServiceMobileCard title="Traffic Modelling & Simulation" icon="lucide:traffic-cone" />
 						<CardsServiceMobileCard title="Highway assessment trials" icon="mdi:highway" />
@@ -85,7 +85,7 @@
 		</section>
 		<!-- #5 Products -->
 		<section class="section js-scroll-section projects">
-			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex items-center justify-center">
+			<div class="site-container relative h-screen flex items-center justify-center">
 				<div class="js-scroll-content text-left relative z-10">
 					<TitlesShadowTitle text="products" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">We've crafted</h2>
@@ -107,7 +107,7 @@
 		</section>
 		<!-- #6 Contact us -->
 		<section class="section js-scroll-section contact-us">
-			<div class="relative px-12 sm:px-16 lg:px-20 h-screen flex flex-col items-center justify-center">
+			<div class="site-container relative h-screen flex flex-col items-center justify-center">
 				<div class="js-scroll-content text-left relative max-w-[50rem] z-10">
 					<TitlesShadowTitle text="contact us" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">have a question?</h2>

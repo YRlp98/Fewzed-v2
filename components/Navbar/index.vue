@@ -1,7 +1,8 @@
 <template>
 	<nav class="fixed w-full z-50" id="navbar">
-		<div class="navbar mx-auto px-12 sm:px-16 lg:px-20">
-			<div class="flex justify-between items-center py-4">
+		<div class="navbar">
+			<div class="site-container">
+				<div class="flex justify-between items-center py-4">
 				<div class="flex-shrink-0">
 					<NuxtLink to="/">
 						<img src="/assets/images/logo.svg" alt="Logo" class="h-8" />
@@ -66,6 +67,7 @@
 						</button>
 					</div>
 				</div>
+				</div>
 			</div>
 		</div>
 		<!-- Sidebar -->
@@ -75,7 +77,7 @@
 				isOpen ? 'translate-x-0' : '-translate-x-full',
 			]"
 		>
-			<div class="flex items-center justify-between py-4 px-12 sm:px-16 lg:px-20">
+			<div class="site-container flex items-center justify-between py-4">
 				<NuxtLink to="/" @click.native="handleLinkClick">
 					<img src="/assets/images/logo.svg" alt="Logo" class="h-8" />
 				</NuxtLink>
@@ -86,7 +88,7 @@
 				</button>
 			</div>
 			<div
-				class="flex flex-col items-start mt-20 h-full space-y-4 text-gray-4 font-bold text-lg py-4 px-12 sm:px-16 lg:px-20"
+				class="site-container flex flex-col items-start mt-20 h-full space-y-4 text-gray-4 font-bold text-lg py-4"
 			>
 				<NuxtLink
 					to="/"

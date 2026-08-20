@@ -1,6 +1,6 @@
 <template>
-	<section ref="section" class="consulting-page relative px-12 sm:px-16 lg:px-20">
-		<div class="mx-auto grid max-w-[90rem] items-start gap-16 py-32 md:grid-cols-2 md:gap-20 md:py-[20svh]">
+	<section ref="section" class="consulting-page relative">
+		<div class="site-container grid items-start gap-16 py-32 md:grid-cols-2 md:gap-20 md:py-[20svh]">
 			<!-- Left side -->
 			<div class="text-left">
 				<div class="relative space-y-8">

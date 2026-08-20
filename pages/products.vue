@@ -182,7 +182,7 @@ onMounted(() => {
 
 .slider .list .item .content {
 	position: absolute;
-	left: 10%;
+	left: max(1.5rem, calc((100vw - 100rem) / 2 + 5rem));
 	top: 20%;
 	width: 580px;
 	max-width: 80%;
@@ -222,21 +222,22 @@ onMounted(() => {
 .buttons {
 	position: absolute;
 	top: 30%;
-	right: 50px;
+	right: max(1.5rem, calc((100vw - 100rem) / 2 + 5rem));
 	z-index: 10;
 }
 
 .thumbnail {
 	position: absolute;
 	bottom: 50px;
-	right: 0px;
+	left: 50%;
 	z-index: 10;
 	display: flex;
 	gap: 10px;
-	width: 90%;
+	width: min(calc(100% - 3rem), 100rem);
 	box-sizing: border-box;
 	overflow-x: auto;
 	overflow-y: hidden;
+	transform: translateX(-50%);
 }
 
 .thumbnail .card:first-child {
