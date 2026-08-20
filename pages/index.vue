@@ -48,7 +48,8 @@
 				<div class="js-scroll-content relative z-10 w-full text-left">
 					<TitlesShadowTitle text="services" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">we provide</h2>
-					<div class="service-card-grid mt-4 grid grid-cols-1 gap-2 min-[720px]:mt-11 min-[720px]:grid-cols-3 min-[720px]:gap-2.5">
+					<div
+						class="service-card-grid mt-4 grid grid-cols-1 gap-2 min-[720px]:mt-11 min-[720px]:grid-cols-3 min-[720px]:gap-2.5">
 						<CardsServiceCard title="Computer Aided design" icon="iconoir:design-nib-solid"
 							description="Production of CAD modelling, simulations and rendering for mechanical and civil applications."
 							image="card1" />
@@ -97,17 +98,21 @@
 		<!-- #6 Contact us -->
 		<section class="section js-scroll-section contact-us">
 			<div class="site-container relative h-screen flex flex-col items-center justify-center">
-				<div class="js-scroll-content text-left relative max-w-[50rem] z-10">
+				<div class="js-scroll-content text-left relative z-10 w-full min-w-0 max-w-[50rem]">
 					<TitlesShadowTitle text="contact us" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">have a question?</h2>
 					<div class="mt-11 justify-center items-center space-y-6 lg:space-y-8">
 						<p class="text-xl tracking-wide">
 							We’re here to help! Reach out to us and we'll get back to you as soon as possible.
 						</p>
-						<div class="flex flex-col space-y-2 lg:ml-10">
-							<a href="mailto:info@fewzed.co.uk" class="hover:text-dark-primary"><b>Email:</b>
-								Info@fewzed.co.uk</a>
-							<a href="tel:01747871970" class="hover:text-dark-primary"><b>Phone:</b> 01747 871970</a>
+						<div class="flex min-w-0 flex-col items-start space-y-2 lg:ml-10">
+							<a href="mailto:info@fewzed.co.uk" class="hover:text-dark-primary">
+								<b>Email:</b>
+								Info@fewzed.co.uk
+							</a>
+							<a href="tel:01747871970" class="hover:text-dark-primary">
+								<b>Phone:</b> 01747 871970
+							</a>
 							<a href="https://www.google.com/maps/search/?api=1&query=Unit+116,+The+Wincombe+Centre,+Wincombe+Business+Park,+Shaftesbury,+Dorset,+SP7+9QJ"
 								target="_blank" class="hover:text-dark-primary">
 								<b>Address:</b> Unit 116, The Wincombe Centre, Wincombe Business Park, Shaftesbury,
@@ -118,7 +123,7 @@
 							Or fill out our contact form, and we'll get in touch with you shortly.
 						</p>
 						<div class="flex justify-center w-full">
-							<ButtonsRoundedBtn class="w-[7.875rem] mt-2" text="Contact Us" icon="mynaui:telephone"
+							<ButtonsRoundedBtn class="mt-2 h-14 w-40 !text-sm" text="Contact Us" icon="mynaui:telephone"
 								link="/contact-us" />
 						</div>
 					</div>
@@ -136,7 +141,9 @@
 </template>
 
 <script setup lang="ts">
-const { $gsap } = useNuxtApp();
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+const { $gsap, $lenis } = useNuxtApp();
 
 const home = ref<HTMLElement | null>(null);
 const hero = ref<HTMLElement | null>(null);
@@ -149,7 +156,11 @@ useHead({
 	meta: [{ name: "description", content: "Fewzed home page - We deliver great projects" }],
 });
 
-onMounted(() => {
+onMounted(async () => {
+	window.scrollTo({ top: 0, behavior: "auto" });
+	$lenis?.scrollTo(0, { immediate: true });
+	await nextTick();
+
 	// Animate the h1 title
 	$gsap.from("#h1-title", {
 		x: -100,
@@ -183,7 +194,6 @@ onMounted(() => {
 					},
 				},
 			);
-
 		}
 
 		if (orbit.value) {
@@ -223,6 +233,8 @@ onMounted(() => {
 
 		return () => media.revert();
 	}, home.value);
+
+	ScrollTrigger.refresh();
 });
 
 onBeforeUnmount(() => {
@@ -255,9 +267,9 @@ onBeforeUnmount(() => {
 	left: clamp(-34rem, -28vw, -14rem);
 	z-index: 0;
 	width: clamp(46rem, 74vw, 68rem);
+	opacity: 0;
 	pointer-events: none;
 	transform: translateY(-50%);
-	opacity: 0;
 }
 
 .home-orbit img {
