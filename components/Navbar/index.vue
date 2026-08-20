@@ -1,6 +1,6 @@
 <template>
 	<nav class="fixed w-full z-50" id="navbar">
-		<div class="navbar">
+		<div class="navbar" :class="{ 'navbar--top': isAtTop }">
 			<div class="site-container">
 				<div class="flex justify-between items-center py-4">
 					<div class="flex-shrink-0">
@@ -104,12 +104,17 @@
 </template>
 
 <script setup>
-import { ref, onBeforeUnmount } from "vue";
+import { ref, onBeforeUnmount, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
 const router = useRouter();
 const isOpen = ref(false);
+const isAtTop = ref(true);
+
+const updateScrollState = () => {
+	isAtTop.value = window.scrollY <= 0;
+};
 
 const isActive = (path) => route.path === path;
 
@@ -125,6 +130,11 @@ const handleLinkClick = () => {
 	closeMenu();
 };
 
+onMounted(() => {
+	updateScrollState();
+	window.addEventListener("scroll", updateScrollState, { passive: true });
+});
+
 const routeChangeHandler = () => {
 	closeMenu();
 };
@@ -135,6 +145,7 @@ router.beforeEach((to, from, next) => {
 });
 
 onBeforeUnmount(() => {
+	window.removeEventListener("scroll", updateScrollState);
 	router.beforeEach((to, from, next) => {
 		next();
 	});
@@ -149,5 +160,10 @@ onBeforeUnmount(() => {
 .navbar {
 	backdrop-filter: blur(10px);
 	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.navbar--top {
+	backdrop-filter: none;
+	background-color: transparent;
 }
 </style>
