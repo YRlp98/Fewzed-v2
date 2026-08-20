@@ -8,29 +8,29 @@
 							<img src="/assets/images/logo.svg" alt="Logo" class="h-8" />
 						</NuxtLink>
 					</div>
-					<div class="hidden lg:flex flex-grow justify-center items-center space-x-8 text-gray-4 font-bold">
+					<div class="hidden lg:flex flex-grow justify-center items-center space-x-8 text-gray-4 font-normal">
 						<NuxtLink to="/"
-							:class="{ 'text-white border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/') }"
+							:class="{ 'text-white font-bold border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/') }"
 							class="hover:text-white transition-colors">
 							Home
 						</NuxtLink>
 						<NuxtLink to="/consulting" :class="{
-							'text-white border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/consulting'),
+							'text-white font-bold border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/consulting'),
 						}" class="hover:text-white transition-colors">
 							Consulting
 						</NuxtLink>
 						<NuxtLink to="/trials"
-							:class="{ 'text-white border-b-2 border-purple-600 title-shadow': isActive('/trials') }"
+							:class="{ 'text-white font-bold border-b-2 border-purple-600 title-shadow': isActive('/trials') }"
 							class="hover:text-white transition-colors">
 							Trials
 						</NuxtLink>
 						<NuxtLink to="/data-collection" :class="{
-							'text-white border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/data-collection'),
+							'text-white font-bold border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/data-collection'),
 						}" class="hover:text-white transition-colors">
 							Data Collection
 						</NuxtLink>
 						<NuxtLink to="/products"
-							:class="{ 'text-white border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/products') }"
+							:class="{ 'text-white font-bold border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/products') }"
 							class="hover:text-white transition-colors">
 							Products
 						</NuxtLink>
@@ -70,30 +70,30 @@
 				</button>
 			</div>
 			<div
-				class="site-container flex flex-col items-start mt-20 h-full space-y-4 text-gray-4 font-bold text-lg py-4">
-				<NuxtLink to="/" :class="{ 'text-white': isActive('/') }"
-					class="block px-4 py-2 rounded-md font-medium transition-all duration-200 transform hover:translate-x-2"
+				class="site-container flex flex-col items-start mt-20 h-full space-y-4 text-gray-4 font-normal text-lg py-4">
+				<NuxtLink to="/" :class="{ 'text-white font-bold': isActive('/') }"
+					class="block px-4 py-2 rounded-md transition-all duration-200 transform hover:translate-x-2"
 					@click.native="handleLinkClick">
 					Home
 				</NuxtLink>
-				<NuxtLink to="/consulting" :class="{ 'text-white': isActive('/consulting') }"
-					class="block px-4 py-2 rounded-md font-medium transition-all duration-200 transform hover:translate-x-2">
+				<NuxtLink to="/consulting" :class="{ 'text-white font-bold': isActive('/consulting') }"
+					class="block px-4 py-2 rounded-md transition-all duration-200 transform hover:translate-x-2">
 					Consulting
 				</NuxtLink>
-				<NuxtLink to="/trials" :class="{ 'text-white': isActive('/trials') }"
-					class="block px-4 py-2 rounded-md font-medium transition-all duration-200 transform hover:translate-x-2">
+				<NuxtLink to="/trials" :class="{ 'text-white font-bold': isActive('/trials') }"
+					class="block px-4 py-2 rounded-md transition-all duration-200 transform hover:translate-x-2">
 					Trials
 				</NuxtLink>
-				<NuxtLink to="/data-collection" :class="{ 'text-white': isActive('/data-collection') }"
-					class="block px-4 py-2 rounded-md font-medium transition-all duration-200 transform hover:translate-x-2">
+				<NuxtLink to="/data-collection" :class="{ 'text-white font-bold': isActive('/data-collection') }"
+					class="block px-4 py-2 rounded-md transition-all duration-200 transform hover:translate-x-2">
 					Data Collection
 				</NuxtLink>
-				<NuxtLink to="/products" :class="{ 'text-white': isActive('/products') }"
-					class="block px-4 py-2 rounded-md font-medium transition-all duration-200 transform hover:translate-x-2">
+				<NuxtLink to="/products" :class="{ 'text-white font-bold': isActive('/products') }"
+					class="block px-4 py-2 rounded-md transition-all duration-200 transform hover:translate-x-2">
 					Products
 				</NuxtLink>
-				<NuxtLink to="/contact-us" :class="{ 'text-white': isActive('/contact-us') }"
-					class="block px-4 py-2 rounded-md font-medium transition-all duration-200 transform hover:translate-x-2">
+				<NuxtLink to="/contact-us" :class="{ 'text-white font-bold': isActive('/contact-us') }"
+					class="block px-4 py-2 rounded-md transition-all duration-200 transform hover:translate-x-2">
 					Contact Us
 				</NuxtLink>
 			</div>
