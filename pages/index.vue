@@ -155,13 +155,18 @@
 <script setup lang="ts">
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const { $gsap, $lenis } = useNuxtApp();
+const nuxtApp = useNuxtApp();
+const { $gsap, $lenis } = nuxtApp;
+const route = useRoute();
 
 const home = ref<HTMLElement | null>(null);
 const hero = ref<HTMLElement | null>(null);
 const orbitEntrance = ref<HTMLElement | null>(null);
 const orbit = ref<HTMLElement | null>(null);
 let pageContext: ReturnType<typeof $gsap.context> | undefined;
+let animationFrame: number | undefined;
+let orbitFrame: number | undefined;
+let removePageFinishHook: (() => void) | undefined;
 const currentYear = new Date().getFullYear();
 
 usePageSeo({
@@ -171,89 +176,113 @@ usePageSeo({
 	path: "/",
 });
 
-onMounted(async () => {
-	window.scrollTo({ top: 0, behavior: "auto" });
-	$lenis?.scrollTo(0, { immediate: true });
+const clearHomeAnimations = () => {
+	if (animationFrame !== undefined) cancelAnimationFrame(animationFrame);
+	if (orbitFrame !== undefined) cancelAnimationFrame(orbitFrame);
+	animationFrame = undefined;
+	orbitFrame = undefined;
+	pageContext?.revert();
+	pageContext = undefined;
+};
+
+const clamp = (value: number, min = 0, max = 1) => Math.min(Math.max(value, min), max);
+
+const updateOrbit = () => {
+	orbitFrame = undefined;
+	if (!home.value || !hero.value || !orbitEntrance.value || !orbit.value) return;
+
+	const viewportHeight = window.innerHeight;
+	const heroBottom = hero.value.getBoundingClientRect().bottom;
+	const entranceProgress = clamp((viewportHeight * 0.8 - heroBottom) / (viewportHeight * 0.55));
+	const homeTop = home.value.getBoundingClientRect().top + window.scrollY;
+	const scrollableHeight = Math.max(home.value.offsetHeight - viewportHeight, 1);
+	const rotationProgress = clamp((window.scrollY - homeTop) / scrollableHeight);
+
+	$gsap.set(orbitEntrance.value, {
+		autoAlpha: entranceProgress * 0.8,
+		x: -160 + entranceProgress * 160,
+	});
+	$gsap.set(orbit.value, { rotation: rotationProgress * 150 });
+};
+
+const scheduleOrbitUpdate = () => {
+	if (orbitFrame !== undefined) return;
+	orbitFrame = requestAnimationFrame(updateOrbit);
+};
+
+const initialiseHomeAnimations = async (resetScroll = false) => {
+	clearHomeAnimations();
+
+	if (resetScroll) {
+		window.scrollTo({ top: 0, behavior: "auto" });
+		$lenis?.scrollTo(0, { immediate: true });
+	}
+
 	await nextTick();
 
-	// Animate the h1 title
-	$gsap.from("#h1-title", {
-		x: -100,
-		opacity: 0,
-		delay: 0.5,
-	});
+	animationFrame = requestAnimationFrame(() => {
+		animationFrame = undefined;
+		if (!home.value || !hero.value) return;
 
-	// Animate the h2 title
-	$gsap.from("#h2-title", {
-		x: -100,
-		opacity: 0,
-		delay: 0.75,
-	});
-
-	if (!home.value) return;
-
-	pageContext = $gsap.context(() => {
-		if (orbitEntrance.value && hero.value) {
-			$gsap.fromTo(
-				orbitEntrance.value,
-				{ autoAlpha: 0, x: -160 },
-				{
-					autoAlpha: 0.8,
-					x: 0,
-					ease: "none",
-					scrollTrigger: {
-						trigger: hero.value,
-						start: "bottom 80%",
-						end: "bottom 25%",
-						scrub: 0.5,
-					},
-				},
-			);
-		}
-
-		if (orbit.value) {
-			$gsap.to(orbit.value, {
-				rotation: 150,
-				ease: "none",
-				scrollTrigger: {
-					trigger: home.value,
-					start: "top top",
-					end: "bottom bottom",
-					scrub: 0.5,
-					invalidateOnRefresh: true,
-				},
+		pageContext = $gsap.context(() => {
+			$gsap.from("#h1-title", {
+				x: -100,
+				opacity: 0,
+				delay: 0.5,
 			});
-		}
 
-		const media = $gsap.matchMedia();
-		media.add("(prefers-reduced-motion: no-preference)", () => {
-			$gsap.utils.toArray<HTMLElement>(".js-scroll-section").forEach((section) => {
-				const content = section.querySelector<HTMLElement>(".js-scroll-content");
-				if (!content) return;
+			$gsap.from("#h2-title", {
+				x: -100,
+				opacity: 0,
+				delay: 0.75,
+			});
 
-				$gsap.from(content.children, {
-					y: 48,
-					autoAlpha: 0,
-					stagger: 0.09,
-					duration: 0.75,
-					ease: "power3.out",
-					scrollTrigger: {
-						trigger: section,
-						start: "top 72%",
-						toggleActions: "play none none reverse",
-					},
+			const media = $gsap.matchMedia();
+			media.add("(prefers-reduced-motion: no-preference)", () => {
+				$gsap.utils.toArray<HTMLElement>(".js-scroll-section").forEach((section) => {
+					const content = section.querySelector<HTMLElement>(".js-scroll-content");
+					if (!content) return;
+
+					$gsap.from(content.children, {
+						y: 48,
+						autoAlpha: 0,
+						stagger: 0.09,
+						duration: 0.75,
+						ease: "power3.out",
+						scrollTrigger: {
+							trigger: section,
+							start: "top 72%",
+							toggleActions: "play none none reverse",
+						},
+					});
 				});
 			});
-		});
 
-		return () => media.revert();
-	}, home.value);
+			return () => media.revert();
+		}, home.value);
 
-	ScrollTrigger.refresh();
+		ScrollTrigger.refresh();
+		scheduleOrbitUpdate();
+	});
+};
+
+onMounted(() => {
+	window.addEventListener("scroll", scheduleOrbitUpdate, { passive: true });
+	window.addEventListener("resize", scheduleOrbitUpdate, { passive: true });
+	initialiseHomeAnimations(true);
+
+	removePageFinishHook = nuxtApp.hook("page:finish", () => {
+		if (route.path === "/" && home.value?.isConnected) {
+			initialiseHomeAnimations();
+		}
+	});
 });
 
 onBeforeUnmount(() => {
-	pageContext?.revert();
+	removePageFinishHook?.();
+	window.removeEventListener("scroll", scheduleOrbitUpdate);
+	window.removeEventListener("resize", scheduleOrbitUpdate);
+	clearHomeAnimations();
 });
 </script>
 
