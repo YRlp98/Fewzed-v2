@@ -11,8 +11,10 @@
 					<TitlesShadowTitle text="products" />
 					<h1 class="mt-16 text-4xl font-bold tracking-wider">Sytemonitor</h1>
 					<p class="text-lg leading-7 mt-6">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae praesentium in eos aliquam voluptatem
-						repellendus, ab quos, asperiores harum ad laborum impedit ut, nesciunt accusantium doloremque ipsam?
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae praesentium in eos aliquam
+						voluptatem
+						repellendus, ab quos, asperiores harum ad laborum impedit ut, nesciunt accusantium doloremque
+						ipsam?
 						Commodi, nihil harum.
 					</p>
 				</div>
@@ -27,8 +29,10 @@
 					<TitlesShadowTitle text="products" />
 					<h1 class="mt-16 text-4xl font-bold tracking-wider">Flohtex</h1>
 					<p class="text-lg leading-7 mt-6">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae praesentium in eos aliquam voluptatem
-						repellendus, ab quos, asperiores harum ad laborum impedit ut, nesciunt accusantium doloremque ipsam?
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae praesentium in eos aliquam
+						voluptatem
+						repellendus, ab quos, asperiores harum ad laborum impedit ut, nesciunt accusantium doloremque
+						ipsam?
 						Commodi, nihil harum.
 					</p>
 				</div>
@@ -43,8 +47,10 @@
 					<TitlesShadowTitle text="products" />
 					<h1 class="mt-16 text-4xl font-bold tracking-wider">Data 365</h1>
 					<p class="text-lg leading-7 mt-6">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae praesentium in eos aliquam voluptatem
-						repellendus, ab quos, asperiores harum ad laborum impedit ut, nesciunt accusantium doloremque ipsam?
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae praesentium in eos aliquam
+						voluptatem
+						repellendus, ab quos, asperiores harum ad laborum impedit ut, nesciunt accusantium doloremque
+						ipsam?
 						Commodi, nihil harum.
 					</p>
 				</div>
@@ -58,9 +64,9 @@
 
 			<!-- Thumbnails -->
 			<div class="thumbnail">
-				<CardsProjectCard title="Sytemonitor" image="sytemonitor" class="card active" />
-				<CardsProjectCard title="Flohtex" image="flohtex" class="card" />
-				<CardsProjectCard title="Data 365" image="fewzed" class="card" />
+				<CardsProjectCard title="Sytemonitor" image="sytemonitor" class="product-thumbnail active" />
+				<CardsProjectCard title="Flohtex" image="flohtex" class="product-thumbnail" />
+				<CardsProjectCard title="Data 365" image="fewzed" class="product-thumbnail" />
 			</div>
 		</div>
 	</div>
@@ -86,7 +92,7 @@ let itemActive = ref(0);
 onMounted(() => {
 	// Access DOM elements after mounting
 	items.value = document.querySelectorAll(".slider .list .item");
-	thumbnails.value = document.querySelectorAll(".thumbnail .card");
+	thumbnails.value = document.querySelectorAll(".thumbnail .product-thumbnail");
 	next.value = document.getElementById("next");
 	prev.value = document.getElementById("prev");
 
@@ -116,7 +122,7 @@ onMounted(() => {
 		function showSlider() {
 			// remove item active old
 			let itemActiveOld = document.querySelector(".slider .list .item.active");
-			let thumbnailActiveOld = document.querySelector(".thumbnail .item.active");
+			let thumbnailActiveOld = document.querySelector(".thumbnail .product-thumbnail.active");
 			itemActiveOld?.classList.remove("active");
 			thumbnailActiveOld?.classList.remove("active");
 
@@ -147,8 +153,10 @@ onMounted(() => {
 
 <style scoped>
 .slider {
-	height: 100vh;
+	height: 100svh;
+	min-height: 100svh;
 	position: relative;
+	overflow: hidden;
 }
 
 .slider .list .item {
@@ -239,30 +247,37 @@ onMounted(() => {
 	box-sizing: border-box;
 	overflow-x: auto;
 	overflow-y: hidden;
+	padding: 2px;
+	scroll-padding-inline: 2px;
 	transform: translateX(-50%);
 }
 
-.thumbnail .card:first-child {
+.thumbnail .product-thumbnail:first-child {
 	margin-left: auto;
 }
 
-.thumbnail .card {
+.thumbnail .product-thumbnail {
+	flex: 0 0 auto;
 	filter: brightness(0.6);
 }
 
-.thumbnail .card.active {
+.thumbnail .product-thumbnail.active {
 	filter: brightness(1);
 }
 
 @media screen and (max-width: 678px) {
 	.thumbnail {
 		justify-content: start;
+		bottom: max(1.5rem, env(safe-area-inset-bottom));
 	}
+
 	.slider .list .item .content h2 {
 		font-size: 60px;
 	}
+
 	.buttons {
-		top: 10%;
+		top: 5.5rem;
+		right: 1.5rem;
 	}
 }
 </style>

@@ -1,96 +1,49 @@
 <template>
-	<div class="card h-[120px] w-full max-w-none p-6 min-[720px]:h-[180px] lg:h-[360px] lg:w-auto lg:max-w-[264px]">
-		<div class="gradient-overlay absolute inset-0 bg-black opacity-50 z-0"></div>
-		<div class="z-10">
-			<h1 class="absolute left-6 bottom-4 text-lg tracking-widest font-bold text-gray-4">{{ title }}</h1>
+	<!-- Hover inspired by prashantj510's Uiverse card variation (MIT). -->
+	<div
+		class="project-card group relative h-[120px] w-full min-w-[264px] max-w-none rounded-lg bg-gradient-to-br from-dark-primary to-[#673ab7] transition-shadow duration-300 ease-out hover:shadow-[0_0_30px_rgba(169,81,196,0.45)] min-[720px]:h-[180px] lg:h-[360px] lg:w-auto lg:max-w-[264px]">
+		<div
+			class="card-surface absolute inset-0 overflow-hidden rounded-lg p-6 transition-transform duration-300 ease-out group-hover:scale-[0.98]">
+			<div class="gradient-overlay absolute inset-0 z-0 bg-black opacity-50"></div>
+			<div class="z-10">
+				<h1
+					class="absolute left-6 bottom-4 text-lg tracking-widest font-bold text-gray-4 transition-colors duration-300 group-hover:text-white">
+					{{ title }}</h1>
+			</div>
+			<img :src="currentImage" alt="Project Card"
+				class="absolute left-0 bottom-0 z-[-1] h-full w-full overflow-hidden object-cover" />
 		</div>
-		<img
-			:src="currentImage"
-			alt="Project Card"
-			class="absolute left-0 bottom-0 z-[-1] overflow-hidden object-cover w-full h-full"
-		/>
 	</div>
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps, onMounted } from "vue";
+import { computed } from "vue";
 import sytemonitor from "/assets/images/road-image.jpg";
 import flohtex from "/assets/images/police-image.jpg";
 import fewzed from "/assets/images/writing-image.jpg";
-
-const props = defineProps<{
-	title: string;
-	image: string;
-}>();
 
 const images = {
 	sytemonitor,
 	flohtex,
 	fewzed,
-};
+} as const;
+
+type ProjectImage = keyof typeof images;
+
+const props = defineProps<{
+	title: string;
+	image: ProjectImage;
+}>();
 
 const currentImage = computed(() => images[props.image]);
-
-onMounted(() => {
-	const updateCursor = ({ x, y }) => {
-		document.documentElement.style.setProperty("--x", x);
-		document.documentElement.style.setProperty("--y", y);
-	};
-
-	document.body.addEventListener("pointermove", updateCursor);
-});
 </script>
 
 <style scoped>
-.card {
+.card-surface {
 	background: rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(8px);
-	border-radius: 8px;
-	min-width: 264px;
-	aspect-ratio: 4 / 3;
-	position: relative;
-	transition: background 0.1s;
 	overflow: hidden;
 	cursor: pointer;
-}
-
-.card:hover {
-	--active: 1;
-}
-
-.card:after {
-	content: "";
-	position: absolute;
-	inset: 0;
-	border-radius: 8px;
-	background: radial-gradient(
-		circle at calc(var(--x) * 1px) calc(var(--y) * 1px),
-		hsl(0 0% 100% / 0.15),
-		transparent 15vmin
-	);
-	background-attachment: fixed;
-	opacity: var(--active, 0);
-	transition: opacity 0.2s;
-	pointer-events: none;
-}
-
-.card:before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	border-radius: 8px;
-	background: radial-gradient(
-			circle at calc(var(--x) * 1px) calc(var(--y) * 1px),
-			hsl(0 0% 100% / 0.5),
-			transparent 15vmin
-		),
-		transparent;
-	background-attachment: fixed;
-	pointer-events: none;
-	mask: linear-gradient(white, white) 50% 0 / 100% 4px no-repeat,
-		linear-gradient(white, white) 50% 100% / 100% 4px no-repeat,
-		linear-gradient(white, white) 0 50% / 4px 100% no-repeat,
-		linear-gradient(white, white) 100% 50% / 4px 100% no-repeat;
 }
 
 .gradient-overlay {

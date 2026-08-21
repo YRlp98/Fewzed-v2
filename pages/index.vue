@@ -84,18 +84,12 @@
 				<div class="js-scroll-content relative z-10 w-full text-left">
 					<TitlesShadowTitle text="products" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">We've crafted</h2>
-					<!-- On Large Screen -->
-					<div class="mt-11 hidden lg:grid grid-cols-3 lg:grid-cols-4 gap-2.5 justify-center items-center">
+					<div class="mt-4 grid gap-2 lg:mt-11 lg:grid-cols-4 lg:items-center lg:gap-2.5">
 						<CardsProjectCard title="Sytemonitor" image="sytemonitor" />
 						<CardsProjectCard title="Flohtex" image="flohtex" />
 						<CardsProjectCard title="Fewzed" image="fewzed" />
-						<ButtonsTransparentArrowBtn text="DISCOVER ALL PRODUCTS" link="/products" />
-					</div>
-					<!-- On Small screen -->
-					<div class="mt-4 grid gap-2 lg:hidden">
-						<CardsProjectCard title="Sytemonitor" image="sytemonitor" />
-						<CardsProjectCard title="Flohtex" image="flohtex" />
-						<ButtonsTransparentArrowBtn text="DISCOVER ALL PRODUCTS" link="/products" class="mt-5" />
+						<ButtonsTransparentArrowBtn text="DISCOVER ALL PRODUCTS" link="/products"
+							class="mt-5 lg:mt-0" />
 					</div>
 				</div>
 			</div>
