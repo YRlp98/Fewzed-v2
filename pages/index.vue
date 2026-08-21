@@ -97,48 +97,53 @@
 
 		<!-- #6 Contact us -->
 		<section class="section js-scroll-section contact-us">
-			<div class="site-container relative h-screen flex flex-col items-center justify-center">
-				<div class="js-scroll-content text-left relative z-10 w-full min-w-0 max-w-[50rem]">
-					<TitlesShadowTitle text="contact us" />
-					<h2 class="font-bold text-4xl tracking-wide uppercase">let's start <br class="hidden lg:inline"> a
-						conversation</h2>
-					<div class="mt-11 justify-center items-center space-y-6 lg:space-y-8">
-						<p class="text-xl tracking-wide">
-							Have a project to discuss, a challenge to solve, or an idea to explore? Tell us what you
-							need and our team will be in touch.
-						</p>
-						<p class="text-base tracking-wide">
-							Reach us by email or phone, or visit us at our Dorset office.
-						</p>
-						<div class="flex min-w-0 flex-col items-start space-y-2 lg:ml-10">
-							<a href="mailto:info@fewzed.co.uk" class="hover:text-dark-primary">
-								<b>Email:</b>
-								Info@fewzed.co.uk
-							</a>
-							<a href="tel:01747871970" class="hover:text-dark-primary">
-								<b>Phone:</b> 01747 871970
-							</a>
-							<a href="https://www.google.com/maps/search/?api=1&query=Unit+116,+The+Wincombe+Centre,+Wincombe+Business+Park,+Shaftesbury,+Dorset,+SP7+9QJ"
-								target="_blank" class="hover:text-dark-primary">
-								<b>Address:</b> Unit 116, The Wincombe Centre, Wincombe Business Park, Shaftesbury,
-								Dorset, SP7 9QJ
-							</a>
-						</div>
-						<p class="text-base tracking-wide">
-							Ready to get started? Send us a message and we'll get back to you shortly.
-						</p>
-						<div class="flex justify-center w-full">
-							<ButtonsRoundedBtn class="mt-2 h-14 w-40 !text-sm" text="Get in touch"
-								icon="mynaui:telephone" link="/contact-us" />
+			<div class="site-container relative flex min-h-[100svh] flex-col items-center pt-28 md:pt-24">
+				<div class="flex w-full flex-1 flex-col justify-center py-16 md:py-8">
+					<div class="js-scroll-content relative z-10 mx-auto w-full min-w-0 max-w-[50rem] text-left">
+						<TitlesShadowTitle text="contact us" />
+						<h2 class="text-4xl font-bold tracking-wide uppercase">let's start <br class="hidden lg:inline">
+							a
+							conversation</h2>
+						<div class="mt-11 items-center justify-center space-y-6 lg:space-y-8">
+							<p class="text-xl tracking-wide">
+								Have a project to discuss, a challenge to solve, or an idea to explore? Tell us what you
+								need and our team will be in touch.
+							</p>
+							<p class="text-base tracking-wide">
+								Reach us by email or phone, or visit us at our Dorset office.
+							</p>
+							<div class="flex min-w-0 flex-col items-start space-y-2 lg:ml-10">
+								<a href="mailto:info@fewzed.co.uk" class="hover:text-dark-primary">
+									<b>Email:</b>
+									Info@fewzed.co.uk
+								</a>
+								<a href="tel:01747871970" class="hover:text-dark-primary">
+									<b>Phone:</b> 01747 871970
+								</a>
+								<a href="https://www.google.com/maps/search/?api=1&query=Unit+116,+The+Wincombe+Centre,+Wincombe+Business+Park,+Shaftesbury,+Dorset,+SP7+9QJ"
+									target="_blank" rel="noopener noreferrer" class="hover:text-dark-primary">
+									<b>Address:</b> Unit 116, The Wincombe Centre, Wincombe Business Park, Shaftesbury,
+									Dorset, SP7 9QJ
+								</a>
+							</div>
+							<p class="text-base tracking-wide">
+								Ready to get started? Send us a message and we'll get back to you shortly.
+							</p>
+							<div class="flex w-full justify-center">
+								<ButtonsRoundedBtn class="mt-2 h-14 w-40 !text-sm" text="Get in touch"
+									icon="mynaui:telephone" link="/contact-us" />
+							</div>
 						</div>
 					</div>
 				</div>
 
-				<!-- Copyright -->
-				<div class="absolute bottom-0 left-0 right-0 p-4">
-					<p class="text-gray-3 text-center text-sm">Copyright © 2024 Fewzed Ltd. All rights reserved.</p>
-				</div>
-
+				<footer
+					class="mt-8 w-full max-w-[50rem] shrink-0 border-t border-white/10 py-6 text-center text-sm text-gray-3 md:mt-0 md:py-5">
+					<p>Copyright © {{ currentYear }} Fewzed Ltd. All rights reserved.</p>
+					<p class="mt-1">Designed and developed by <a href="https://yrlp.ir/" target="_blank"
+							rel="noopener noreferrer"
+							class="text-gray-4 transition-colors hover:text-dark-primary">Y.R</a></p>
+				</footer>
 			</div>
 		</section>
 		<AnimatedScrollIcon class="scrollIcon hidden lg:block" />
@@ -155,6 +160,7 @@ const hero = ref<HTMLElement | null>(null);
 const orbitEntrance = ref<HTMLElement | null>(null);
 const orbit = ref<HTMLElement | null>(null);
 let pageContext: ReturnType<typeof $gsap.context> | undefined;
+const currentYear = new Date().getFullYear();
 
 useHead({
 	title: "Fewzed",
@@ -264,6 +270,11 @@ onBeforeUnmount(() => {
 	position: relative;
 	z-index: 1;
 	height: 100svh;
+}
+
+.home-page>.contact-us {
+	height: auto;
+	min-height: 100svh;
 }
 
 .home-orbit {
