@@ -1,8 +1,17 @@
 <template>
-	<NuxtLink :to="link" class="button cursor-pointer max-h-20 flex flex-wrap items-center justify-start space-x-2"
+	<NuxtLink :to="link"
+		class="group relative flex max-h-20 cursor-pointer flex-wrap items-center justify-start space-x-2 text-[#f5f5f5] transition-colors duration-300 ease-in-out hover:text-dark-primary"
 		data-magnetic>
-		<span class="text uppercase whitespace-nowrap text-base font-bold tracking-wider">{{ text }}</span>
-		<img class="h-10" src="/assets/icons/ArrowToCircleIcon.svg" alt="Arrow Icon" />
+		<span
+			class="whitespace-nowrap text-base font-bold uppercase tracking-wider transition-transform duration-300 ease-in-out group-hover:translate-x-2">
+			{{ text }}
+		</span>
+		<svg class="h-10 w-auto transition-transform duration-300 ease-in-out group-hover:translate-x-2"
+			viewBox="0 0 59 44" fill="none" aria-hidden="true">
+			<circle class="stroke-current transition-colors duration-300 ease-in-out" cx="37" cy="22" r="21.5" />
+			<path class="stroke-current stroke-2 transition-colors duration-300 ease-in-out" stroke-linecap="round"
+				stroke-linejoin="round" d="M1 22H38M38 22L31.636 15.636M38 22L31.636 28.364" />
+		</svg>
 	</NuxtLink>
 </template>
 
@@ -12,18 +21,3 @@ const props = defineProps<{
 	link: string;
 }>();
 </script>
-
-<style scoped>
-.button {
-	position: relative;
-	transition: background-color 0.3s ease-in-out;
-}
-
-.button:hover .text {
-	transform: translateX(8px);
-}
-
-.text {
-	transition: transform 0.3s ease-in-out;
-}
-</style>

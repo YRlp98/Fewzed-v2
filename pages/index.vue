@@ -3,6 +3,7 @@
 		<div ref="orbitEntrance" class="home-orbit" aria-hidden="true">
 			<img ref="orbit" src="/assets/images/eclipse.svg" alt="" />
 		</div>
+
 		<!-- #1 Hero -->
 		<section ref="hero" class="section hero">
 			<div class="site-container h-full flex items-center">
@@ -12,6 +13,7 @@
 				</div>
 			</div>
 		</section>
+
 		<!-- #2 Who we are -->
 		<section class="section js-scroll-section who-we-are">
 			<div class="site-container relative h-screen flex items-center justify-center">
@@ -28,6 +30,7 @@
 				</div>
 			</div>
 		</section>
+
 		<!-- #3 What we do -->
 		<section class="section js-scroll-section what-we-do">
 			<div class="site-container relative h-screen flex items-center justify-center">
@@ -42,6 +45,7 @@
 				</div>
 			</div>
 		</section>
+
 		<!-- #4 Services -->
 		<section class="section js-scroll-section services">
 			<div class="site-container relative h-screen flex items-center justify-center">
@@ -73,67 +77,75 @@
 				</div>
 			</div>
 		</section>
+
 		<!-- #5 Products -->
 		<section class="section js-scroll-section projects">
 			<div class="site-container relative h-screen flex items-center justify-center">
 				<div class="js-scroll-content relative z-10 w-full text-left">
 					<TitlesShadowTitle text="products" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">We've crafted</h2>
-					<!-- On Large Screen -->
-					<div class="mt-11 hidden lg:grid grid-cols-3 lg:grid-cols-4 gap-2.5 justify-center items-center">
+					<div class="mt-4 grid gap-2 lg:mt-11 lg:grid-cols-4 lg:items-center lg:gap-2.5">
 						<CardsProjectCard title="Sytemonitor" image="sytemonitor" />
 						<CardsProjectCard title="Flohtex" image="flohtex" />
 						<CardsProjectCard title="Fewzed" image="fewzed" />
-						<ButtonsTransparentArrowBtn text="DISCOVER ALL PRODUCTS" link="/products" />
-					</div>
-					<!-- On Small screen -->
-					<div class="mt-4 grid gap-2 lg:hidden">
-						<CardsProjectCard title="Sytemonitor" image="sytemonitor" />
-						<CardsProjectCard title="Flohtex" image="flohtex" />
-						<ButtonsTransparentArrowBtn text="DISCOVER ALL PRODUCTS" link="/products" class="mt-5" />
+						<ButtonsTransparentArrowBtn text="DISCOVER ALL PRODUCTS" link="/products"
+							class="mt-5 lg:mt-0" />
 					</div>
 				</div>
 			</div>
 		</section>
+
 		<!-- #6 Contact us -->
 		<section class="section js-scroll-section contact-us">
-			<div class="site-container relative h-screen flex flex-col items-center justify-center">
-				<div class="js-scroll-content text-left relative z-10 w-full min-w-0 max-w-[50rem]">
-					<TitlesShadowTitle text="contact us" />
-					<h2 class="font-bold text-4xl tracking-wide uppercase">have a question?</h2>
-					<div class="mt-11 justify-center items-center space-y-6 lg:space-y-8">
-						<p class="text-xl tracking-wide">
-							We’re here to help! Reach out to us and we'll get back to you as soon as possible.
-						</p>
-						<div class="flex min-w-0 flex-col items-start space-y-2 lg:ml-10">
-							<a href="mailto:info@fewzed.co.uk" class="hover:text-dark-primary">
-								<b>Email:</b>
-								Info@fewzed.co.uk
-							</a>
-							<a href="tel:01747871970" class="hover:text-dark-primary">
-								<b>Phone:</b> 01747 871970
-							</a>
-							<a href="https://www.google.com/maps/search/?api=1&query=Unit+116,+The+Wincombe+Centre,+Wincombe+Business+Park,+Shaftesbury,+Dorset,+SP7+9QJ"
-								target="_blank" class="hover:text-dark-primary">
-								<b>Address:</b> Unit 116, The Wincombe Centre, Wincombe Business Park, Shaftesbury,
-								Dorset, SP7 9QJ
-							</a>
-						</div>
-						<p class="text-base tracking-wide">
-							Or fill out our contact form, and we'll get in touch with you shortly.
-						</p>
-						<div class="flex justify-center w-full">
-							<ButtonsRoundedBtn class="mt-2 h-14 w-40 !text-sm" text="Contact Us" icon="mynaui:telephone"
-								link="/contact-us" />
+			<div class="site-container relative flex min-h-[100svh] flex-col items-center pt-28 md:pt-24">
+				<div class="flex w-full flex-1 flex-col justify-center py-16 md:py-8">
+					<div class="js-scroll-content relative z-10 mx-auto w-full min-w-0 max-w-[50rem] text-left">
+						<TitlesShadowTitle text="contact us" />
+						<h2 class="text-4xl font-bold tracking-wide uppercase">
+							let's start a
+							<br class="hidden lg:inline">
+							conversation
+						</h2>
+						<div class="mt-11 items-center justify-center space-y-6 lg:space-y-8">
+							<p class="text-xl tracking-wide">
+								Have a project to discuss, a challenge to solve, or an idea to explore? Tell us what you
+								need and our team will be in touch.
+							</p>
+							<p class="text-base tracking-wide">
+								Reach us by email or phone, or visit us at our Dorset office.
+							</p>
+							<div class="flex min-w-0 flex-col items-start space-y-2 lg:ml-10">
+								<a href="mailto:info@fewzed.co.uk" class="hover:text-dark-primary">
+									<b>Email:</b>
+									Info@fewzed.co.uk
+								</a>
+								<a href="tel:01747871970" class="hover:text-dark-primary">
+									<b>Phone:</b> 01747 871970
+								</a>
+								<a href="https://www.google.com/maps/search/?api=1&query=Unit+116,+The+Wincombe+Centre,+Wincombe+Business+Park,+Shaftesbury,+Dorset,+SP7+9QJ"
+									target="_blank" rel="noopener noreferrer" class="hover:text-dark-primary">
+									<b>Address:</b> Unit 116, The Wincombe Centre, Wincombe Business Park, Shaftesbury,
+									Dorset, SP7 9QJ
+								</a>
+							</div>
+							<p class="text-base tracking-wide">
+								Ready to get started? Send us a message and we'll get back to you shortly.
+							</p>
+							<div class="flex w-full justify-center">
+								<ButtonsRoundedBtn class="mt-2 h-14 w-40 !text-sm" text="Get in touch"
+									icon="mynaui:telephone" link="/contact-us" />
+							</div>
 						</div>
 					</div>
 				</div>
 
-				<!-- Copyright -->
-				<div class="absolute bottom-0 left-0 right-0 p-4">
-					<p class="text-gray-3 text-center text-sm">Copyright © 2024 Fewzed Ltd. All rights reserved.</p>
-				</div>
-
+				<footer
+					class="mt-8 w-full max-w-[50rem] shrink-0 border-t border-white/10 py-6 text-center text-sm text-gray-3 md:mt-0 md:py-5">
+					<p>Copyright © {{ currentYear }} Fewzed Ltd. All rights reserved.</p>
+					<p class="mt-1">Designed and developed by <a href="https://yrlp.ir/" target="_blank"
+							rel="noopener noreferrer"
+							class="text-gray-4 transition-colors hover:text-dark-primary">Y.R</a></p>
+				</footer>
 			</div>
 		</section>
 		<AnimatedScrollIcon class="scrollIcon hidden lg:block" />
@@ -143,102 +155,134 @@
 <script setup lang="ts">
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const { $gsap, $lenis } = useNuxtApp();
+const nuxtApp = useNuxtApp();
+const { $gsap, $lenis } = nuxtApp;
+const route = useRoute();
 
 const home = ref<HTMLElement | null>(null);
 const hero = ref<HTMLElement | null>(null);
 const orbitEntrance = ref<HTMLElement | null>(null);
 const orbit = ref<HTMLElement | null>(null);
 let pageContext: ReturnType<typeof $gsap.context> | undefined;
+let animationFrame: number | undefined;
+let orbitFrame: number | undefined;
+let removePageFinishHook: (() => void) | undefined;
+const currentYear = new Date().getFullYear();
 
-useHead({
-	title: "Fewzed",
-	meta: [{ name: "description", content: "Fewzed home page - We deliver great projects" }],
+usePageSeo({
+	title: "Engineering, Design & Consultancy Services",
+	description:
+		"Fewzed delivers design, engineering, consultancy, data collection and trial management services for highways, transport and construction projects.",
+	path: "/",
 });
 
-onMounted(async () => {
-	window.scrollTo({ top: 0, behavior: "auto" });
-	$lenis?.scrollTo(0, { immediate: true });
+const clearHomeAnimations = () => {
+	if (animationFrame !== undefined) cancelAnimationFrame(animationFrame);
+	if (orbitFrame !== undefined) cancelAnimationFrame(orbitFrame);
+	animationFrame = undefined;
+	orbitFrame = undefined;
+	pageContext?.revert();
+	pageContext = undefined;
+};
+
+const clamp = (value: number, min = 0, max = 1) => Math.min(Math.max(value, min), max);
+
+const updateOrbit = () => {
+	orbitFrame = undefined;
+	if (!home.value || !hero.value || !orbitEntrance.value || !orbit.value) return;
+
+	const viewportHeight = window.innerHeight;
+	const heroBottom = hero.value.getBoundingClientRect().bottom;
+	const entranceProgress = clamp((viewportHeight * 0.8 - heroBottom) / (viewportHeight * 0.55));
+	const homeTop = home.value.getBoundingClientRect().top + window.scrollY;
+	const scrollableHeight = Math.max(home.value.offsetHeight - viewportHeight, 1);
+	const rotationProgress = clamp((window.scrollY - homeTop) / scrollableHeight);
+
+	$gsap.set(orbitEntrance.value, {
+		autoAlpha: entranceProgress * 0.8,
+		x: -160 + entranceProgress * 160,
+	});
+	$gsap.set(orbit.value, { rotation: rotationProgress * 150 });
+};
+
+const scheduleOrbitUpdate = () => {
+	if (orbitFrame !== undefined) return;
+	orbitFrame = requestAnimationFrame(updateOrbit);
+};
+
+const initialiseHomeAnimations = async (resetScroll = false) => {
+	clearHomeAnimations();
+
+	if (resetScroll) {
+		window.scrollTo({ top: 0, behavior: "auto" });
+		$lenis?.scrollTo(0, { immediate: true });
+	}
+
 	await nextTick();
 
-	// Animate the h1 title
-	$gsap.from("#h1-title", {
-		x: -100,
-		opacity: 0,
-		delay: 0.5,
-	});
+	animationFrame = requestAnimationFrame(() => {
+		animationFrame = undefined;
+		if (!home.value || !hero.value) return;
 
-	// Animate the h2 title
-	$gsap.from("#h2-title", {
-		x: -100,
-		opacity: 0,
-		delay: 0.75,
-	});
-
-	if (!home.value) return;
-
-	pageContext = $gsap.context(() => {
-		if (orbitEntrance.value && hero.value) {
-			$gsap.fromTo(
-				orbitEntrance.value,
-				{ autoAlpha: 0, x: -160 },
-				{
-					autoAlpha: 0.8,
-					x: 0,
-					ease: "none",
-					scrollTrigger: {
-						trigger: hero.value,
-						start: "bottom 80%",
-						end: "bottom 25%",
-						scrub: 0.5,
-					},
-				},
-			);
-		}
-
-		if (orbit.value) {
-			$gsap.to(orbit.value, {
-				rotation: 150,
-				ease: "none",
-				scrollTrigger: {
-					trigger: home.value,
-					start: "top top",
-					end: "bottom bottom",
-					scrub: 0.5,
-					invalidateOnRefresh: true,
-				},
+		pageContext = $gsap.context(() => {
+			$gsap.from("#h1-title", {
+				x: -100,
+				opacity: 0,
+				delay: 0.5,
 			});
-		}
 
-		const media = $gsap.matchMedia();
-		media.add("(prefers-reduced-motion: no-preference)", () => {
-			$gsap.utils.toArray<HTMLElement>(".js-scroll-section").forEach((section) => {
-				const content = section.querySelector<HTMLElement>(".js-scroll-content");
-				if (!content) return;
+			$gsap.from("#h2-title", {
+				x: -100,
+				opacity: 0,
+				delay: 0.75,
+			});
 
-				$gsap.from(content.children, {
-					y: 48,
-					autoAlpha: 0,
-					stagger: 0.09,
-					duration: 0.75,
-					ease: "power3.out",
-					scrollTrigger: {
-						trigger: section,
-						start: "top 72%",
-						toggleActions: "play none none reverse",
-					},
+			const media = $gsap.matchMedia();
+			media.add("(prefers-reduced-motion: no-preference)", () => {
+				$gsap.utils.toArray<HTMLElement>(".js-scroll-section").forEach((section) => {
+					const content = section.querySelector<HTMLElement>(".js-scroll-content");
+					if (!content) return;
+
+					$gsap.from(content.children, {
+						y: 48,
+						autoAlpha: 0,
+						stagger: 0.09,
+						duration: 0.75,
+						ease: "power3.out",
+						scrollTrigger: {
+							trigger: section,
+							start: "top 72%",
+							toggleActions: "play none none reverse",
+						},
+					});
 				});
 			});
-		});
 
-		return () => media.revert();
-	}, home.value);
+			return () => media.revert();
+		}, home.value);
 
-	ScrollTrigger.refresh();
+		ScrollTrigger.refresh();
+		scheduleOrbitUpdate();
+	});
+};
+
+onMounted(() => {
+	window.addEventListener("scroll", scheduleOrbitUpdate, { passive: true });
+	window.addEventListener("resize", scheduleOrbitUpdate, { passive: true });
+	initialiseHomeAnimations(true);
+
+	removePageFinishHook = nuxtApp.hook("page:finish", () => {
+		if (route.path === "/" && home.value?.isConnected) {
+			initialiseHomeAnimations();
+		}
+	});
 });
 
 onBeforeUnmount(() => {
-	pageContext?.revert();
+	removePageFinishHook?.();
+	window.removeEventListener("scroll", scheduleOrbitUpdate);
+	window.removeEventListener("resize", scheduleOrbitUpdate);
+	clearHomeAnimations();
 });
 </script>
 
@@ -259,6 +303,11 @@ onBeforeUnmount(() => {
 	position: relative;
 	z-index: 1;
 	height: 100svh;
+}
+
+.home-page>.contact-us {
+	height: auto;
+	min-height: 100svh;
 }
 
 .home-orbit {

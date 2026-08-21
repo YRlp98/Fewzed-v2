@@ -39,8 +39,8 @@
 			</div>
 
 			<!-- Right side -->
-			<div ref="canvasPanel" id="canvas" class="consulting-canvas hidden justify-center md:flex">
-				<canvas ref="canvas" class="aspect-square w-full max-w-[34rem]" />
+			<div id="canvas" class="consulting-canvas flex justify-center">
+				<canvas ref="canvas" class="consulting-scene" aria-hidden="true" tabindex="-1" />
 			</div>
 		</div>
 	</section>
@@ -49,17 +49,21 @@
 <script setup lang="ts">
 import { Application } from "@splinetool/runtime";
 
-const { $gsap, $scrollTrigger } = useNuxtApp();
+const { $gsap } = useNuxtApp();
 
-useHead({
-	title: "Fewzed - Consulting",
-	meta: [{ name: "description", content: "Fewzed consulting page" }],
+usePageSeo({
+	title: "Consulting Services",
+	description:
+		"Fewzed provides practical consulting support for design, engineering, highways and infrastructure projects.",
+	path: "/consulting",
 });
 
 const section = ref<HTMLElement | null>(null);
 const canvas = ref<HTMLCanvasElement | null>(null);
-const canvasPanel = ref<HTMLElement | null>(null);
 let animationContext: ReturnType<typeof $gsap.context> | undefined;
+let splineApp: Application | null = null;
+let splineResizeObserver: ResizeObserver | undefined;
+let isUnmounted = false;
 
 const state = reactive({
 	spline: {
@@ -87,36 +91,49 @@ onMounted(async () => {
 			ease: "power3.out",
 		});
 
-		const media = $gsap.matchMedia();
-		media.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
-			if (!canvasPanel.value || !section.value) return;
-
-			const stickyCanvas = $scrollTrigger.create({
-				trigger: section.value,
-				start: "top top",
-				end: "bottom bottom",
-				pin: canvasPanel.value,
-				pinSpacing: false,
-				anticipatePin: 1,
-				invalidateOnRefresh: true,
-			});
-
-			return () => stickyCanvas.kill();
-		});
-
-		return () => media.revert();
 	}, section.value);
 
 	if (!canvas.value) return;
 
 	const app = new Application(canvas.value);
-	await app.load(state.spline.scene);
-	state.spline.app = app;
-	$scrollTrigger.refresh();
+
+	try {
+		await app.load(state.spline.scene);
+
+		if (isUnmounted) {
+			app.dispose();
+			return;
+		}
+
+		state.spline.app = app;
+		splineApp = app;
+
+		const resizeScene = () => {
+			if (!canvas.value) return;
+
+			const { width, height } = canvas.value.getBoundingClientRect();
+			if (width > 0 && height > 0) {
+				app.setSize(Math.round(width), Math.round(height));
+				app.requestRender();
+			}
+		};
+
+		splineResizeObserver = new ResizeObserver(resizeScene);
+		splineResizeObserver.observe(canvas.value);
+		resizeScene();
+	} catch (error) {
+		app.dispose();
+		console.warn("Unable to load the consulting Spline scene.", error);
+	}
 });
 
 onBeforeUnmount(() => {
+	isUnmounted = true;
 	animationContext?.revert();
+	splineResizeObserver?.disconnect();
+	splineResizeObserver = undefined;
+	splineApp?.dispose();
+	splineApp = null;
 });
 </script>
 
@@ -125,12 +142,28 @@ canvas {
 	pointer-events: none;
 }
 
+.consulting-canvas {
+	width: 100%;
+	min-height: clamp(22rem, 92vw, 34rem);
+	align-items: center;
+}
+
+.consulting-scene {
+	display: block;
+	width: 100%;
+	max-width: 34rem;
+	aspect-ratio: 1;
+}
+
 @media (min-width: 768px) {
 	.consulting-page {
 		min-height: 170svh;
 	}
 
 	.consulting-canvas {
+		position: sticky;
+		top: 0;
+		align-self: start;
 		min-height: min(70svh, 42rem);
 	}
 }

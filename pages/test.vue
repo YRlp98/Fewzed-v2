@@ -2,19 +2,19 @@
 	<div class="site-container">
 		<div class="h-screen flex items-center justify-center">
 			<div id="box1" class="size-[200px] bg-black-1 rounded-lg shadow-sm">
-				<h1 class="text-white">hi mom</h1>
+				<h1 class="text-white">🚕</h1>
 			</div>
 		</div>
 
 		<div class="h-screen flex items-center justify-center">
 			<div id="box2" class="size-[200px] bg-black-1 rounded-lg shadow-sm">
-				<h1 class="text-white">hi mom</h1>
+				<h1 class="text-white">🚕</h1>
 			</div>
 		</div>
 
 		<div class="h-screen flex items-center justify-center">
 			<div id="box2" class="size-[200px] bg-black-1 rounded-lg shadow-sm">
-				<h1 class="text-white">hi mom</h1>
+				<h1 class="text-white">🚕</h1>
 			</div>
 		</div>
 	</div>
@@ -22,6 +22,13 @@
 
 <script setup lang="ts">
 const { $gsap } = useNuxtApp();
+
+usePageSeo({
+	title: "Test",
+	description: "Fewzed test page.",
+	path: "/test",
+	noindex: true,
+});
 
 // definePageMeta({
 // 	layout: "custom",
