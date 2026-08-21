@@ -3,6 +3,7 @@
 		<div ref="orbitEntrance" class="home-orbit" aria-hidden="true">
 			<img ref="orbit" src="/assets/images/eclipse.svg" alt="" />
 		</div>
+
 		<!-- #1 Hero -->
 		<section ref="hero" class="section hero">
 			<div class="site-container h-full flex items-center">
@@ -12,6 +13,7 @@
 				</div>
 			</div>
 		</section>
+
 		<!-- #2 Who we are -->
 		<section class="section js-scroll-section who-we-are">
 			<div class="site-container relative h-screen flex items-center justify-center">
@@ -28,6 +30,7 @@
 				</div>
 			</div>
 		</section>
+
 		<!-- #3 What we do -->
 		<section class="section js-scroll-section what-we-do">
 			<div class="site-container relative h-screen flex items-center justify-center">
@@ -42,6 +45,7 @@
 				</div>
 			</div>
 		</section>
+
 		<!-- #4 Services -->
 		<section class="section js-scroll-section services">
 			<div class="site-container relative h-screen flex items-center justify-center">
@@ -73,6 +77,7 @@
 				</div>
 			</div>
 		</section>
+
 		<!-- #5 Products -->
 		<section class="section js-scroll-section projects">
 			<div class="site-container relative h-screen flex items-center justify-center">
@@ -95,6 +100,7 @@
 				</div>
 			</div>
 		</section>
+
 		<!-- #6 Contact us -->
 		<section class="section js-scroll-section contact-us">
 			<div class="site-container relative h-screen flex flex-col items-center justify-center">
