@@ -57,22 +57,25 @@ html.lenis body {
 }
 
 /* Custom scrollbar */
+html {
+    scrollbar-color: var(--purple) #222222;
+    scrollbar-width: thin;
+}
+
 ::-webkit-scrollbar {
     width: 4px;
     height: 4px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #4F4F4F;
+    background: #222222;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #141417;
+    background: var(--purple);
     border-radius: 12px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #000000;
+    background: #8F39A9;
 }
-
-/* ================ */
