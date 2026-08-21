@@ -100,10 +100,15 @@
 			<div class="site-container relative h-screen flex flex-col items-center justify-center">
 				<div class="js-scroll-content text-left relative z-10 w-full min-w-0 max-w-[50rem]">
 					<TitlesShadowTitle text="contact us" />
-					<h2 class="font-bold text-4xl tracking-wide uppercase">have a question?</h2>
+					<h2 class="font-bold text-4xl tracking-wide uppercase">let's start <br class="hidden lg:inline"> a
+						conversation</h2>
 					<div class="mt-11 justify-center items-center space-y-6 lg:space-y-8">
 						<p class="text-xl tracking-wide">
-							We’re here to help! Reach out to us and we'll get back to you as soon as possible.
+							Have a project to discuss, a challenge to solve, or an idea to explore? Tell us what you
+							need and our team will be in touch.
+						</p>
+						<p class="text-base tracking-wide">
+							Reach us by email or phone, or visit us at our Dorset office.
 						</p>
 						<div class="flex min-w-0 flex-col items-start space-y-2 lg:ml-10">
 							<a href="mailto:info@fewzed.co.uk" class="hover:text-dark-primary">
@@ -120,11 +125,11 @@
 							</a>
 						</div>
 						<p class="text-base tracking-wide">
-							Or fill out our contact form, and we'll get in touch with you shortly.
+							Ready to get started? Send us a message and we'll get back to you shortly.
 						</p>
 						<div class="flex justify-center w-full">
-							<ButtonsRoundedBtn class="mt-2 h-14 w-40 !text-sm" text="Contact Us" icon="mynaui:telephone"
-								link="/contact-us" />
+							<ButtonsRoundedBtn class="mt-2 h-14 w-40 !text-sm" text="Get in touch"
+								icon="mynaui:telephone" link="/contact-us" />
 						</div>
 					</div>
 				</div>

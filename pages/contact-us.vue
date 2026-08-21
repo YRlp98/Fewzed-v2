@@ -4,10 +4,10 @@
 			<!-- Text col -->
 			<div class="text-left relative min-w-[250px] max-w-[50rem] z-10 flex-1">
 				<TitlesShadowTitle id="shadow-title" text="contact us" />
-				<h2 id="h2-title" class="font-bold text-4xl tracking-wide uppercase">have a question?</h2>
+				<h2 id="h2-title" class="font-bold text-4xl tracking-wide uppercase">let's start <br class="hidden lg:inline"> a conversation</h2>
 				<div id="content" class="mt-11 justify-center items-center space-y-8">
 					<p class="text-xl tracking-wide">
-						We’re here to help! Reach out to us and we'll get back to you as soon as possible.
+						Whether you need specialist support, want to discuss a project, or are exploring a new idea, we'd love to hear from you.
 					</p>
 					<div class="flex min-w-0 flex-col items-start space-y-2">
 						<a href="mailto:info@fewzed.co.uk" class="hover:text-dark-primary"><b>Email:</b> Info@fewzed.co.uk</a>
