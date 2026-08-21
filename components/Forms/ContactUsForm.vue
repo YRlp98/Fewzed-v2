@@ -28,7 +28,7 @@
 		</div>
 
 		<Button type="submit"
-			class="btn relative flex items-center justify-center p-2 rounded-[12px] bg-gradient-to-r from-purple-500 to-purple-700 shadow-lg shadow-purple-500/50 cursor-pointer w-full">
+			class="btn relative flex items-center justify-center p-2 rounded-[12px] bg-gradient-to-r from-purple-500 to-purple-700 shadow-lg shadow-purple-500/50 cursor-pointer w-full transition duration-300 ease-out hover:scale-[1.01] hover:from-purple-400 hover:to-purple-600 hover:shadow-purple-400/80 active:scale-[0.99]">
 			<span class="text text-white mr-2">Send Message</span>
 		</Button>
 	</form>
