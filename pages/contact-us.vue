@@ -4,20 +4,21 @@
 			<!-- Text col -->
 			<div class="text-left relative min-w-[250px] max-w-[50rem] z-10 flex-1">
 				<TitlesShadowTitle id="shadow-title" text="contact us" />
-				<h2 id="h2-title" class="font-bold text-4xl tracking-wide uppercase">let's start <br class="hidden lg:inline"> a conversation</h2>
+				<h2 id="h2-title" class="font-bold text-4xl tracking-wide uppercase">let's start a<br
+						class="hidden lg:inline"> conversation</h2>
 				<div id="content" class="mt-11 justify-center items-center space-y-8">
 					<p class="text-xl tracking-wide">
-						Whether you need specialist support, want to discuss a project, or are exploring a new idea, we'd love to hear from you.
+						Whether you need specialist support, want to discuss a project, or are exploring a new idea,
+						we'd love to hear from you.
 					</p>
 					<div class="flex min-w-0 flex-col items-start space-y-2">
-						<a href="mailto:info@fewzed.co.uk" class="hover:text-dark-primary"><b>Email:</b> Info@fewzed.co.uk</a>
+						<a href="mailto:info@fewzed.co.uk" class="hover:text-dark-primary"><b>Email:</b>
+							Info@fewzed.co.uk</a>
 						<a href="tel:01747871970" class="hover:text-dark-primary"><b>Phone:</b> 01747 871970</a>
-						<a
-							href="https://www.google.com/maps/search/?api=1&query=Unit+116,+The+Wincombe+Centre,+Wincombe+Business+Park,+Shaftesbury,+Dorset,+SP7+9QJ"
-							target="_blank"
-							class="hover:text-dark-primary"
-						>
-							<b>Address:</b> Unit 116, The Wincombe Centre, Wincombe Business Park, Shaftesbury, Dorset, SP7 9QJ
+						<a href="https://www.google.com/maps/search/?api=1&query=Unit+116,+The+Wincombe+Centre,+Wincombe+Business+Park,+Shaftesbury,+Dorset,+SP7+9QJ"
+							target="_blank" class="hover:text-dark-primary">
+							<b>Address:</b> Unit 116, The Wincombe Centre, Wincombe Business Park, Shaftesbury, Dorset,
+							SP7 9QJ
 						</a>
 					</div>
 				</div>
@@ -58,9 +59,11 @@
 <script setup lang="ts">
 const { $gsap } = useNuxtApp();
 
-useHead({
-	title: "Fewzed - Contact Us",
-	meta: [{ name: "description", content: "Fewzed contact us form and info page" }],
+usePageSeo({
+	title: "Contact Fewzed",
+	description:
+		"Contact Fewzed to discuss design, engineering, data collection, trial management and consultancy projects.",
+	path: "/contact-us",
 });
 
 onMounted(async () => {

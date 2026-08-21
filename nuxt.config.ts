@@ -1,6 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-import { resolve } from 'path'
-
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
@@ -12,20 +9,16 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Fewzed',
+      htmlAttrs: {
+        lang: 'en-GB',
+      },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'description', name: 'description', content: 'We deliver great projects' },
-        { name: 'keywords', content: 'Fewzed, projects, design, engineering, technical support, development' },
         { name: 'author', content: 'Fewzed' },
-        { property: 'og:title', content: 'Fewzed' },
-        { property: 'og:description', content: 'We deliver great projects' },
-        { property: 'og:type', content: 'website' },
-        { property: 'og:url', content: 'https://www.fewzed.co.uk' },
-        { property: 'og:image', content: 'https://media.licdn.com/dms/image/C4E0BAQE40p4qe9z3zA/company-logo_200_200/0/1662882352622/fewzed_ltd_logo?e=1730937600&v=beta&t=4VZ8O9-p0DXD5EvtjmbTZvSP1FJhvV011t4FdbrgsHo' },
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' },
       ],
     },
     pageTransition: {
@@ -34,10 +27,14 @@ export default defineNuxtConfig({
     },
   },
 
+  site: {
+    name: 'Fewzed',
+    url: 'https://www.fewzed.co.uk',
+  },
+
   // Site maps
   sitemap: {
-    hostname: 'https://www.fewzed.co.uk',
-    routes: [
+    urls: [
       '/',
       '/consulting',
       '/trials',
@@ -45,11 +42,6 @@ export default defineNuxtConfig({
       '/products',
       '/contact-us',
     ],
-  },
-
-   // Aliases
-   alias: {
-    '@': resolve(__dirname, '/'),
   },
 
   // Global CSS
@@ -68,9 +60,6 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@vueuse/nuxt',
     '@nuxtjs/sitemap',
-  ],
-  buildModules: [
-    'nuxt-gsap-module'
   ],
 
   // Imports

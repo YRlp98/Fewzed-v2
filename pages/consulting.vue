@@ -51,9 +51,11 @@ import { Application } from "@splinetool/runtime";
 
 const { $gsap } = useNuxtApp();
 
-useHead({
-	title: "Fewzed - Consulting",
-	meta: [{ name: "description", content: "Fewzed consulting page" }],
+usePageSeo({
+	title: "Consulting Services",
+	description:
+		"Fewzed provides practical consulting support for design, engineering, highways and infrastructure projects.",
+	path: "/consulting",
 });
 
 const section = ref<HTMLElement | null>(null);

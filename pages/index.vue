@@ -101,9 +101,11 @@
 				<div class="flex w-full flex-1 flex-col justify-center py-16 md:py-8">
 					<div class="js-scroll-content relative z-10 mx-auto w-full min-w-0 max-w-[50rem] text-left">
 						<TitlesShadowTitle text="contact us" />
-						<h2 class="text-4xl font-bold tracking-wide uppercase">let's start <br class="hidden lg:inline">
-							a
-							conversation</h2>
+						<h2 class="text-4xl font-bold tracking-wide uppercase">
+							let's start a
+							<br class="hidden lg:inline">
+							conversation
+						</h2>
 						<div class="mt-11 items-center justify-center space-y-6 lg:space-y-8">
 							<p class="text-xl tracking-wide">
 								Have a project to discuss, a challenge to solve, or an idea to explore? Tell us what you
@@ -162,9 +164,11 @@ const orbit = ref<HTMLElement | null>(null);
 let pageContext: ReturnType<typeof $gsap.context> | undefined;
 const currentYear = new Date().getFullYear();
 
-useHead({
-	title: "Fewzed",
-	meta: [{ name: "description", content: "Fewzed home page - We deliver great projects" }],
+usePageSeo({
+	title: "Engineering, Design & Consultancy Services",
+	description:
+		"Fewzed delivers design, engineering, consultancy, data collection and trial management services for highways, transport and construction projects.",
+	path: "/",
 });
 
 onMounted(async () => {
