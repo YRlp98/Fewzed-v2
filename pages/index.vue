@@ -330,6 +330,16 @@ onBeforeUnmount(() => {
 }
 
 @media (prefers-reduced-motion: no-preference) {
+	.hero-title {
+		opacity: 0;
+		transform: translateX(-15%);
+	}
+
+	.hero-tagline {
+		opacity: 0;
+		transform: translateY(-70%);
+	}
+
 	.hero--ready .hero-title {
 		animation: hero-title-enter 800ms var(--ease-out) both;
 	}
@@ -431,7 +441,7 @@ onBeforeUnmount(() => {
 
 @media (prefers-reduced-motion: no-preference) {
 	.scrollIcon--ready {
-		animation: scroll-indicator-enter 900ms var(--ease-out) 1400ms both;
+		animation: scroll-indicator-enter 600ms var(--ease-out) 500ms both;
 	}
 
 	.scrollIcon::before {
@@ -439,7 +449,7 @@ onBeforeUnmount(() => {
 	}
 
 	.scrollIcon--ready::before {
-		animation-delay: 2300ms;
+		animation-delay: 1100ms;
 		animation-play-state: running;
 	}
 }

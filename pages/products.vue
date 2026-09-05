@@ -1,5 +1,5 @@
 <template>
-	<div class="slider">
+	<div class="slider" :class="{ 'slider--ready': !store.isPreloaderVisible }">
 		<!-- List Items -->
 		<div class="list">
 			<div class="item active">
@@ -74,6 +74,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
+import { store } from "~/store";
 import sytemonitor from "/assets/images/road-image.jpg";
 import flohtex from "/assets/images/police-image.jpg";
 import fewzed from "/assets/images/writing-image.jpg";
@@ -209,26 +210,8 @@ onMounted(() => {
 @keyframes showContent {
 	to {
 		transform: translateY(0);
-		filter: blur(0);
 		opacity: 1;
 	}
-}
-
-.slider .list .item.active p,
-.slider .list .item.active h1,
-.slider .list .item.active TitlesShadowTitle {
-	transform: translateY(30px);
-	filter: blur(20px);
-	opacity: 0;
-	animation: showContent 0.5s 0.7s ease-in-out 1 forwards;
-}
-
-.slider .list .item.active h1 {
-	animation-delay: 1s;
-}
-
-.slider .list .item.active p {
-	animation-delay: 1.3s;
 }
 
 .buttons {
@@ -265,6 +248,58 @@ onMounted(() => {
 
 .thumbnail .product-thumbnail.active {
 	filter: brightness(1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.slider .list .item.active .title-shadow,
+	.slider .list .item.active h1,
+	.slider .list .item.active p {
+		transform: translateY(30px);
+		opacity: 0;
+	}
+
+	.slider--ready .list .item.active .title-shadow,
+	.slider--ready .list .item.active h1,
+	.slider--ready .list .item.active p {
+		animation: showContent 650ms var(--ease-out) 200ms both;
+	}
+
+	.slider--ready .list .item.active h1 {
+		animation-delay: 450ms;
+	}
+
+	.slider--ready .list .item.active p {
+		animation-delay: 700ms;
+	}
+
+	.thumbnail .product-thumbnail {
+		opacity: 0;
+		transform: translateY(3rem);
+	}
+
+	.slider--ready .thumbnail .product-thumbnail {
+		animation: product-card-enter 1s var(--ease-out) 700ms both;
+	}
+
+	.slider--ready .thumbnail .product-thumbnail:nth-child(2) {
+		animation-delay: 820ms;
+	}
+
+	.slider--ready .thumbnail .product-thumbnail:nth-child(3) {
+		animation-delay: 940ms;
+	}
+}
+
+@keyframes product-card-enter {
+	from {
+		opacity: 0;
+		transform: translateY(3rem);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 @media screen and (max-width: 678px) {
