@@ -10,6 +10,7 @@
     --purple-light: #C27ADB;
     --violet: #673ab7;
     --pink: #f48fb1;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
     /* --linear-gradient: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #ff00c8, #ff0000); */
     --linear-gradient: linear-gradient(45deg, #A951C4, #673ab7, #f48fb1, #A951C4);
 }

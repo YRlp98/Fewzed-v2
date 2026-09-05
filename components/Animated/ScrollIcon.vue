@@ -27,18 +27,32 @@
 	margin-left: -4px;
 	top: 8px;
 	border-radius: 4px;
-	animation-duration: 1.5s;
+	animation-duration: 1.8s;
+	animation-timing-function: var(--ease-out);
 	animation-iteration-count: infinite;
 	animation-name: scroll;
 }
 
 @keyframes scroll {
 	0% {
+		opacity: 0;
+		transform: translateY(0);
+	}
+
+	18% {
 		opacity: 1;
 	}
+
+	72%,
 	100% {
 		opacity: 0;
-		transform: translateY(46px);
+		transform: translateY(38px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.scroll-icon:before {
+		animation: none;
 	}
 }
 </style>

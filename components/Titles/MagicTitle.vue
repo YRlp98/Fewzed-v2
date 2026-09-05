@@ -1,5 +1,5 @@
 <template>
-	<h1 class="font-bold text-7xl sm:text-8xl" id="magic-title">
+	<h1 class="font-bold text-7xl sm:text-8xl" :class="{ 'magic-title--active': active }" id="magic-title">
 		<span class="magic">
 			<span class="magic-star">
 				<svg viewBox="0 0 512 512">
@@ -28,34 +28,11 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from "vue";
-
-const props = defineProps<{ text: string }>();
-
-let index = 0;
-const interval = 1000;
-
-const rand = (min: number, max: number): number => Math.floor(Math.random() * (max - min + 1)) + min;
-
-const animate = (star: HTMLElement): void => {
-	star.style.setProperty("--star-left", `${rand(-10, 100)}%`);
-	star.style.setProperty("--star-top", `${rand(-40, 80)}%`);
-
-	// Reset the animation
-	star.style.animation = "none";
-	star.offsetHeight;
-	star.style.animation = "";
-};
-
-onMounted((): void => {
-	const stars: HTMLCollectionOf<Element> = document.getElementsByClassName("magic-star");
-	for (const star of Array.from(stars) as HTMLElement[]) {
-		setTimeout(() => {
-			animate(star);
-
-			setInterval(() => animate(star), 1000);
-		}, index++ * (interval / 3));
-	}
+withDefaults(defineProps<{
+	text: string;
+	active?: boolean;
+}>(), {
+	active: true,
 });
 </script>
 
@@ -70,14 +47,20 @@ onMounted((): void => {
 	}
 }
 
-@keyframes scale {
-	from,
-	to {
-		transform: scale(0);
+@keyframes star-appear {
+	0% {
+		opacity: 0;
+		transform: scale(0.9);
 	}
 
-	50% {
+	45% {
+		opacity: 0.85;
 		transform: scale(1);
+	}
+
+	100% {
+		opacity: 0;
+		transform: scale(0.95);
 	}
 }
 
@@ -99,19 +82,44 @@ h1 > .magic {
 h1 > .magic > .magic-star {
 	--size: clamp(20px, 1.5vw, 30px);
 
-	animation: scale 700ms ease forwards;
+	animation: star-appear 700ms var(--ease-out) both paused;
 	display: block;
 	height: var(--size);
-	left: var(--star-left);
+	opacity: 0;
 	position: absolute;
-	top: var(--star-top);
+	transform: scale(0.9);
 	width: var(--size);
 }
 
+h1 > .magic > .magic-star:nth-child(1) {
+	left: 4%;
+	top: -24%;
+}
+
+h1 > .magic > .magic-star:nth-child(2) {
+	left: 54%;
+	top: 58%;
+	animation-delay: 220ms;
+}
+
+h1 > .magic > .magic-star:nth-child(3) {
+	left: 88%;
+	top: -10%;
+	animation-delay: 440ms;
+}
+
 h1 > .magic > .magic-star > svg {
-	animation: rotate 1000ms linear infinite;
+	animation: rotate 900ms var(--ease-out) both paused;
 	display: block;
 	opacity: 0.7;
+}
+
+h1 > .magic > .magic-star:nth-child(2) > svg {
+	animation-delay: 220ms;
+}
+
+h1 > .magic > .magic-star:nth-child(3) > svg {
+	animation-delay: 440ms;
 }
 
 h1 > .magic > .magic-star > svg > path {
@@ -119,11 +127,28 @@ h1 > .magic > .magic-star > svg > path {
 }
 
 h1 > .magic > .magic-text {
-	animation: background-pan 3s linear infinite;
+	animation: background-pan 3s linear both paused;
 	background: linear-gradient(to right, var(--purple), var(--violet), var(--pink), var(--purple));
 	background-size: 200%;
+	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	white-space: nowrap;
+}
+
+.magic-title--active > .magic > .magic-star,
+.magic-title--active > .magic > .magic-star > svg,
+.magic-title--active > .magic > .magic-text {
+	animation-play-state: running;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	h1 > .magic > .magic-star {
+		display: none;
+	}
+
+	h1 > .magic > .magic-text {
+		animation: none;
+	}
 }
 </style>

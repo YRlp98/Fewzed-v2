@@ -8,9 +8,11 @@
 		<section ref="hero" class="section hero" :class="{ 'hero--ready': !store.isPreloaderVisible }">
 			<div class="site-container h-full flex items-center">
 				<div class="text-left">
-					<TitlesMagicTitle id="h1-title" text="FEWZED" class="hero-title" />
+					<TitlesMagicTitle id="h1-title" text="FEWZED" class="hero-title"
+						:active="!store.isPreloaderVisible" />
 					<div class="hero-tagline-reveal">
-						<h2 id="h2-title" class="hero-tagline font-extralight text-gray-3 text-4xl">WE DELIVER GREAT
+						<h2 id="h2-title" class="hero-tagline text-2xl font-extralight text-gray-4 sm:text-4xl">WE
+							DELIVER GREAT
 							PROJECTS</h2>
 					</div>
 				</div>
@@ -56,7 +58,7 @@
 					<TitlesShadowTitle text="services" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">we provide</h2>
 					<div
-						class="service-card-grid mt-4 grid grid-cols-1 gap-2 min-[720px]:mt-11 min-[720px]:grid-cols-3 min-[720px]:gap-2.5">
+						class="js-reveal-group service-card-grid mt-4 grid grid-cols-1 gap-2 min-[720px]:mt-11 min-[720px]:grid-cols-3 min-[720px]:gap-2.5">
 						<CardsServiceCard title="Computer Aided design" icon="iconoir:design-nib-solid"
 							description="Production of CAD modelling, simulations and rendering for mechanical and civil applications."
 							image="card1" />
@@ -87,7 +89,7 @@
 				<div class="js-scroll-content relative z-10 w-full text-left">
 					<TitlesShadowTitle text="products" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">We've crafted</h2>
-					<div class="mt-4 grid gap-2 lg:mt-11 lg:grid-cols-4 lg:items-center lg:gap-2.5">
+					<div class="js-reveal-group mt-4 grid gap-2 lg:mt-11 lg:grid-cols-4 lg:items-center lg:gap-2.5">
 						<CardsProjectCard title="Sytemonitor" image="sytemonitor" />
 						<CardsProjectCard title="Flohtex" image="flohtex" />
 						<CardsProjectCard title="Fewzed" image="fewzed" />
@@ -109,7 +111,7 @@
 							<br class="hidden lg:inline">
 							conversation
 						</h2>
-						<div class="mt-11 items-center justify-center space-y-6 lg:space-y-8">
+						<div class="js-reveal-group mt-11 items-center justify-center space-y-6 lg:space-y-8">
 							<p class="text-xl tracking-wide">
 								Have a project to discuss, a challenge to solve, or an idea to explore? Tell us what you
 								need and our team will be in touch.
@@ -150,7 +152,8 @@
 				</footer>
 			</div>
 		</section>
-		<AnimatedScrollIcon class="scrollIcon hidden lg:block" />
+		<AnimatedScrollIcon class="scrollIcon hidden lg:block"
+			:class="{ 'scrollIcon--ready': !store.isPreloaderVisible }" />
 	</div>
 </template>
 
@@ -170,6 +173,8 @@ let pageContext: ReturnType<typeof $gsap.context> | undefined;
 let animationFrame: number | undefined;
 let orbitFrame: number | undefined;
 let removePageFinishHook: (() => void) | undefined;
+let reducedMotionQuery: MediaQueryList | undefined;
+let prefersReducedMotion = false;
 const currentYear = new Date().getFullYear();
 
 usePageSeo({
@@ -196,6 +201,13 @@ const updateOrbit = () => {
 
 	const viewportHeight = window.innerHeight;
 	const heroBottom = hero.value.getBoundingClientRect().bottom;
+
+	if (prefersReducedMotion) {
+		$gsap.set(orbitEntrance.value, { autoAlpha: 0, x: 0 });
+		$gsap.set(orbit.value, { rotation: 0 });
+		return;
+	}
+
 	const entranceProgress = clamp((viewportHeight * 0.8 - heroBottom) / (viewportHeight * 0.55));
 	const homeTop = home.value.getBoundingClientRect().top + window.scrollY;
 	const scrollableHeight = Math.max(home.value.offsetHeight - viewportHeight, 1);
@@ -211,6 +223,11 @@ const updateOrbit = () => {
 const scheduleOrbitUpdate = () => {
 	if (orbitFrame !== undefined) return;
 	orbitFrame = requestAnimationFrame(updateOrbit);
+};
+
+const updateMotionPreference = () => {
+	prefersReducedMotion = reducedMotionQuery?.matches ?? false;
+	scheduleOrbitUpdate();
 };
 
 const initialiseHomeAnimations = async (resetScroll = false) => {
@@ -234,18 +251,43 @@ const initialiseHomeAnimations = async (resetScroll = false) => {
 					const content = section.querySelector<HTMLElement>(".js-scroll-content");
 					if (!content) return;
 
-					$gsap.from(content.children, {
-						y: 48,
-						autoAlpha: 0,
-						stagger: 0.09,
-						duration: 0.75,
-						ease: "power3.out",
+					const [shadowTitle, heading, ...supportingContent] = Array.from(content.children);
+					if (!shadowTitle || !heading) return;
+
+					const reveal = $gsap.timeline({
 						scrollTrigger: {
 							trigger: section,
-							start: "top 72%",
-							toggleActions: "play none none reverse",
+							start: "top 76%",
+							once: true,
 						},
 					});
+
+					const contentTargets = supportingContent.flatMap((element) =>
+						element.classList.contains("js-reveal-group")
+							? Array.from(element.children)
+							: [element],
+					);
+
+					reveal
+						.from(shadowTitle, {
+							x: -100,
+							autoAlpha: 0,
+							duration: 0.5,
+							ease: "power1.out",
+						})
+						.from(heading, {
+							x: -100,
+							autoAlpha: 0,
+							duration: 0.5,
+							ease: "power1.out",
+						}, 0.25)
+						.from(contentTargets, {
+							y: -100,
+							autoAlpha: 0,
+							duration: 0.5,
+							stagger: 0.06,
+							ease: "power1.out",
+						}, 0.5);
 				});
 			});
 
@@ -258,6 +300,10 @@ const initialiseHomeAnimations = async (resetScroll = false) => {
 };
 
 onMounted(() => {
+	reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+	reducedMotionQuery.addEventListener("change", updateMotionPreference);
+	updateMotionPreference();
+
 	window.addEventListener("scroll", scheduleOrbitUpdate, { passive: true });
 	window.addEventListener("resize", scheduleOrbitUpdate, { passive: true });
 	initialiseHomeAnimations(true);
@@ -273,6 +319,7 @@ onBeforeUnmount(() => {
 	removePageFinishHook?.();
 	window.removeEventListener("scroll", scheduleOrbitUpdate);
 	window.removeEventListener("resize", scheduleOrbitUpdate);
+	reducedMotionQuery?.removeEventListener("change", updateMotionPreference);
 	clearHomeAnimations();
 });
 </script>
@@ -283,19 +330,12 @@ onBeforeUnmount(() => {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-	.hero-title {
-		animation: hero-title-enter 900ms cubic-bezier(0.23, 1, 0.32, 1) both paused;
-		will-change: transform, opacity;
+	.hero--ready .hero-title {
+		animation: hero-title-enter 800ms var(--ease-out) both;
 	}
 
-	.hero-tagline {
-		animation: hero-tagline-enter 700ms cubic-bezier(0.23, 1, 0.32, 1) 650ms both paused;
-		will-change: transform, opacity;
-	}
-
-	.hero--ready .hero-title,
 	.hero--ready .hero-tagline {
-		animation-play-state: running;
+		animation: hero-tagline-enter 600ms var(--ease-out) 500ms both;
 	}
 }
 
@@ -379,8 +419,41 @@ onBeforeUnmount(() => {
 .scrollIcon {
 	position: fixed;
 	top: 95vh;
+	opacity: 0;
 	transform: scale(0.55);
+	transition: opacity 250ms var(--ease-out);
 	z-index: 49;
+}
+
+.scrollIcon--ready {
+	opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.scrollIcon--ready {
+		animation: scroll-indicator-enter 900ms var(--ease-out) 1400ms both;
+	}
+
+	.scrollIcon::before {
+		animation-play-state: paused;
+	}
+
+	.scrollIcon--ready::before {
+		animation-delay: 2300ms;
+		animation-play-state: running;
+	}
+}
+
+@keyframes scroll-indicator-enter {
+	from {
+		opacity: 0;
+		transform: translateY(calc(-50% - 4rem)) scale(0.55);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(-50%) scale(0.55);
+	}
 }
 
 @media (min-width: 768px) {

@@ -51,7 +51,10 @@ onMounted(() => {
 
 	loaderContext = $gsap.context(() => {
 		const tl = $gsap.timeline({
-			defaults: motionDuration ? { duration: motionDuration } : {},
+			defaults: {
+				duration: motionDuration ?? 0.4,
+				ease: "power3.out",
+			},
 			onComplete() {
 				store.isPreloaderVisible = false;
 			},
@@ -66,12 +69,12 @@ onMounted(() => {
 		tl.to("#target2", { y: 10 }, "move");
 		tl.to("#theSquare", { attr: { height: 22, y: 38 } }, "move");
 		tl.to("line", { attr: { x1: 50, x2: 50 } });
-		tl.to("text", { duration: reduceMotion ? 0.01 : 1, opacity: 0, ease: "none" });
+		tl.to("text", { duration: reduceMotion ? 0.01 : 0.55, opacity: 0, ease: "none" });
 		tl.to(preloader.value, {
 			autoAlpha: 0,
-			duration: reduceMotion ? 0.2 : 0.5,
+			duration: reduceMotion ? 0.2 : 0.4,
 			ease: "power3.out",
-		}, reduceMotion ? ">" : "+=0.2");
+		}, reduceMotion ? ">" : "+=0.1");
 	}, preloader.value);
 });
 
