@@ -11,27 +11,27 @@
 					<div class="hidden lg:flex flex-grow justify-center items-center space-x-8 text-gray-4 font-normal">
 						<NuxtLink to="/"
 							:class="{ 'text-white font-bold border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/') }"
-							class="hover:text-white transition-colors">
+							class="nav-link">
 							Home
 						</NuxtLink>
 						<NuxtLink to="/consulting" :class="{
 							'text-white font-bold border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/consulting'),
-						}" class="hover:text-white transition-colors">
+						}" class="nav-link">
 							Consulting
 						</NuxtLink>
 						<NuxtLink to="/trials"
 							:class="{ 'text-white font-bold border-b-2 border-purple-600 title-shadow': isActive('/trials') }"
-							class="hover:text-white transition-colors">
+							class="nav-link">
 							Trials
 						</NuxtLink>
 						<NuxtLink to="/data-collection" :class="{
 							'text-white font-bold border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/data-collection'),
-						}" class="hover:text-white transition-colors">
+						}" class="nav-link">
 							Data Collection
 						</NuxtLink>
 						<NuxtLink to="/products"
 							:class="{ 'text-white font-bold border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/products') }"
-							class="hover:text-white transition-colors">
+							class="nav-link">
 							Products
 						</NuxtLink>
 					</div>
@@ -153,6 +153,20 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
+.nav-link {
+	transition: color 200ms ease;
+}
+
+.nav-link:focus-visible {
+	color: var(--purple-light);
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.nav-link:hover {
+		color: var(--purple-light);
+	}
+}
+
 .title-shadow {
 	text-shadow: 0px 2px 5px;
 }
