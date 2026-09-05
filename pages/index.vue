@@ -5,11 +5,14 @@
 		</div>
 
 		<!-- #1 Hero -->
-		<section ref="hero" class="section hero">
+		<section ref="hero" class="section hero" :class="{ 'hero--ready': !store.isPreloaderVisible }">
 			<div class="site-container h-full flex items-center">
 				<div class="text-left">
-					<TitlesMagicTitle id="h1-title" text="FEWZED" class="title-animation" />
-					<h2 id="h2-title" class="font-extralight text-gray-3 text-4xl">WE DELIVER GREAT PROJECTS</h2>
+					<TitlesMagicTitle id="h1-title" text="FEWZED" class="hero-title" />
+					<div class="hero-tagline-reveal">
+						<h2 id="h2-title" class="hero-tagline font-extralight text-gray-3 text-4xl">WE DELIVER GREAT
+							PROJECTS</h2>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -115,15 +118,15 @@
 								Reach us by email or phone, or visit us at our Dorset office.
 							</p>
 							<div class="flex min-w-0 flex-col items-start space-y-2 lg:ml-10">
-								<a href="mailto:info@fewzed.co.uk" class="hover:text-dark-primary">
+								<a href="mailto:info@fewzed.co.uk" class="site-link">
 									<b>Email:</b>
 									Info@fewzed.co.uk
 								</a>
-								<a href="tel:01747871970" class="hover:text-dark-primary">
+								<a href="tel:01747871970" class="site-link">
 									<b>Phone:</b> 01747 871970
 								</a>
 								<a href="https://www.google.com/maps/search/?api=1&query=Unit+116,+The+Wincombe+Centre,+Wincombe+Business+Park,+Shaftesbury,+Dorset,+SP7+9QJ"
-									target="_blank" rel="noopener noreferrer" class="hover:text-dark-primary">
+									target="_blank" rel="noopener noreferrer" class="site-link">
 									<b>Address:</b> Unit 116, The Wincombe Centre, Wincombe Business Park, Shaftesbury,
 									Dorset, SP7 9QJ
 								</a>
@@ -143,8 +146,7 @@
 					class="mt-8 w-full max-w-[50rem] shrink-0 border-t border-white/10 py-6 text-center text-sm text-gray-3 md:mt-0 md:py-5">
 					<p>Copyright © {{ currentYear }} Fewzed Ltd. All rights reserved.</p>
 					<p class="mt-1">Designed and developed by <a href="https://yrlp.ir/" target="_blank"
-							rel="noopener noreferrer"
-							class="text-gray-4 transition-colors hover:text-dark-primary">Y.R</a></p>
+							rel="noopener noreferrer" class="site-link text-gray-4">Y.R</a></p>
 				</footer>
 			</div>
 		</section>
@@ -154,6 +156,7 @@
 
 <script setup lang="ts">
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { store } from "~/store";
 
 const nuxtApp = useNuxtApp();
 const { $gsap, $lenis } = nuxtApp;
@@ -225,18 +228,6 @@ const initialiseHomeAnimations = async (resetScroll = false) => {
 		if (!home.value || !hero.value) return;
 
 		pageContext = $gsap.context(() => {
-			$gsap.from("#h1-title", {
-				x: -100,
-				opacity: 0,
-				delay: 0.5,
-			});
-
-			$gsap.from("#h2-title", {
-				x: -100,
-				opacity: 0,
-				delay: 0.75,
-			});
-
 			const media = $gsap.matchMedia();
 			media.add("(prefers-reduced-motion: no-preference)", () => {
 				$gsap.utils.toArray<HTMLElement>(".js-scroll-section").forEach((section) => {
@@ -287,6 +278,51 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
+.hero-tagline-reveal {
+	overflow: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.hero-title {
+		animation: hero-title-enter 900ms cubic-bezier(0.23, 1, 0.32, 1) both paused;
+		will-change: transform, opacity;
+	}
+
+	.hero-tagline {
+		animation: hero-tagline-enter 700ms cubic-bezier(0.23, 1, 0.32, 1) 650ms both paused;
+		will-change: transform, opacity;
+	}
+
+	.hero--ready .hero-title,
+	.hero--ready .hero-tagline {
+		animation-play-state: running;
+	}
+}
+
+@keyframes hero-title-enter {
+	from {
+		opacity: 0;
+		transform: translateX(-15%);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes hero-tagline-enter {
+	from {
+		opacity: 0;
+		transform: translateY(-70%);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
 .home-page {
 	position: relative;
 	background:

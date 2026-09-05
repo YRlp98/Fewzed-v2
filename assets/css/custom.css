@@ -28,6 +28,20 @@
     background-blend-mode: overlay;
 }
 
+.site-link {
+    transition: color 200ms ease;
+}
+
+.site-link:focus-visible {
+    color: var(--purple-light);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .site-link:hover {
+        color: var(--purple-light);
+    }
+}
+
 html.lenis,
 html.lenis body {
     height: auto;
