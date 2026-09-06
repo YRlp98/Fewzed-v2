@@ -1,7 +1,7 @@
 <template>
 	<div class="orbit-gate" :class="{ 'is-revealed': isPastHero }" aria-hidden="true">
 		<div ref="orbit" class="rotating-orbit">
-			<img src="/assets/images/eclipse.svg" alt="" />
+			<img src="~/assets/images/eclipse.svg" alt="" />
 		</div>
 	</div>
 </template>

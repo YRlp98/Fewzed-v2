@@ -1,7 +1,7 @@
 <template>
 	<div ref="home" class="home-page min-h-screen">
 		<div ref="orbitEntrance" class="home-orbit" aria-hidden="true">
-			<img ref="orbit" src="/assets/images/eclipse.svg" alt="" />
+			<img ref="orbit" src="~/assets/images/eclipse.svg" alt="" />
 		</div>
 
 		<!-- #1 Hero -->
@@ -90,9 +90,10 @@
 					<TitlesShadowTitle text="products" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">We've crafted</h2>
 					<div class="js-reveal-group mt-4 grid gap-2 lg:mt-11 lg:grid-cols-4 lg:items-center lg:gap-2.5">
-						<CardsProjectCard title="Sytemonitor" image="sytemonitor" />
-						<CardsProjectCard title="Flohtex" image="flohtex" />
-						<CardsProjectCard title="Fewzed" image="fewzed" />
+						<CardsProjectCard title="Sytemonitor" image="sytemonitor"
+							link="/products?project=sytemonitor" />
+						<CardsProjectCard title="Flohtex" image="flohtex" link="/products?project=flohtex" />
+						<CardsProjectCard title="365surveys" image="fewzed" link="/products?project=365surveys" />
 						<ButtonsTransparentArrowBtn text="DISCOVER ALL PRODUCTS" link="/products"
 							class="mt-5 lg:mt-0" />
 					</div>
@@ -377,7 +378,7 @@ onBeforeUnmount(() => {
 	position: relative;
 	background:
 		linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(30, 32, 35, 0.5)),
-		url('/assets/images/uk-dot-map.svg');
+		url('~/assets/images/uk-dot-map.svg');
 	background-repeat: no-repeat;
 	background-position: center, center;
 	background-size: cover, auto min(100svh, 64rem);

@@ -62,6 +62,25 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
   ],
 
+  // Bundle the icons used by the app so SSR and the client do not depend on
+  // runtime requests to the Iconify API.
+  icon: {
+    provider: 'none',
+    serverBundle: false,
+    clientBundle: {
+      scan: false,
+      icons: [
+        'mynaui:telephone',
+        'iconoir:design-nib-solid',
+        'lucide:traffic-cone',
+        'mdi:highway',
+        'teenyicons:bulb-on-outline',
+        'icon-park-outline:funds',
+        'material-symbols:developer-mode-tv-outline',
+      ],
+    },
+  },
+
   // Imports
   imports: {
     dirs: ['store', 'utils'],

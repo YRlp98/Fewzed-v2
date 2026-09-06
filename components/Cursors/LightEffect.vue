@@ -1,14 +1,12 @@
 <template>
-	<div
-		class="hidden lg:block absolute bg-dark-primary/30 rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none blur-3xl"
+	<div class="hidden lg:block absolute bg-dark-primary/30 rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none blur-3xl"
 		:style="{
 			opacity,
 			left: `${x}px`,
 			top: `${y}px`,
 			width: `${size}px`,
 			height: `${size}px`,
-		}"
-	/>
+		}" />
 </template>
 
 <script lang="ts" setup>

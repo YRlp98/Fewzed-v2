@@ -1,5 +1,5 @@
 <template>
-	<NuxtLink :to="link"
+	<NuxtLink :to="link" :target="newTab ? '_blank' : undefined" :rel="newTab ? 'noopener noreferrer' : undefined"
 		class="site-link group relative flex max-h-20 cursor-pointer flex-wrap items-center justify-start space-x-2 text-[#f5f5f5]"
 		data-magnetic>
 		<span
@@ -19,5 +19,6 @@
 const props = defineProps<{
 	text: string;
 	link: string;
+	newTab?: boolean;
 }>();
 </script>

@@ -3,7 +3,7 @@
 		<NuxtLayout>
 			<NuxtPage />
 		</NuxtLayout>
-		<CursorLightEffect />
+		<CursorsLightEffect />
 	</div>
 </template>
 
