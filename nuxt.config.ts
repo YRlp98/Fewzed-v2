@@ -77,6 +77,8 @@ export default defineNuxtConfig({
         'teenyicons:bulb-on-outline',
         'icon-park-outline:funds',
         'material-symbols:developer-mode-tv-outline',
+        'material-symbols:chevron-left',
+        'material-symbols:chevron-right',
       ],
     },
   },

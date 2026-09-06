@@ -48,8 +48,8 @@
 <script setup lang="ts">
 import { nextTick, onMounted, ref } from "vue";
 import { store } from "~/store";
-import sytemonitor from "~/assets/images/sytemonitor.webp";
-import flohtex from "~/assets/images/police-image.jpg";
+import sytemonitor from "~/assets/images/road-image.webp";
+import flohtex from "~/assets/images/police-image.webp";
 import surveys365 from "~/assets/images/365surveys.webp";
 
 const projects = [
