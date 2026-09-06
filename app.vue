@@ -3,24 +3,29 @@
 		<NuxtLayout>
 			<NuxtPage />
 		</NuxtLayout>
-		<CursorLightEffect />
+		<CursorsLightEffect />
 	</div>
 </template>
 
 <script lang="ts" setup>
-import "typeface-inter";
 </script>
 
 <style>
-.page-enter-active,
-.page-leave-active {
-	transition: all 0.9s cubic-bezier(0.6, 0.05, 0.4, 1);
+.page-enter-active {
+	transition:
+		opacity 400ms var(--ease-out),
+		transform 400ms var(--ease-out);
 }
 
-.page-enter-from,
-.page-leave-to {
+.page-leave-active {
+	transition:
+		opacity 250ms var(--ease-out),
+		transform 250ms var(--ease-out);
+}
+
+.page-enter-from {
 	opacity: 0;
-	transform: translateY(-100%);
+	transform: translateY(1.5rem);
 }
 
 .page-enter-to,
@@ -30,6 +35,7 @@ import "typeface-inter";
 }
 
 .page-leave-to {
-	transform: translateY(100%);
+	opacity: 0;
+	transform: translateY(-1rem);
 }
 </style>

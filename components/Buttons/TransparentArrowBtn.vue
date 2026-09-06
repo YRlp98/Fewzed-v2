@@ -1,6 +1,6 @@
 <template>
-	<NuxtLink :to="link"
-		class="group relative flex max-h-20 cursor-pointer flex-wrap items-center justify-start space-x-2 text-[#f5f5f5] transition-colors duration-300 ease-in-out hover:text-dark-primary"
+	<NuxtLink :to="link" :target="newTab ? '_blank' : undefined" :rel="newTab ? 'noopener noreferrer' : undefined"
+		class="site-link group relative flex max-h-20 cursor-pointer flex-wrap items-center justify-start space-x-2 text-[#f5f5f5]"
 		data-magnetic>
 		<span
 			class="whitespace-nowrap text-base font-bold uppercase tracking-wider transition-transform duration-300 ease-in-out group-hover:translate-x-2">
@@ -19,5 +19,6 @@
 const props = defineProps<{
 	text: string;
 	link: string;
+	newTab?: boolean;
 }>();
 </script>

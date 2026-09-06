@@ -1,15 +1,20 @@
 <template>
 	<div ref="home" class="home-page min-h-screen">
 		<div ref="orbitEntrance" class="home-orbit" aria-hidden="true">
-			<img ref="orbit" src="/assets/images/eclipse.svg" alt="" />
+			<img ref="orbit" src="~/assets/images/eclipse.svg" alt="" />
 		</div>
 
 		<!-- #1 Hero -->
-		<section ref="hero" class="section hero">
+		<section ref="hero" class="section hero" :class="{ 'hero--ready': !store.isPreloaderVisible }">
 			<div class="site-container h-full flex items-center">
 				<div class="text-left">
-					<TitlesMagicTitle id="h1-title" text="FEWZED" class="title-animation" />
-					<h2 id="h2-title" class="font-extralight text-gray-3 text-4xl">WE DELIVER GREAT PROJECTS</h2>
+					<TitlesMagicTitle id="h1-title" text="FEWZED" class="hero-title"
+						:active="!store.isPreloaderVisible" />
+					<div class="hero-tagline-reveal">
+						<h2 id="h2-title" class="hero-tagline text-2xl font-extralight text-gray-4 sm:text-4xl">WE
+							DELIVER GREAT
+							PROJECTS</h2>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -53,7 +58,7 @@
 					<TitlesShadowTitle text="services" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">we provide</h2>
 					<div
-						class="service-card-grid mt-4 grid grid-cols-1 gap-2 min-[720px]:mt-11 min-[720px]:grid-cols-3 min-[720px]:gap-2.5">
+						class="js-reveal-group service-card-grid mt-4 grid grid-cols-1 gap-2 min-[720px]:mt-11 min-[720px]:grid-cols-3 min-[720px]:gap-2.5">
 						<CardsServiceCard title="Computer Aided design" icon="iconoir:design-nib-solid"
 							description="Production of CAD modelling, simulations and rendering for mechanical and civil applications."
 							image="card1" />
@@ -84,10 +89,11 @@
 				<div class="js-scroll-content relative z-10 w-full text-left">
 					<TitlesShadowTitle text="products" />
 					<h2 class="font-bold text-4xl tracking-wide uppercase">We've crafted</h2>
-					<div class="mt-4 grid gap-2 lg:mt-11 lg:grid-cols-4 lg:items-center lg:gap-2.5">
-						<CardsProjectCard title="Sytemonitor" image="sytemonitor" />
-						<CardsProjectCard title="Flohtex" image="flohtex" />
-						<CardsProjectCard title="Fewzed" image="fewzed" />
+					<div class="js-reveal-group mt-4 grid gap-2 lg:mt-11 lg:grid-cols-4 lg:items-center lg:gap-2.5">
+						<CardsProjectCard title="Sytemonitor" image="sytemonitor"
+							link="/products?project=sytemonitor" />
+						<CardsProjectCard title="365surveys" image="365surveys" link="/products?project=365surveys" />
+						<CardsProjectCard title="Flohtex" image="flohtex" link="/products?project=flohtex" />
 						<ButtonsTransparentArrowBtn text="DISCOVER ALL PRODUCTS" link="/products"
 							class="mt-5 lg:mt-0" />
 					</div>
@@ -106,7 +112,7 @@
 							<br class="hidden lg:inline">
 							conversation
 						</h2>
-						<div class="mt-11 items-center justify-center space-y-6 lg:space-y-8">
+						<div class="js-reveal-group mt-11 items-center justify-center space-y-6 lg:space-y-8">
 							<p class="text-xl tracking-wide">
 								Have a project to discuss, a challenge to solve, or an idea to explore? Tell us what you
 								need and our team will be in touch.
@@ -115,15 +121,15 @@
 								Reach us by email or phone, or visit us at our Dorset office.
 							</p>
 							<div class="flex min-w-0 flex-col items-start space-y-2 lg:ml-10">
-								<a href="mailto:info@fewzed.co.uk" class="hover:text-dark-primary">
+								<a href="mailto:info@fewzed.co.uk" class="site-link">
 									<b>Email:</b>
 									Info@fewzed.co.uk
 								</a>
-								<a href="tel:01747871970" class="hover:text-dark-primary">
+								<a href="tel:01747871970" class="site-link">
 									<b>Phone:</b> 01747 871970
 								</a>
 								<a href="https://www.google.com/maps/search/?api=1&query=Unit+116,+The+Wincombe+Centre,+Wincombe+Business+Park,+Shaftesbury,+Dorset,+SP7+9QJ"
-									target="_blank" rel="noopener noreferrer" class="hover:text-dark-primary">
+									target="_blank" rel="noopener noreferrer" class="site-link">
 									<b>Address:</b> Unit 116, The Wincombe Centre, Wincombe Business Park, Shaftesbury,
 									Dorset, SP7 9QJ
 								</a>
@@ -143,17 +149,18 @@
 					class="mt-8 w-full max-w-[50rem] shrink-0 border-t border-white/10 py-6 text-center text-sm text-gray-3 md:mt-0 md:py-5">
 					<p>Copyright © {{ currentYear }} Fewzed Ltd. All rights reserved.</p>
 					<p class="mt-1">Designed and developed by <a href="https://yrlp.ir/" target="_blank"
-							rel="noopener noreferrer"
-							class="text-gray-4 transition-colors hover:text-dark-primary">Y.R</a></p>
+							rel="noopener noreferrer" class="site-link text-gray-4">Y.R</a></p>
 				</footer>
 			</div>
 		</section>
-		<AnimatedScrollIcon class="scrollIcon hidden lg:block" />
+		<AnimatedScrollIcon class="scrollIcon hidden lg:block"
+			:class="{ 'scrollIcon--ready': !store.isPreloaderVisible }" />
 	</div>
 </template>
 
 <script setup lang="ts">
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { store } from "~/store";
 
 const nuxtApp = useNuxtApp();
 const { $gsap, $lenis } = nuxtApp;
@@ -167,6 +174,8 @@ let pageContext: ReturnType<typeof $gsap.context> | undefined;
 let animationFrame: number | undefined;
 let orbitFrame: number | undefined;
 let removePageFinishHook: (() => void) | undefined;
+let reducedMotionQuery: MediaQueryList | undefined;
+let prefersReducedMotion = false;
 const currentYear = new Date().getFullYear();
 
 usePageSeo({
@@ -193,6 +202,13 @@ const updateOrbit = () => {
 
 	const viewportHeight = window.innerHeight;
 	const heroBottom = hero.value.getBoundingClientRect().bottom;
+
+	if (prefersReducedMotion) {
+		$gsap.set(orbitEntrance.value, { autoAlpha: 0, x: 0 });
+		$gsap.set(orbit.value, { rotation: 0 });
+		return;
+	}
+
 	const entranceProgress = clamp((viewportHeight * 0.8 - heroBottom) / (viewportHeight * 0.55));
 	const homeTop = home.value.getBoundingClientRect().top + window.scrollY;
 	const scrollableHeight = Math.max(home.value.offsetHeight - viewportHeight, 1);
@@ -210,6 +226,11 @@ const scheduleOrbitUpdate = () => {
 	orbitFrame = requestAnimationFrame(updateOrbit);
 };
 
+const updateMotionPreference = () => {
+	prefersReducedMotion = reducedMotionQuery?.matches ?? false;
+	scheduleOrbitUpdate();
+};
+
 const initialiseHomeAnimations = async (resetScroll = false) => {
 	clearHomeAnimations();
 
@@ -225,36 +246,49 @@ const initialiseHomeAnimations = async (resetScroll = false) => {
 		if (!home.value || !hero.value) return;
 
 		pageContext = $gsap.context(() => {
-			$gsap.from("#h1-title", {
-				x: -100,
-				opacity: 0,
-				delay: 0.5,
-			});
-
-			$gsap.from("#h2-title", {
-				x: -100,
-				opacity: 0,
-				delay: 0.75,
-			});
-
 			const media = $gsap.matchMedia();
 			media.add("(prefers-reduced-motion: no-preference)", () => {
 				$gsap.utils.toArray<HTMLElement>(".js-scroll-section").forEach((section) => {
 					const content = section.querySelector<HTMLElement>(".js-scroll-content");
 					if (!content) return;
 
-					$gsap.from(content.children, {
-						y: 48,
-						autoAlpha: 0,
-						stagger: 0.09,
-						duration: 0.75,
-						ease: "power3.out",
+					const [shadowTitle, heading, ...supportingContent] = Array.from(content.children);
+					if (!shadowTitle || !heading) return;
+
+					const reveal = $gsap.timeline({
 						scrollTrigger: {
 							trigger: section,
-							start: "top 72%",
-							toggleActions: "play none none reverse",
+							start: "top 76%",
+							once: true,
 						},
 					});
+
+					const contentTargets = supportingContent.flatMap((element) =>
+						element.classList.contains("js-reveal-group")
+							? Array.from(element.children)
+							: [element],
+					);
+
+					reveal
+						.from(shadowTitle, {
+							x: -100,
+							autoAlpha: 0,
+							duration: 0.5,
+							ease: "power1.out",
+						})
+						.from(heading, {
+							x: -100,
+							autoAlpha: 0,
+							duration: 0.5,
+							ease: "power1.out",
+						}, 0.25)
+						.from(contentTargets, {
+							y: -100,
+							autoAlpha: 0,
+							duration: 0.5,
+							stagger: 0.06,
+							ease: "power1.out",
+						}, 0.5);
 				});
 			});
 
@@ -267,6 +301,10 @@ const initialiseHomeAnimations = async (resetScroll = false) => {
 };
 
 onMounted(() => {
+	reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+	reducedMotionQuery.addEventListener("change", updateMotionPreference);
+	updateMotionPreference();
+
 	window.addEventListener("scroll", scheduleOrbitUpdate, { passive: true });
 	window.addEventListener("resize", scheduleOrbitUpdate, { passive: true });
 	initialiseHomeAnimations(true);
@@ -282,16 +320,65 @@ onBeforeUnmount(() => {
 	removePageFinishHook?.();
 	window.removeEventListener("scroll", scheduleOrbitUpdate);
 	window.removeEventListener("resize", scheduleOrbitUpdate);
+	reducedMotionQuery?.removeEventListener("change", updateMotionPreference);
 	clearHomeAnimations();
 });
 </script>
 
 <style scoped>
+.hero-tagline-reveal {
+	overflow: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.hero-title {
+		opacity: 0;
+		transform: translateX(-15%);
+	}
+
+	.hero-tagline {
+		opacity: 0;
+		transform: translateY(-70%);
+	}
+
+	.hero--ready .hero-title {
+		animation: hero-title-enter 800ms var(--ease-out) both;
+	}
+
+	.hero--ready .hero-tagline {
+		animation: hero-tagline-enter 600ms var(--ease-out) 500ms both;
+	}
+}
+
+@keyframes hero-title-enter {
+	from {
+		opacity: 0;
+		transform: translateX(-15%);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes hero-tagline-enter {
+	from {
+		opacity: 0;
+		transform: translateY(-70%);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
 .home-page {
 	position: relative;
 	background:
 		linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(30, 32, 35, 0.5)),
-		url('/assets/images/uk-dot-map.svg');
+		url('~/assets/images/uk-dot-map.svg');
 	background-repeat: no-repeat;
 	background-position: center, center;
 	background-size: cover, auto min(100svh, 64rem);
@@ -343,8 +430,41 @@ onBeforeUnmount(() => {
 .scrollIcon {
 	position: fixed;
 	top: 95vh;
+	opacity: 0;
 	transform: scale(0.55);
+	transition: opacity 250ms var(--ease-out);
 	z-index: 49;
+}
+
+.scrollIcon--ready {
+	opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.scrollIcon--ready {
+		animation: scroll-indicator-enter 600ms var(--ease-out) 500ms both;
+	}
+
+	.scrollIcon::before {
+		animation-play-state: paused;
+	}
+
+	.scrollIcon--ready::before {
+		animation-delay: 1100ms;
+		animation-play-state: running;
+	}
+}
+
+@keyframes scroll-indicator-enter {
+	from {
+		opacity: 0;
+		transform: translateY(calc(-50% - 4rem)) scale(0.55);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(-50%) scale(0.55);
+	}
 }
 
 @media (min-width: 768px) {

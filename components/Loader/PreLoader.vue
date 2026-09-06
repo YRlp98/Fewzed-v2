@@ -1,5 +1,5 @@
 <template>
-	<div v-if="store.isPreloaderVisible"
+	<div v-if="store.isPreloaderVisible" ref="preloader"
 		class="preloader fixed inset-0 bg-black-1 z-[99] flex items-center justify-center select-none">
 		<svg id="demo" xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 100 100">
 			<defs>
@@ -20,8 +20,10 @@
 import { onBeforeUnmount, onMounted, watch, type WatchStopHandle } from "vue";
 import { store } from "~/store";
 
-const { $lenis } = useNuxtApp();
+const { $gsap, $lenis } = useNuxtApp();
+const preloader = ref<HTMLElement | null>(null);
 let stopVisibilityWatch: WatchStopHandle | undefined;
+let loaderContext: ReturnType<typeof $gsap.context> | undefined;
 
 const setScrollLock = (isLocked: boolean) => {
 	document.documentElement.classList.toggle("preloader-active", isLocked);
@@ -42,28 +44,43 @@ onMounted(() => {
 		{ immediate: true },
 	);
 
-	const tl = gsap.timeline({
-		onComplete() {
-			gsap.delayedCall(1, () => {
-				store.isPreloaderVisible = false;
-			});
-		},
-	});
+	if (!preloader.value) return;
 
-	gsap.set("#target1", { rotation: 45, svgOrigin: "50 50" });
-	gsap.set("#target2", { rotation: 135, svgOrigin: "50 50" });
-	tl.to("line", { attr: { x2: 100 } });
-	tl.to("#target1", { rotation: 0 }, "turn");
-	tl.to("#target2", { rotation: 180 }, "turn");
-	tl.to("#target1", { y: -10 }, "move");
-	tl.to("#target2", { y: 10 }, "move");
-	tl.to("#theSquare", { attr: { height: 22, y: 38 } }, "move");
-	tl.to("line", { attr: { x1: 50, x2: 50 } });
-	tl.to("text", { duration: 1, opacity: 0, ease: "none" });
+	const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+	const motionDuration = reduceMotion ? 0.01 : undefined;
+
+	loaderContext = $gsap.context(() => {
+		const tl = $gsap.timeline({
+			defaults: {
+				duration: motionDuration ?? 0.4,
+				ease: "power3.out",
+			},
+			onComplete() {
+				store.isPreloaderVisible = false;
+			},
+		});
+
+		$gsap.set("#target1", { rotation: 45, svgOrigin: "50 50" });
+		$gsap.set("#target2", { rotation: 135, svgOrigin: "50 50" });
+		tl.to("line", { attr: { x2: 100 } });
+		tl.to("#target1", { rotation: 0 }, "turn");
+		tl.to("#target2", { rotation: 180 }, "turn");
+		tl.to("#target1", { y: -10 }, "move");
+		tl.to("#target2", { y: 10 }, "move");
+		tl.to("#theSquare", { attr: { height: 22, y: 38 } }, "move");
+		tl.to("line", { attr: { x1: 50, x2: 50 } });
+		tl.to("text", { duration: reduceMotion ? 0.01 : 0.55, opacity: 0, ease: "none" });
+		tl.to(preloader.value, {
+			autoAlpha: 0,
+			duration: reduceMotion ? 0.2 : 0.4,
+			ease: "power3.out",
+		}, reduceMotion ? ">" : "+=0.1");
+	}, preloader.value);
 });
 
 onBeforeUnmount(() => {
 	stopVisibilityWatch?.();
+	loaderContext?.revert();
 	setScrollLock(false);
 });
 </script>

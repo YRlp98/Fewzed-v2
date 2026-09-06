@@ -66,6 +66,7 @@ const props = defineProps({
 	height: calc(100% + 4px);
 	filter: blur(8px);
 	animation: glowing 20s linear infinite;
+	animation-play-state: paused;
 	transition: opacity 0.3s ease-in-out;
 	border-radius: 10px;
 	opacity: 0;
@@ -86,8 +87,16 @@ const props = defineProps({
 }
 
 /* hover */
-.btn:hover::before {
+@media (hover: hover) and (pointer: fine) {
+	.btn:hover::before {
+		opacity: 1;
+		animation-play-state: running;
+	}
+}
+
+.btn:focus-visible::before {
 	opacity: 1;
+	animation-play-state: running;
 }
 
 .btn:active:after {
@@ -97,5 +106,11 @@ const props = defineProps({
 .btn:active {
 	color: #000;
 	font-weight: bold;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.btn::before {
+		animation: none;
+	}
 }
 </style>

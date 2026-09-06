@@ -5,33 +5,33 @@
 				<div class="flex justify-between items-center py-4">
 					<div class="flex-shrink-0">
 						<NuxtLink to="/">
-							<img src="/assets/images/logo.svg" alt="Logo" class="h-8" />
+							<img src="~/assets/images/logo.svg" alt="Logo" class="h-8" />
 						</NuxtLink>
 					</div>
 					<div class="hidden lg:flex flex-grow justify-center items-center space-x-8 text-gray-4 font-normal">
 						<NuxtLink to="/"
 							:class="{ 'text-white font-bold border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/') }"
-							class="hover:text-white transition-colors">
+							class="nav-link">
 							Home
 						</NuxtLink>
 						<NuxtLink to="/consulting" :class="{
 							'text-white font-bold border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/consulting'),
-						}" class="hover:text-white transition-colors">
+						}" class="nav-link">
 							Consulting
 						</NuxtLink>
 						<NuxtLink to="/trials"
 							:class="{ 'text-white font-bold border-b-2 border-purple-600 title-shadow': isActive('/trials') }"
-							class="hover:text-white transition-colors">
+							class="nav-link">
 							Trials
 						</NuxtLink>
 						<NuxtLink to="/data-collection" :class="{
 							'text-white font-bold border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/data-collection'),
-						}" class="hover:text-white transition-colors">
+						}" class="nav-link">
 							Data Collection
 						</NuxtLink>
 						<NuxtLink to="/products"
 							:class="{ 'text-white font-bold border-b-2 border-purple-600 shadow-lg shadow-purple-500/50': isActive('/products') }"
-							class="hover:text-white transition-colors">
+							class="nav-link">
 							Products
 						</NuxtLink>
 					</div>
@@ -40,8 +40,10 @@
 							<ButtonsRoundedBtn text="Contact Us" icon="mynaui:telephone" link="/contact-us" />
 						</div>
 						<div class="lg:hidden">
-							<button @click="toggleMenu" class="text-gray-5 hover:text-dark-primary focus:outline-none">
-								<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+							<button type="button" aria-label="Open navigation menu" aria-controls="mobile-navigation"
+								:aria-expanded="isOpen" @click="toggleMenu"
+								class="inline-flex h-12 w-12 items-center justify-center rounded-lg text-gray-5 transition-colors duration-300 hover:text-dark-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500">
+								<svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
 									xmlns="http://www.w3.org/2000/svg">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 										d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -53,16 +55,17 @@
 			</div>
 		</div>
 		<!-- Sidebar -->
-		<div :class="[
+		<div id="mobile-navigation" :class="[
 			'fixed inset-0 z-50 transform transition-transform duration-300 ease-in-out bg-black-1',
 			isOpen ? 'translate-x-0' : '-translate-x-full',
 		]">
 			<div class="site-container flex items-center justify-between py-4">
 				<NuxtLink to="/" @click.native="handleLinkClick">
-					<img src="/assets/images/logo.svg" alt="Logo" class="h-8" />
+					<img src="~/assets/images/logo.svg" alt="Logo" class="h-8" />
 				</NuxtLink>
-				<button @click="toggleMenu" class="text-gray-4 hover:text-dark-primary focus:outline-none">
-					<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+				<button type="button" aria-label="Close navigation menu" @click="toggleMenu"
+					class="inline-flex h-12 w-12 items-center justify-center rounded-lg text-gray-4 transition-colors duration-300 hover:text-dark-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500">
+					<svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
 						xmlns="http://www.w3.org/2000/svg">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
 						</path>
@@ -153,6 +156,20 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
+.nav-link {
+	transition: color 200ms ease;
+}
+
+.nav-link:focus-visible {
+	color: var(--purple-light);
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.nav-link:hover {
+		color: var(--purple-light);
+	}
+}
+
 .title-shadow {
 	text-shadow: 0px 2px 5px;
 }

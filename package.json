@@ -26,6 +26,13 @@
     "vue": "^3.5.41"
   },
   "devDependencies": {
+    "@iconify-json/icon-park-outline": "^1.2.4",
+    "@iconify-json/iconoir": "^1.2.11",
+    "@iconify-json/lucide": "^1.2.129",
+    "@iconify-json/material-symbols": "^1.2.90",
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/mynaui": "^1.2.19",
+    "@iconify-json/teenyicons": "^1.2.2",
     "nuxt-gsap-module": "^2.0.0"
   }
 }
