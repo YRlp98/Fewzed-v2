@@ -48,9 +48,9 @@
 <script setup lang="ts">
 import { nextTick, onMounted, ref } from "vue";
 import { store } from "~/store";
-import sytemonitor from "~/assets/images/road-image.jpg";
+import sytemonitor from "~/assets/images/sytemonitor.webp";
 import flohtex from "~/assets/images/police-image.jpg";
-import fewzed from "~/assets/images/writing-image.jpg";
+import surveys365 from "~/assets/images/365surveys.webp";
 
 const projects = [
 	{
@@ -65,8 +65,8 @@ const projects = [
 	{
 		key: "365surveys",
 		title: "365surveys",
-		backgroundImage: fewzed,
-		cardImage: "fewzed" as const,
+		backgroundImage: surveys365,
+		cardImage: "365surveys" as const,
 		website: "https://365surveys.vercel.app/",
 		description:
 			"365 SURVEYS specialists in transportation data, with expertise in operational data collection, monitoring, and test plan development. Our team excels in transport and automotive data analytics.",

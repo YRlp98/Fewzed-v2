@@ -19,14 +19,14 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import sytemonitor from "~/assets/images/road-image.jpg";
+import sytemonitor from "~/assets/images/sytemonitor.webp";
 import flohtex from "~/assets/images/police-image.jpg";
-import fewzed from "~/assets/images/writing-image.jpg";
+import surveys365 from "~/assets/images/365surveys.webp";
 
 const images = {
 	sytemonitor,
 	flohtex,
-	fewzed,
+	"365surveys": surveys365,
 } as const;
 
 type ProjectImage = keyof typeof images;

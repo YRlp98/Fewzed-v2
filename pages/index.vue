@@ -92,8 +92,8 @@
 					<div class="js-reveal-group mt-4 grid gap-2 lg:mt-11 lg:grid-cols-4 lg:items-center lg:gap-2.5">
 						<CardsProjectCard title="Sytemonitor" image="sytemonitor"
 							link="/products?project=sytemonitor" />
+						<CardsProjectCard title="365surveys" image="365surveys" link="/products?project=365surveys" />
 						<CardsProjectCard title="Flohtex" image="flohtex" link="/products?project=flohtex" />
-						<CardsProjectCard title="365surveys" image="fewzed" link="/products?project=365surveys" />
 						<ButtonsTransparentArrowBtn text="DISCOVER ALL PRODUCTS" link="/products"
 							class="mt-5 lg:mt-0" />
 					</div>
