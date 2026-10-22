@@ -1,5 +1,7 @@
 # Fewzed Website
 
+![Fewzed website displayed on desktop and mobile](assets/images/fewzed-readme.png)
+
 This website was built for **Fewzed Ltd** to present the company, its services,
 and its products. Fewzed provides design, engineering, consultancy, data
 collection, and trial management services for highways, transport, and
